@@ -50,16 +50,9 @@
 							</a>
 						</li>
 						<li>
-							<a class="btn dropdown-item" href="/reset_password.php">
+							<a class="btn dropdown-item" href="/admin/change_password.php">
 								<i class="fa-solid fa-arrow-rotate-right"></i> 
-								<span class="navlink_color_second_navbar_user">Reset Password</span>
-							</a>
-						</li>
-                        <li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="btn dropdown-item" href="/logout.php">
-								<i class="fa-solid fa-right-from-bracket"></i> 
-								<span class="navlink_color_second_navbar_user">Logout</span>
+								<span class="navlink_color_second_navbar_user">Change Password</span>
 							</a>
 						</li>
                     </ul>

@@ -28,11 +28,11 @@
                                     <h2 id="login_header" class="bold pt-2">Sign in to your Account</h2>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label bold">Email</label>
+                                    <label for="email_address" class="form-label bold">Email</label>
                                     <input type="email" class="form-control input_box" id="email_address" name="email_address" aria-describedby="emailHelp" placeholder="mybook@gmail.com" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label bold">Password</label>
+                                    <label for="password" class="form-label bold">Password</label>
                                     <input type="password" class="form-control input_box" id="password" name="password" required>
                                     <div id="emailHelp" class="form-text"><a href="/forgot_password.php" class="forgot_password_link bold">forgot your password?</a></div>
                                 </div>

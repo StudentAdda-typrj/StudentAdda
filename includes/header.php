@@ -41,10 +41,16 @@
                         <a class="btn btn-sm navbar_button me-3 d-block" href="/explore/index.php">
                             <strong class="p-3">Explore</strong>
                         </a>
-                        <a class="nav-link me-5" href="">
+                        <a class="nav-link me-3" href="">
                             <i class="fa-solid fa-cart-shopping cart"></i>
                         </a>
+                        <a class="nav-link me-3" href="/logout.php">
+                            <strong class="homepage_login">Logout</strong>
+                        </a>
                     <?php elseif(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "admin")): ?>
+                        <a class="nav-link" href="/logout.php">
+                            <strong class="homepage_login me-3">Logout</strong>
+                        </a>
                     <?php else: ?>
                         <a class="btn btn-sm navbar_button me-3 d-block" href="/explore/index.php">
                             <strong class="p-3">Explore</strong>

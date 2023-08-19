@@ -244,6 +244,40 @@
 		return false;
 	}
 
+	function change_password($data)
+	{
+		global $db;
+		extract($data);
+
+		if($new_password !== $confirm_password)
+		{
+			$_SESSION["error_messages"][] = "New password and Confirm Password does not match.";	
+		}
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$new_password = create_hash($new_password);
+			$user_id = $_SESSION["user_id"];
+			$sql = "UPDATE users SET password=:new_password, last_reset_password_timestamp = NOW() WHERE user_id = $user_id";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':new_password', $new_password,PDO::PARAM_STR);
+			
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Congratulation, password successfully changed";
+    			return true;
+   			}
+   			else
+   			{
+    			$_SESSION["error_messages"][] = "Sorry, password didn't changed.";
+   			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	function add_category_name($data)
 	{
 		global $db;
