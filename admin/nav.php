@@ -32,7 +32,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="" class="btn dropdown-item">
+							<a href="/admin/users/user_list.php" class="btn dropdown-item">
 								<i class="fa-solid fa-users"></i> 
 								<span class="navlink_color_second_navbar_user">Users</span>
 							</a>

@@ -227,10 +227,11 @@ label.required-highlight:after {
   border-radius: 9px;
 }
 .master_config_table{
+  --bs-table-bg: #FAE6C0(--bs-body-bg);
   border-color: #000000;
 }
 .master_config_table_head{
-  background-color: #c0ab8d;
+  background-color: #FFD292;
   color: #CBAA00;
 }
 .master_config_cancel_button{

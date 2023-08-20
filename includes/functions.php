@@ -244,40 +244,6 @@
 		return false;
 	}
 
-	function change_password($data)
-	{
-		global $db;
-		extract($data);
-
-		if($new_password !== $confirm_password)
-		{
-			$_SESSION["error_messages"][] = "New password and Confirm Password does not match.";	
-		}
-
-		if(!isset($_SESSION["error_messages"]))
-		{
-			$new_password = create_hash($new_password);
-			$user_id = $_SESSION["user_id"];
-			$sql = "UPDATE users SET password=:new_password, last_reset_password_timestamp = NOW() WHERE user_id = $user_id";
-			$stmt = $db->prepare($sql);
-			$stmt->bindParam(':new_password', $new_password,PDO::PARAM_STR);
-			
-			if($stmt->execute())
-			{
-				$_SESSION["success_messages"][] = "Congratulation, password successfully changed";
-    			return true;
-   			}
-   			else
-   			{
-    			$_SESSION["error_messages"][] = "Sorry, password didn't changed.";
-   			}
-		}
-		else
-		{
-			return false;
-		}
-	}
-
 	function add_category_name($data)
 	{
 		global $db;
@@ -315,7 +281,7 @@
 		}
 		return false;
 	}
-
+	
 	function delete_category_by_id($id)
 	{
 		global $db;
@@ -325,7 +291,7 @@
 
 		if($stmt->execute())
 		{
-			$_SESSION["success_messages"][] = "Data deleted Successfully.";
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
 			return true;
 		}
 		return false;
@@ -341,7 +307,7 @@
 
 		if($stmt->execute())
 		{	
-			$_SESSION["success_messages"][] = "Data updated Successfully.";
+			$_SESSION["success_messages"][] = "Updated Successfully.";
 			return true;
 		}
 		return false;
@@ -356,10 +322,100 @@
 
 		if($stmt->execute())
 		{	
-			$_SESSION["success_messages"][] = "Data updated Successfully.";
+			$_SESSION["success_messages"][] = "Updated Successfully.";
 			return true;
 		}
 		return false;
 	}
+
+	function change_password($data)
+	{
+		global $db;
+		extract($data);
+
+		if($new_password !== $confirm_password)
+		{
+			$_SESSION["error_messages"][] = "New password and Confirm Password does not match.";	
+		}
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$new_password = create_hash($new_password);
+			$user_id = $_SESSION["user_id"];
+			$sql = "UPDATE users SET password=:new_password, last_reset_password_timestamp = NOW() WHERE user_id = $user_id";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':new_password', $new_password,PDO::PARAM_STR);
+			
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Congratulation, password successfully changed";
+    			return true;
+   			}
+   			else
+   			{
+    			$_SESSION["error_messages"][] = "Sorry, password didn't changed.";
+   			}
+		}
+		else
+		{
+			return false;
+		}
+	}
 	
+	function get_user_list_from_users()
+	{
+		global $db;
+
+		$sql = "SELECT * FROM users WHERE role = 'user'";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function enable_disable_user($disabled, $id)
+	{
+		global $db;
+		$sql = "UPDATE users SET disabled = '$disabled' WHERE user_id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function pending_approve_disapprove_user($account_verified, $id)
+	{
+		global $db;
+		$sql = "UPDATE users SET account_verified = '$account_verified' WHERE user_id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if ($stmt->execute()) {
+			$_SESSION["success_messages"][] = "Updated successfully.";
+			return true;
+		}
+
+		return false;
+	}
+
+	function get_user_details_by_passing_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM user_details WHERE user_id = $id";
+		$stmt = $db->prepare($sql);
+		
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
 ?>
