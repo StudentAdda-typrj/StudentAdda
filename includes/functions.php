@@ -418,4 +418,26 @@
 		}
 		return false;
 	}
+
+	function add_book_request($data)
+	{
+		global $db;
+		extract($data);
+		$user_id = $_SESSION["user_id"];
+		$sql = "INSERT INTO book_request (user_id, name, author, isbn, publisher, edition) VALUES (:user_id, :book_name, :author, :isbn, :publisher, :edition)";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+		$stmt->bindParam(':book_name', $book_name, PDO::PARAM_STR);
+		$stmt->bindParam(':author', $author, PDO::PARAM_STR);
+		$stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+		$stmt->bindParam(':publisher', $publisher, PDO::PARAM_STR);
+		$stmt->bindParam(':edition', $edition, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Your Request has been recieved. You will get email regarding the action taken on your request in 2 to 3 days!";
+			return true;
+		}
+		return false;
+	}
 ?>

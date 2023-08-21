@@ -232,10 +232,31 @@ label.required-highlight:after {
 }
 .master_config_table_head{
   background-color: #FFD292;
-  color: #CBAA00;
 }
 .master_config_cancel_button{
   font-weight: bold;
   border-radius: 9px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.card_color{
+  border-radius: 5px;
+  background: linear-gradient(90deg, #FAE6C0, rgba(250, 230, 192, 0.37)) !important;
+}
+.request_page_card{
+  background-color: #FFF7EB;
+  border-color: #FFCF72;
+}
+.button_style{
+  border-radius: 30px;
+  background-color: rgba(255, 214, 153, 1);
+  color: rgb(0, 0, 0);
+  border-color:  rgba(255, 214, 153, 1) ;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.button_style:hover{
+  border-radius: 30px;
+  background-color: rgba(255, 214, 153, 1);
+  color: rgb(0, 0, 0);
+  border-color:  rgba(255, 214, 153, 1) ;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }

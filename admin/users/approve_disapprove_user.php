@@ -1,5 +1,5 @@
 <?php
-    $page_title = "Pending to Approve to Disapprove User List";
+    $page_title = "Pending to Approve to Disapprove User";
     require_once($_SERVER["DOCUMENT_ROOT"] . "/admin/nav.php");
 
     if (isset($_GET["user_id"]) && !empty($_GET["user_id"]) && is_numeric($_GET["user_id"])) {

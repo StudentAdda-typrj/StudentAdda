@@ -59,19 +59,19 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">First Name</label>
+                                    <label for="first_name" class="text-dark required-highlight">First Name</label>
                                     <input class="form-control" type="text" placeholder="First name" value="<?php echo $user["first_name"]?>" name="first_name" id="first_name" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark ">Middle Name</label>
+                                    <label for="middle_name" class="text-dark">Middle Name</label>
                                     <input class="form-control" type="text" placeholder="Middle name" value="<?php echo $user["middle_name"]?>" name="middle_name" id="middle_name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">Last Name</label>
+                                    <label for="last_name" class="text-dark required-highlight">Last Name</label>
                                     <input class="form-control" type="text" placeholder="Last name" value="<?php echo $user["last_name"]?>" name="last_name" id="last_name" required>
                                 </div>
                             </div>
@@ -79,26 +79,26 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">Email</label>
+                                    <label for="email_address" class="text-dark required-highlight">Email</label>
                                     <input class="form-control" type="email" placeholder="Email" value="<?php echo $user["email_address"]?>" name="email_address" id="email_address" disabled required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark">Date Of Birth</label>
+                                    <label for="dob" class="text-dark">Date Of Birth</label>
                                     <input class="form-control" type="date" value="<?php echo $user["dob"]?>" name="dob" id="dob">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">Contact Number</label>
+                                    <label for="contact_number" class="text-dark required-highlight">Contact Number</label>
                                     <input class="form-control" type="tel" value="<?php echo $user["contact_number"]?>" name="contact_number" id="contact_number" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-7">
-                                <label class="text-dark required-highlight">Gender</label>
+                                <label for="gender" class="text-dark required-highlight">Gender</label>
                                 <div class="row" id="details" name="details">
                                     <?php if ($user["gender"] === "male"): ?>
                                         <div class="col-md-2">
@@ -186,13 +186,13 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">Street Address</label>
+                                    <label for="street_address" class="text-dark required-highlight">Street Address</label>
                                     <input class="form-control" type="text" value="<?php echo $user["street_address"]?>" placeholder="Address" name="street_address" id="street_address" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">City</label>
+                                    <label for="city" class="text-dark required-highlight">City</label>
                                     <input class="form-control" type="text" value="<?php echo $user["city"]?>" placeholder="City" name="city" id="city" required>
                                 </div>
                             </div>
@@ -200,19 +200,19 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">State</label>
+                                    <label for="state" class="text-dark required-highlight">State</label>
                                     <input class="form-control" type="text" value="<?php echo $user["state"]?>" placeholder="State" name="state" id="state" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">Pincode</label>
+                                    <label for="postal_code" class="text-dark required-highlight">Pincode</label>
                                     <input class="form-control" type="number" value="<?php echo $user["postal_code"]?>" placeholder="PIN" name="postal_code" id="postal_code" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
-                                    <label class="text-dark required-highlight">Country</label>
+                                    <label for="country" class="text-dark required-highlight">Country</label>
                                     <input class="form-control" type="text" value="<?php echo $user["country"]?>" placeholder="Country" name="country" id="country" disabled required>
                                 </div>
                             </div>

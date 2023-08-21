@@ -84,7 +84,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="btn dropdown-item" href="">
+							<a class="btn dropdown-item" href="/user/book_request.php">
 								<i class="fa-solid fa-hand-holding-dollar"></i> 
 								<span class="navlink_color_second_navbar_user">Request a Book</span>
 							</a>
