@@ -38,7 +38,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="" class="btn dropdown-item">
+							<a href="/admin/request/book_request/request_list" class="btn dropdown-item">
 								<i class="fa-solid fa-hand-holding-dollar"></i> 
 								<span class="navlink_color_second_navbar_user">Book Requests</span>
 							</a>

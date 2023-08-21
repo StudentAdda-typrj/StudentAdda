@@ -49,7 +49,7 @@
 															</td>
 															<td>
 																<?php if($user["account_verified"] === "0"): ?>
-																	<a href="/admin/users/approve_disapprove_user?user_id=<?php echo $user["user_id"]; ?>" class="btn btn-warning btn-sm mx-auto d-block col-md-8" id="pending" name="pending"><span class="fa fa-check-circle"></span> Pending</a>
+																	<a href="/admin/users/approve_disapprove_user?user_id=<?php echo $user["user_id"]; ?>" class="btn btn-warning btn-sm mx-auto d-block col-md-8" id="pending" name="pending"><i class="fa-regular fa-circle-dot"></i> Pending</a>
 																<?php elseif($user["account_verified"] === "-1"): ?>
 																	<a href="/admin/users/approve_disapprove_user?user_id=<?php echo $user["user_id"]; ?>" class="btn btn-danger btn-sm mx-auto d-block col-md-8" id="disapprove" name="disapprove"><span class="fa fa-xmark-circle"></span> Disapproved</a>
 																<?php else: ?>

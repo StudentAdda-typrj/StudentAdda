@@ -440,4 +440,29 @@
 		}
 		return false;
 	}
+
+	function get_book_request_detail(){
+		global $db;
+		$sql = "SELECT * FROM book_request";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_book_request_detail_using_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM book_request WHERE user_id = $id";
+		$stmt = $db->prepare($sql);
+		
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
 ?>

@@ -11,7 +11,7 @@
 <div class="container" id="user_details">
     <div class="row g-0">
         <div class="col-lg-10 mx-auto">
-            <div class="card my-5 offset-md-1 master_config_main_card">
+            <div class="card my-5 master_config_main_card">
                 <div class="card-body">
                     <div class="card master_config_inner_card">
                         <div class="card-header card_heading_text">
@@ -27,7 +27,7 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-md-5">
-                                    <h2 class="card-title mt-2 mb-1"><?php echo $user["first_name"]." ".$user["middle_name"]." ".$user["last_name"]; ?></h2><br>
+                                    <h2 class="card-title mt-2 mb-1 bold"><?php echo $user["first_name"]." ".$user["middle_name"]." ".$user["last_name"]; ?></h2><br>
                                     <div class="btn text-center master_config_button_style">USER</div>
                                 </div>
                             </div>
