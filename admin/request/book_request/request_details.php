@@ -117,7 +117,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <label for="accept_description" class="bold text-dark required-highlight mb-2">Description</label>
+                                                    <label for="accept_description" class="h5 bold text-dark required-highlight mb-2">Description</label>
                                                     <h4 class="meet-text-col meet-text-align">
                                                         <textarea class="form-control accept_reject_description_box" id="accept_description" name="accept_description" placeholder="Description Message" required></textarea>
                                                     </h4>
@@ -142,7 +142,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                      <label for="reject_description" class="bold text-dark required-highlight mb-2">Description</label>
+                                                      <label for="reject_description" class="h5 bold text-dark required-highlight mb-2">Description</label>
                                                     <h4 class="meet-text-col meet-text-align">
                                                         <textarea class="form-control accept_reject_description_box" id="reject_description" name="reject_description" placeholder="Description Message" required></textarea>
                                                     </h4>
