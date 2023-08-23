@@ -435,7 +435,7 @@
 
 		if($stmt->execute())
 		{
-			$_SESSION["success_messages"][] = "Your Request has been recieved. You will get email regarding the action taken on your request in 2 to 3 days!";
+			$_SESSION["success_messages"][] = "Your Request has been recieved. You will get an email regarding the action taken on your request in 2 to 3 days!";
 			return true;
 		}
 		return false;
@@ -456,13 +456,61 @@
 	function get_book_request_detail_using_id($id)
 	{
 		global $db;
-		$sql = "SELECT * FROM book_request WHERE user_id = $id";
+		$sql = "SELECT * FROM book_request WHERE id = $id";
 		$stmt = $db->prepare($sql);
-		
+
 		if($stmt->execute())
 		{
 			return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
-		return false;
+		return false;	
+	}
+
+	function accept_book_request($data,$id)
+	{
+		global $db;
+		extract($data);
+		$sql = "UPDATE book_request SET status = '1', status_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$sql = "INSERT INTO book_request_achieved (request_id, description) VALUES (:id, :accept_description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':accept_description', $accept_description, PDO::PARAM_STR);
+			
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Description related to book request has been Added";
+				return true;
+			}
+			return false;
+		}
+	}
+
+	function reject_book_request($data,$id)
+	{
+		global $db;
+		extract($data);
+		$sql = "UPDATE book_request SET status = '2', status_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$sql = "INSERT INTO book_request_achieved (request_id, description) VALUES (:id, :reject_description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':reject_description', $reject_description, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Description related to book request has been Added";
+				return true;
+			}
+			return false;
+		}
 	}
 ?>

@@ -221,7 +221,7 @@ label.required-highlight:after {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .master_config_button_style:hover{
-  background-color: #FFD699;
+  background-color: #F0C27D;
   border-color: #FFCF72;
   font-weight: bold;
   border-radius: 9px;
@@ -259,4 +259,7 @@ label.required-highlight:after {
   color: rgb(0, 0, 0);
   border-color:  rgba(255, 214, 153, 1) ;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.accept_reject_description_box{
+  resize: none;
 }

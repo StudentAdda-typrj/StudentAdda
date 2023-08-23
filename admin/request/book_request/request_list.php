@@ -46,7 +46,7 @@
                                                                 <?php endif; ?>
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/request/book_request/request_details?user_id=<?php echo $request["user_id"]?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="book_request_details" name="book_request_details"><i class="fa-solid fa-circle-info"></i> Details</a>
+                                                                <a href="/admin/request/book_request/request_details?q=<?php echo $request["id"]?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="book_request_details" name="book_request_details"><i class="fa-solid fa-circle-info"></i> Details</a>
                                                             </td>
                                                         </tr>
                                                     <?php
