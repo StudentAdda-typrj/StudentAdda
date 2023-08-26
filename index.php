@@ -16,8 +16,15 @@
                         <i class="fa-solid fa-caret-down"></i></span>
                     </a>
                     <ul class="dropdown-menu  second_navbar_dropdown">
-                        <li>
-                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="">Books</a>
+                        <?php if($categories = get_category_names()): ?>
+                            <?php foreach($categories as $category): ?>
+                                <li>
+                                    <a class="btn dropdown-item navlink_color_second_navbar_user" href=""><?php echo $category["name"]; ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        <!-- <li>
+                            
                         </li>
                         <li>
                             <a class="btn dropdown-item navlink_color_second_navbar_user" href="">Laptop</a>
@@ -33,7 +40,7 @@
                         </li>
                         <li>
                             <a class="btn dropdown-item navlink_color_second_navbar_user" href="">Mouse&Keyboard</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <li class="nav-item">
