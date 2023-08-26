@@ -90,7 +90,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="btn dropdown-item" href="">
+							<a class="btn dropdown-item" href="/user/selling/index">
 								<i class="fa-solid fa-sack-dollar"></i> 
 								<span class="navlink_color_second_navbar_user">Become a Seller</span>
 							</a>

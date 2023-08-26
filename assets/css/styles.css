@@ -263,3 +263,9 @@ label.required-highlight:after {
 .accept_reject_description_box{
   resize: none;
 }
+.selling_page_ad_card{
+  background-color: #FAE6C0;
+}
+.selling_page_ad_inner_card{
+  background-color: #FFF7EB;
+}
