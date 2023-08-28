@@ -265,7 +265,16 @@ label.required-highlight:after {
 }
 .selling_page_ad_card{
   background-color: #FAE6C0;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.5);
 }
 .selling_page_ad_inner_card{
   background-color: #FFF7EB;
+}
+.border_color{
+  border-color: #FFCF72;
+}
+.cancel_button_style{
+  border-radius: 30px;
+  color: rgb(0, 0, 0);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }

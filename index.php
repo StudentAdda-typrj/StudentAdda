@@ -3,7 +3,7 @@
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/init.php");
 ?>
 
-<nav class="navbar navbar-expand-sm py-2 second_navbar">
+<nav class="navbar navbar-expand-sm py-2 second_navbar sticky-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
