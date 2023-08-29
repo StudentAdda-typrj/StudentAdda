@@ -513,4 +513,57 @@
 			return false;
 		}
 	}
+
+	function perform_book_selling($data)
+	{
+		global $db;
+		extract($data);
+		//$cover_url = isset($_FILES['cover_url']) ? upload_file($_FILES['cover_url'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$user_id = $_SESSION["user_id"];
+			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, verified) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+			$stmt->bindParam(':book_type', $book_type, PDO::PARAM_STR);
+			$stmt->bindParam(':language', $language, PDO::PARAM_STR);
+			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':author', $author, PDO::PARAM_STR);
+			$stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+			$stmt->bindParam(':department', $department, PDO::PARAM_STR);
+			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
+			$stmt->bindParam(':index_url', $index_url, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Thank you for becoming a seller. Your product will be verified at our end and the details regarding it will be provided to you sooner!";
+			}
+			else
+			{
+				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes";
+			}
+		}
+		return false;
+	}
+
+	// function upload_file($file, $targetDirectory, $allowedExtensions) {
+	// 	$fileName = basename($file["name"]);
+	// 	$targetFile = $targetDirectory . $fileName;
+	// 	$fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+	  
+	// 	// Check if the file has a valid extension
+	// 	if (!in_array($fileExtension, $allowedExtensions)) {
+	// 	  return ""; // Return an empty string if the file has an invalid extension
+	// 	}
+	  
+	// 	// Move the uploaded file to the target directory
+	// 	if (move_uploaded_file($file["tmp_name"], $targetFile)) {
+	// 	  return $targetFile; // Return the URL of the uploaded file
+	// 	}
+	  
+	// 	return ""; // Return an empty string if there was an error during file upload
+	// }
 ?>

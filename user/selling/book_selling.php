@@ -1,11 +1,20 @@
 <?php
     $page_title = "Book Selling Page";
     require_once($_SERVER["DOCUMENT_ROOT"]."/user/nav.php");
+
+    if(isset($_POST["book_selling_button"]))
+    {
+        perform_book_selling($_POST);
+        redirect_to_current_page();
+    }
 ?>
 
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <div class="my-3">
+                <?php require_once($_SERVER["DOCUMENT_ROOT"]."/includes/view_messages_and_errors.php"); ?>
+            </div>
             <div class="card selling_page_ad_card border-0 mb-5 rounded-4 my-3">
                 <h3 class="text-center bold pt-1">POST YOUR BOOK AD</h3>
                 <div class="card selling_page_ad_inner_card mb-5 mx-5 border-0 rounded-0">
@@ -28,7 +37,7 @@
                                                         <div class="col-lg-6">
                                                             <label for="book_type" class="text-dark required-highlight mb-1">Type</label>
                                                             <select class="form-control" id="book_type" name="book_type" required>
-                                                                <option value="">Select Type</option>
+                                                                <option value="" selected disabled>Select Type</option>
                                                                 <?php
                                                                     if($categories = get_category_names()): ?>
                                                                         <?php foreach($categories as $category): ?>
@@ -42,9 +51,9 @@
                                                         <div class="col-lg-6">
                                                             <label for="language" class="text-dark required-highlight mb-1">Language</label>
                                                             <select class="form-control" name="language" id="language" required>
-                                                                <option value="">Select Language</option>
-                                                                <option value="">English</option>
-                                                                <option value="">Hindi</option>
+                                                                <option value="" selected disabled>Select Language</option>
+                                                                <option value="1">English</option>
+                                                                <option value="2">Hindi</option>
                                                             </select>
                                                             <div class="invalid-feedback">Select the appropriate language.</div>
                                                         </div>
@@ -68,11 +77,11 @@
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <label for="department" class="text-dark required-highlight mb-1">Department</label>
-                                                            <select class="form-control" name="department" id="department" required>
-                                                                <option value="">Select</option>
-                                                                <option value="">Science</option>
-                                                                <option value="">Arts</option>
-                                                                <option value="">Commerce</option>
+                                                            <select class="form-control" name="department" id="department" required disabled>
+                                                                <option value="" selected disabled>Select</option>
+                                                                <option value="1">Science</option>
+                                                                <option value="2">Arts</option>
+                                                                <option value="3">Commerce</option>
                                                             </select>
                                                             <div class="invalid-feedback">Please specify the stream of the book.</div>
                                                         </div>
@@ -124,7 +133,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="POST" id="" name="" class="d-block mx-auto button_style col-md-4 p-2 bold mb-3 h6">
+                            <input type="submit" value="POST" id="book_selling_button" name="book_selling_button" class="d-block mx-auto button_style col-md-4 p-2 bold mb-3 h6">
                             <a href="/user/index.php" class="btn btn-secondary cancel_button_style bold col-md-4 mx-auto d-block p-2 mb-5 h6">CANCEL</a>
                         </form>
                     </div>

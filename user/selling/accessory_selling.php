@@ -28,7 +28,7 @@
                                                         <div class="col-lg-6">
                                                             <label for="accessory_type" class="text-dark required-highlight mb-1">Type</label>
                                                             <select class="form-control" id="accessory_type" name="accessory_type" required>
-                                                                <option value="">Select Type</option>
+                                                                <option value="" selected disabled>Select Type</option>
                                                                 <?php
                                                                     if($categories = get_category_names()): ?>
                                                                         <?php foreach($categories as $category): ?>
@@ -80,62 +80,20 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="card border_color selling_page_ad_inner_card mb-3">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-lg-9 mx-auto">
-                                                    <div class="row mb-2">
-                                                        <div class="col-lg-6">
-                                                            <label for="state" class="text-dark required-highlight mb-1">State</label>
-                                                            <select class="form-control" id="state" name="state" required>
-                                                                <option value="">Select Type</option>
-                                                                <option value="">Select state</option>
-                                                                <option value="">maharashtra</option>
-                                                                <option value="">delhi</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <label for="city" class="text-dark required-highlight mb-1">City</label>
-                                                            <select class="form-control" id="city" name="city" required>
-                                                                <option value="">Select Type</option>
-                                                                <option value="">Mumbai</option>
-                                                                <option value="">Pune</option>
-                                                                <option value="">Kochi</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-lg-6">
-                                                            <label for="neighbourhood" class="text-dark required-highlight mb-1">Neighbourhood</label>
-                                                            <select class="form-control" id="neighbourhood" name="neighbourhood" required>
-                                                                <option value="">Select Type</option>
-                                                                <option value="">MG Marg</option>
-                                                                <option value="">Old Goa</option>
-                                                                <option value="">Jew Town</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <label for="pincode" class="text-dark required-highlight mb-1">PinCode</label>
-                                                            <input class="form-control" type="number" id="pincode" name="pincode" placeholder="Pincode" required>
-                                                        </div>
-                                                    </div>
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
                                     <div class="card border_color selling_page_ad_inner_card mb-5">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-lg-9 mx-auto">
-                                                    <label for="accessory_url" class="text-dark required-highlight mb-1">Upload Accessory Image</label>
+                                                    <div class="h6 bold text_color mb-2 text-center">Upload the images properly so that the product details and condition can be checked.</div>
+                                                    <label for="photo_url" class="text-dark required-highlight mb-1">Upload First Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="accessory_url" id="accessory_url" accept="image/*" required multiple>
-                                                        <div class="invalid-feedback">Upload Minimun 3 images.</div>
+                                                        <input class="form-control" type="file" name="photo_url" id="photo_url" accept="image/*" required multiple>
+                                                        <div class="invalid-feedback">Upload front image.</div>
+                                                    </div>
+                                                    <label for="photo_url2" class="text-dark required-highlight mb-1">Upload Second Image</label>
+                                                    <div class="form-group mb-2">
+                                                        <input class="form-control" type="file" name="photo_url2" id="photo_url2" accept="image/*" required multiple>
+                                                        <div class="invalid-feedback">Upload another image.</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,8 +101,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="POST" id="" name="" class="d-block mx-auto button_style col-md-4 p-2 bold mb-3 h6">
-                            <input type="submit" value="SAVE" id="" name="" class="d-block mx-auto button_style col-md-4 p-2 bold mb-3 h6">
+                            <input type="submit" value="POST" id="accessory_selling_button" name="accessory_selling_button" class="d-block mx-auto button_style col-md-4 p-2 bold mb-3 h6">
                             <a href="/user/index.php" class="btn btn-secondary cancel_button_style bold col-md-4 mx-auto d-block p-2 mb-5 h6">CANCEL</a>
                         </form>
                     </div>
