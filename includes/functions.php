@@ -566,4 +566,216 @@
 	  
 	// 	return ""; // Return an empty string if there was an error during file upload
 	// }
+
+	function get_book_sell_request_detail()
+	{
+		global $db;
+		$sql = "SELECT * FROM book_selling WHERE verified = '0'";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_book_sell_request_detail_using_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM book_selling WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_accessory_sell_request_detail()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessory_selling WHERE verified = '0'";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_accessory_sell_request_detail_using_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM accessory_selling WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function is_department_name_available_in_department_table($department_name)
+	{
+		global $db;
+		$sql = "SELECT COUNT(1) as 'count' FROM department WHERE name = :department_name AND deleted = '0'";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':department_name', $department_name, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{
+			$result=$stmt->fetch(PDO::FETCH_ASSOC)["count"];
+			return $result> 0 ? true : false;
+		}
+		return false;
+	}
+
+	function get_department_names()
+ 	{
+  		global $db;
+  		$sql = "SELECT * FROM department WHERE deleted = '0'";
+ 	 	$stmt = $db->prepare($sql);
+  		
+		if($stmt->execute())
+  		{
+   			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  		}
+  		return false;
+ 	}
+
+	function add_department_name($data)
+	{
+		global $db;
+		extract($data);
+
+		if (is_department_name_available_in_department_table($department_name) === true)
+		{
+			$_SESSION["error_messages"][] = "This record already exists.";
+		}
+		
+		if (!isset($_SESSION["error_messages"]))
+		{
+			$sql = "INSERT INTO department (name,disabled,deleted) VALUES (:department_name,'0','0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':department_name', $department_name, PDO::PARAM_STR);
+			
+			if ($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Department added Successfully.";
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function is_language_name_available_in_language_table($language_name)
+	{
+		global $db;
+		$sql = "SELECT COUNT(1) as 'count' FROM language WHERE name = :language_name AND deleted = '0'";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':language_name', $language_name, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{
+			$result=$stmt->fetch(PDO::FETCH_ASSOC)["count"];
+			return $result> 0 ? true : false;
+		}
+		return false;
+	}
+
+	function get_language_names()
+ 	{
+  		global $db;
+  		$sql = "SELECT * FROM language WHERE deleted = '0'";
+ 	 	$stmt = $db->prepare($sql);
+  		
+		if($stmt->execute())
+  		{
+   			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  		}
+  		return false;
+ 	}
+
+	function add_language_name($data)
+	{
+		global $db;
+		extract($data);
+
+		if (is_language_name_available_in_language_table($language_name) === true)
+		{
+			$_SESSION["error_messages"][] = "This record already exists.";
+		}
+		
+		if (!isset($_SESSION["error_messages"]))
+		{
+			$sql = "INSERT INTO language (name,disabled,deleted) VALUES (:language_name,'0','0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':language_name', $language_name, PDO::PARAM_STR);
+			
+			if ($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Language added Successfully.";
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function get_subcategory_names()
+	{
+		 global $db;
+		 $sql = "SELECT * FROM subcategory WHERE deleted = '0'";
+		 $stmt = $db->prepare($sql);
+		 
+	   if($stmt->execute())
+		 {
+			  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		 }
+		 return false;
+	}
+	
+	function is_subcategory_name_available_in_subcategory_table($subcategory_name)
+	{
+		global $db;
+		$sql = "SELECT COUNT(1) as 'count' FROM subcategory WHERE name = :subcategory_name AND deleted = '0'";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':subcategory_name', $subcategory_name, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{
+			$result=$stmt->fetch(PDO::FETCH_ASSOC)["count"];
+			return $result> 0 ? true : false;
+		}
+		return false;
+	}
+
+	function add_subcategory_name($data)
+	{
+		global $db;
+		extract($data);
+
+		if (is_subcategory_name_available_in_subcategory_table($subcategory_name) === true)
+		{
+			$_SESSION["error_messages"][] = "This record already exists.";
+		}
+		
+		if (!isset($_SESSION["error_messages"]))
+		{
+			$sql = "INSERT INTO subcategory (name,disabled,deleted) VALUES (:subcategory_name,'0','0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':subcategory_name', $subcategory_name, PDO::PARAM_STR);
+			
+			if ($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Subcategory added Successfully.";
+				return true;
+			}
+		}
+		return false;
+	}
+
 ?>

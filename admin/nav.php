@@ -44,7 +44,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="" class="btn dropdown-item">
+							<a href="/admin/request/sell_request/request_list" class="btn dropdown-item">
 								<i class="fa-solid fa-sack-dollar"></i> 
 								<span class="navlink_color_second_navbar_user">Sell Requests</span>
 							</a>

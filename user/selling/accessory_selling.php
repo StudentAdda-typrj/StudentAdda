@@ -68,7 +68,7 @@
                                                     <div class="row mb-4">
                                                         <div class="col-lg-12">
                                                             <label for="description" class="text-dark required-highlight mb-1">Ad Description</label>
-                                                            <textarea class="form-control accept_reject_description_box" name="description" id="description" cols="30" rows="5" required placeholder="Ad Description(Includes details like what sort of information or details the book provides,book condition and whom does the book target,etc... with suitable price)"></textarea>
+                                                            <textarea class="form-control accept_reject_description_box" name="description" id="description" cols="30" rows="5" required placeholder="Ad Description(Include details like processor name, capacity, color, condition, storage, additional information or key points about the Ad with suitable price.)"></textarea>
                                                             <div class="invalid-feedback">Please specify the description.</div>
                                                         </div>
                                                     </div>
