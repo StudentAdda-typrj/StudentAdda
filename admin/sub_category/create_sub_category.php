@@ -1,5 +1,5 @@
 <?php
-	$page_title = "Create Sub Category";
+	$page_title = "Create Subcategory";
 	require_once($_SERVER["DOCUMENT_ROOT"]."/admin/nav.php");
 
 	if(isset($_POST["add_subcategory"]))
@@ -68,16 +68,16 @@
 															<td><?php echo $subcategory["name"]?></td>
 															<td>
 																<?php if($subcategory["disabled"] === "0"):?>
-																	<a href="/admin/category/enable_disable_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="enable" name="enable"><span class="fa-solid fa-lock-open"></span>  Enable</a>
+																	<a href="/admin/sub_category/enable_disable_sub_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="enable" name="enable"><span class="fa-solid fa-lock-open"></span>  Enable</a>
 																<?php else:?>
-																	<a href="/admin/category/enable_disable_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="disable" name="disable"><span class="fa-solid fa-lock"></span> Disabled</a>
+																	<a href="/admin/sub_category/enable_disable_sub_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="disable" name="disable"><span class="fa-solid fa-lock"></span> Disabled</a>
 																<?php endif;?>
 															</td>
 															<td>
-																<a href="/admin/category/edit_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8"><span class="fa fa-edit"></span> Edit</a>
+																<a href="/admin/sub_category/edit_sub_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8"><span class="fa fa-edit"></span> Edit</a>
 															</td>
 															<td>
-																<a href="/admin/category/delete_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="delete_category" name="delete_category"><span class="fa fa-trash"></span> Delete</a>
+																<a href="/admin/sub_category/delete_sub_category?q=<?php echo $subcategory["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="delete_subcategory" name="delete_subcategory"><span class="fa fa-trash"></span> Delete</a>
 															</td>
 														</tr>
 													<?php 

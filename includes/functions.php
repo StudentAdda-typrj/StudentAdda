@@ -672,6 +672,65 @@
 		return false;
 	}
 
+	function get_department_by_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM department WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+	
+	function delete_department_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE department SET deleted = '1', deleted_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function edit_department_by_id($department_name, $id)
+	{
+		global $db;
+		$sql = "UPDATE department SET name = :department_name, modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt->bindParam(':department_name', $department_name, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function enable_disable_department($disabled, $id)
+	{
+		global $db;
+		$sql = "UPDATE department SET disabled = '$disabled', modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
 	function is_language_name_available_in_language_table($language_name)
 	{
 		global $db;
@@ -721,6 +780,65 @@
 				$_SESSION["success_messages"][] = "Language added Successfully.";
 				return true;
 			}
+		}
+		return false;
+	}
+
+	function get_language_by_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM language WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+	
+	function delete_language_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE language SET deleted = '1', deleted_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function edit_language_by_id($language_name, $id)
+	{
+		global $db;
+		$sql = "UPDATE language SET name = :language_name, modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt->bindParam(':language_name', $language_name, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function enable_disable_language($disabled, $id)
+	{
+		global $db;
+		$sql = "UPDATE language SET disabled = '$disabled', modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
 		}
 		return false;
 	}
@@ -777,5 +895,64 @@
 		}
 		return false;
 	}
+	function get_subcategory_by_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM subcategory WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+	
+	function delete_subcategory_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE subcategory SET deleted = '1', deleted_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function edit_subcategory_by_id($subcategory_name, $id)
+	{
+		global $db;
+		$sql = "UPDATE subcategory SET name = :subcategory_name, modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt->bindParam(':subcategory_name', $subcategory_name, PDO::PARAM_STR);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function enable_disable_subcategory($disabled, $id)
+	{
+		global $db;
+		$sql = "UPDATE subcategory SET disabled = '$disabled', modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
 
 ?>

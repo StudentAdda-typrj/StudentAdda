@@ -68,16 +68,16 @@
 															<td><?php echo $department["name"]?></td>
 															<td>
 																<?php if($department["disabled"] === "0"):?>
-																	<a href="/admin/category/enable_disable_category?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="enable" name="enable"><span class="fa-solid fa-lock-open"></span>  Enable</a>
+																	<a href="/admin/department/enable_disable_department?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="enable" name="enable"><span class="fa-solid fa-lock-open"></span>  Enable</a>
 																<?php else:?>
-																	<a href="/admin/category/enable_disable_category?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="disable" name="disable"><span class="fa-solid fa-lock"></span> Disabled</a>
+																	<a href="/admin/department/enable_disable_department?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="disable" name="disable"><span class="fa-solid fa-lock"></span> Disabled</a>
 																<?php endif;?>
 															</td>
 															<td>
-																<a href="/admin/category/edit_category?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8"><span class="fa fa-edit"></span> Edit</a>
+																<a href="/admin/department/edit_department?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8"><span class="fa fa-edit"></span> Edit</a>
 															</td>
 															<td>
-																<a href="/admin/category/delete_category?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="delete_category" name="delete_category"><span class="fa fa-trash"></span> Delete</a>
+																<a href="/admin/department/delete_department?q=<?php echo $department["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="delete_category" name="delete_category"><span class="fa fa-trash"></span> Delete</a>
 															</td>
 														</tr>
 													<?php 

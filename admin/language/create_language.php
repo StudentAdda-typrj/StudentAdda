@@ -68,16 +68,16 @@
 															<td><?php echo $language["name"]?></td>
 															<td>
 																<?php if($language["disabled"] === "0"):?>
-																	<a href="/admin/category/enable_disable_category?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="enable" name="enable"><span class="fa-solid fa-lock-open"></span>  Enable</a>
+																	<a href="/admin/language/enable_disable_language?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="enable" name="enable"><span class="fa-solid fa-lock-open"></span>  Enable</a>
 																<?php else:?>
-																	<a href="/admin/category/enable_disable_category?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="disable" name="disable"><span class="fa-solid fa-lock"></span> Disabled</a>
+																	<a href="/admin/language/enable_disable_language?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="disable" name="disable"><span class="fa-solid fa-lock"></span> Disabled</a>
 																<?php endif;?>
 															</td>
 															<td>
-																<a href="/admin/category/edit_category?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8"><span class="fa fa-edit"></span> Edit</a>
+																<a href="/admin/language/edit_language?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8"><span class="fa fa-edit"></span> Edit</a>
 															</td>
 															<td>
-																<a href="/admin/category/delete_category?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="delete_category" name="delete_category"><span class="fa fa-trash"></span> Delete</a>
+																<a href="/admin/language/delete_language?q=<?php echo $language["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="delete_language" name="delete_language"><span class="fa fa-trash"></span> Delete</a>
 															</td>
 														</tr>
 													<?php 
