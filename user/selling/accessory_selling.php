@@ -11,6 +11,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <div class="my-3">
+                <?php require_once($_SERVER["DOCUMENT_ROOT"]."/includes/view_messages_and_errors.php"); ?>
+            </div>
             <div class="card selling_page_ad_card border-0 mb-5 rounded-4 my-3">
                 <h3 class="text-center bold pt-1">POST YOUR ACCESSORY AD</h3>
                 <div class="card selling_page_ad_inner_card mb-5 mx-5 border-0 rounded-0">
