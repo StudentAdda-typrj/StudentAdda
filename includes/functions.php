@@ -514,6 +514,24 @@
 		}
 	}
 
+	// function upload_file($file, $targetDirectory, $allowedExtensions) {
+	// 	$fileName = basename($file["name"]);
+	// 	$targetFile = $targetDirectory . $fileName;
+	// 	$fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+	  
+	// 	// Check if the file has a valid extension
+	// 	if (!in_array($fileExtension, $allowedExtensions)) {
+	// 	  return ""; // Return an empty string if the file has an invalid extension
+	// 	}
+	  
+	// 	// Move the uploaded file to the target directory
+	// 	if (move_uploaded_file($file["tmp_name"], $targetFile)) {
+	// 	  return $targetFile; // Return the URL of the uploaded file
+	// 	}
+	  
+	// 	return ""; // Return an empty string if there was an error during file upload
+	// }
+
 	function perform_book_selling($data)
 	{
 		global $db;
@@ -549,23 +567,40 @@
 		return false;
 	}
 
-	// function upload_file($file, $targetDirectory, $allowedExtensions) {
-	// 	$fileName = basename($file["name"]);
-	// 	$targetFile = $targetDirectory . $fileName;
-	// 	$fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-	  
-	// 	// Check if the file has a valid extension
-	// 	if (!in_array($fileExtension, $allowedExtensions)) {
-	// 	  return ""; // Return an empty string if the file has an invalid extension
-	// 	}
-	  
-	// 	// Move the uploaded file to the target directory
-	// 	if (move_uploaded_file($file["tmp_name"], $targetFile)) {
-	// 	  return $targetFile; // Return the URL of the uploaded file
-	// 	}
-	  
-	// 	return ""; // Return an empty string if there was an error during file upload
-	// }
+	function perform_accessory_selling($data)
+	{
+		global $db;
+		extract($data);
+		// $photo_url = isset($_FILES['photo_url']) ? upload_file($_FILES['photo_url'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
+		// $photo_url2 = isset($_FILES['photo_url2']) ? upload_file($_FILES['photo_url2'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$user_id = $_SESSION["user_id"];
+			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, verified) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :description, :photo_url, :photo_url2, '0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+			$stmt->bindParam(':accessory_type', $accessory_type, PDO::PARAM_STR);
+			$stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+			$stmt->bindParam(':processor', $processor, PDO::PARAM_STR);
+			$stmt->bindParam(':screen_size', $screen_size, PDO::PARAM_STR);
+			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url', $photo_url, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url2', $photo_url2, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Thank you for becoming a seller. Your product will be verified at our end and the details regarding it will be provided to you sooner!";
+			}
+			else
+			{
+				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes";
+			}
+		}
+		return false;
+	}
 
 	function get_book_sell_request_detail()
 	{
@@ -954,5 +989,63 @@
 		return false;
 	}
 
+	function accept_book_selling_request($id)
+	{
+		global $db;
+		$sql = "UPDATE book_selling SET verified = '1', verified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
+		if($stmt->execute())
+		{
+			$_SESSION['success_messages'][] = "Book Sell Request Accepted Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function reject_book_selling_request($id)
+	{
+		global $db;
+		$sql = "UPDATE book_selling SET verified = '2', verified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Book Sell Request Rejected Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function accept_accessory_selling_request($id)
+	{
+		global $db;
+		$sql = "UPDATE accessory_selling SET verified = '1', verified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION['success_messages'][] = "Accessory Sell Request Accepted Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function reject_accessory_selling_request($id)
+	{
+		global $db;
+		$sql = "UPDATE accessory_selling SET verified = '2', verified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Accessory Sell Request Rejected Successfully.";
+			return true;
+		}
+		return false;
+	}
 ?>

@@ -1,6 +1,11 @@
 <?php
     $page_title = "Accessory Selling Page";
     require_once($_SERVER["DOCUMENT_ROOT"]."/user/nav.php");
+
+    if (isset($_POST["accessory_selling_button"])) {
+        perform_accessory_selling($_POST);
+        redirect_to_current_page();
+    }
 ?>
 
 <div class="container">
@@ -30,9 +35,9 @@
                                                             <select class="form-control" id="accessory_type" name="accessory_type" required>
                                                                 <option value="" selected disabled>Select Type</option>
                                                                 <?php
-                                                                    if($categories = get_category_names()): ?>
-                                                                        <?php foreach($categories as $category): ?>
-                                                                            <option value ="<?php echo $category["id"];?>"><?php echo $category["name"]; ?></option>
+                                                                    if($sub_categories = get_subcategory_names()): ?>
+                                                                        <?php foreach($sub_categories as $sub_category): ?>
+                                                                            <option value ="<?php echo $sub_category["id"];?>"><?php echo $sub_category["name"]; ?></option>
                                                                             <?php
                                                                         endforeach ?>
                                                                     <?php endif; ?>
@@ -48,12 +53,12 @@
                                                     <div class="row mb-2">
                                                     <div class="col-lg-6">
                                                             <label for="processor" class="text-dark required-highlight mb-1">Processor</label>
-                                                            <input class="form-control" type="text" id="processor" name="processor" placeholder="Processor" required>
+                                                            <input class="form-control" type="text" id="processor" name="processor" placeholder="Processor" disabled required>
                                                             <div class="invalid-feedback">Please specify the processor of accessory .</div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <label for="screen_size" class="text-dark required-highlight mb-1">Screen Size</label>
-                                                            <input class="form-control" type="text" id="screen_size" name="screen_size" placeholder="Screen Size" required>
+                                                            <input class="form-control" type="text" id="screen_size" name="screen_size" placeholder="Screen Size" disabled required>
                                                             <div class="invalid-feedback">Please specify the Screen Size in inches.</div>
                                                         </div>
                                                         
@@ -110,8 +115,6 @@
         </div>
     </div>
 </div>
-
-
 
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

@@ -15,3 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //For disabling and enabling the processor, screen section for accessory_type CPU, Monitor respectively
+document.addEventListener('DOMContentLoaded', function() {
+  const sub_category = document.getElementById('accessory_type');
+  const processor = document.getElementById('processor');
+  const screen_size = document.getElementById('screen_size');
+
+  sub_category.addEventListener('change', function() {
+    if (this.value === '5') {
+      processor.disabled = false;
+    } else{
+      processor.value = '';
+      processor.disabled = true;
+    }
+    if (this.value === '4') {
+      screen_size.disabled = false;
+    } else{
+      screen_size.value = '';
+      screen_size.disabled = true;
+    }
+  });
+});
