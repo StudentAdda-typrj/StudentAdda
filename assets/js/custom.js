@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const screen_size = document.getElementById('screen_size');
 
   sub_category.addEventListener('change', function() {
-    if (this.value === '5') {
+    if (this.value === '1' || this.value === '5' || this.value === '6') {
       processor.disabled = false;
     } else{
       processor.value = '';
