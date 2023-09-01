@@ -34,9 +34,8 @@
                                                     <th>Sr. No.</th>
                                                     <th class="col-md-5">Book Name</th>
                                                     <th class="col-md-2">Type</th>
+                                                    <th class="col-md-2">Language</th>
                                                     <th>Details</th>
-                                                    <th>Accept</th>
-                                                    <th>Reject</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-secondary">
@@ -46,18 +45,14 @@
                                                         foreach($books as $book):
                                                     ?>
                                                         <?php $category = get_category_by_id($book["category_id"]); ?>
+                                                        <?php $language = get_language_by_id($book["language_id"]); ?>
                                                         <tr>
                                                             <td><?php echo $number; ?></td>
                                                             <td><?php echo $book["title"]; ?></td>
                                                             <td><?php echo $category["name"] ?></td>
+                                                            <td><?php echo $language["name"]; ?></td>
                                                             <td>
                                                                 <a href="/admin/request/sell_request/book_selling_details?q=<?php echo $book["id"]?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="book_selling_details" name="book_selling_details"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="/admin/request/sell_request/accept_book_selling_request?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="book_sell_request_accept" name="book_sell_request_accept"><span class="fa fa-check-circle"></span> Accept</a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="/admin/request/sell_request/reject_book_selling_request?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="book_sell_request_reject" name="book_sell_request_reject"><span class="fa fa-xmark-circle"></span> Reject</a>
                                                             </td>
                                                         </tr>
                                                     <?php
@@ -86,9 +81,8 @@
                                                     <th>Sr. No.</th>
                                                     <th class="col-md-5">Accessory Name</th>
                                                     <th class="col-md-2">Type</th>
+                                                    <th class="col-md-2">Brand</th>
                                                     <th>Details</th>
-                                                    <th>Accept</th>
-                                                    <th>Reject</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-secondary">
@@ -102,14 +96,9 @@
                                                             <td><?php echo $number; ?></td>
                                                             <td><?php echo $accessory["title"]; ?></td>
                                                             <td><?php echo $sub_category["name"]; ?></td>
+                                                            <td><?php echo $accessory["brand"]; ?></td>
                                                             <td>
                                                                 <a href="/admin/request/sell_request/accessory_selling_details?q=<?php echo $accessory["id"]?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="accessory_selling_details" name="accessory_selling_details"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                                            </td>
-                                                            <td>
-                                                            <a href="/admin/request/sell_request/accept_accessory_selling_request?q=<?php echo $accessory["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="accessory_sell_request_accept" name="accessory_sell_request_accept"><span class="fa fa-check-circle"></span> Accept</a>
-                                                            </td>
-                                                            <td>
-                                                            <a href="/admin/request/sell_request/reject_accessory_selling_request?q=<?php echo $accessory["id"]; ?>" class="btn btn-sm btn-danger mx-auto d-block col-md-8" id="accessory_sell_request_reject" name="accessory_sell_request_reject"><span class="fa fa-xmark-circle"></span> Reject</a>
                                                             </td>
                                                         </tr>
                                                     <?php

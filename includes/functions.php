@@ -988,64 +988,100 @@
 		}
 		return false;
 	}
-
-	function accept_book_selling_request($id)
+	
+	function accept_book_selling_request($data,$id)
 	{
 		global $db;
+		extract($data);
 		$sql = "UPDATE book_selling SET verified = '1', verified_timestamp = NOW() WHERE id = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
 		if($stmt->execute())
 		{
-			$_SESSION['success_messages'][] = "Book Sell Request Accepted Successfully.";
-			return true;
+			$sql = "INSERT INTO book_selling_achieved (selling_id, description) VALUES (:id, :accept_description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':accept_description', $accept_description, PDO::PARAM_STR);
+			
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Description related to book selling request has been Added";
+				return true;
+			}
+			return false;
 		}
-		return false;
 	}
 
-	function reject_book_selling_request($id)
+	function reject_book_selling_request($data,$id)
 	{
 		global $db;
+		extract($data);
 		$sql = "UPDATE book_selling SET verified = '2', verified_timestamp = NOW() WHERE id = :id";
 		$stmt = $db->prepare($sql);
-		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
 		if($stmt->execute())
 		{
-			$_SESSION["success_messages"][] = "Book Sell Request Rejected Successfully.";
-			return true;
+			$sql = "INSERT INTO book_selling_achieved (selling_id, description) VALUES (:id, :reject_description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':reject_description', $reject_description, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Description related to book selling request has been Added";
+				return true;
+			}
+			return false;
 		}
-		return false;
 	}
 
-	function accept_accessory_selling_request($id)
+	function accept_accessory_selling_request($data,$id)
 	{
 		global $db;
+		extract($data);
 		$sql = "UPDATE accessory_selling SET verified = '1', verified_timestamp = NOW() WHERE id = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
 		if($stmt->execute())
 		{
-			$_SESSION['success_messages'][] = "Accessory Sell Request Accepted Successfully.";
-			return true;
+			$sql = "INSERT INTO accessory_selling_achieved (selling_id, description) VALUES (:id, :accept_description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':accept_description', $accept_description, PDO::PARAM_STR);
+			
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Description related to accessory selling request has been Added";
+				return true;
+			}
+			return false;
 		}
-		return false;
 	}
 
-	function reject_accessory_selling_request($id)
+	function reject_accessory_selling_request($data,$id)
 	{
 		global $db;
+		extract($data);
 		$sql = "UPDATE accessory_selling SET verified = '2', verified_timestamp = NOW() WHERE id = :id";
 		$stmt = $db->prepare($sql);
-		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
 		if($stmt->execute())
 		{
-			$_SESSION["success_messages"][] = "Accessory Sell Request Rejected Successfully.";
-			return true;
+			$sql = "INSERT INTO accessory_selling_achieved (selling_id, description) VALUES (:id, :reject_description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':reject_description', $reject_description, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Description related to accessory selling request has been Added";
+				return true;
+			}
+			return false;
 		}
-		return false;
 	}
 ?>

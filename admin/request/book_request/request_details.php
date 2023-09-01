@@ -143,7 +143,7 @@
                                             <div class="modal-body">
                                                 <div class="row">
                                                       <label for="reject_description" class="h5 bold text-dark required-highlight mb-2">Description</label>
-                                                    <h4 class="meet-text-col meet-text-align">
+                                                    <h4>
                                                         <textarea class="form-control accept_reject_description_box" id="reject_description" name="reject_description" placeholder="Description Message" required></textarea>
                                                     </h4>
                                                 </div>
