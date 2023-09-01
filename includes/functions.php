@@ -1084,4 +1084,106 @@
 			return false;
 		}
 	}
+
+	function get_accepted_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM book_selling WHERE verified = '1'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function upload_book($data)
+	{
+		global $db;
+		extract($data);
+		//$cover_url = isset($_FILES['cover_url']) ? upload_file($_FILES['cover_url'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$sql = "INSERT INTO books (title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, disabled, deleted) VALUES (:title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0', '0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+			$stmt->bindParam(':book_type', $book_type, PDO::PARAM_STR);
+			$stmt->bindParam(':language', $language, PDO::PARAM_STR);
+			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':author', $author, PDO::PARAM_STR);
+			$stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+			$stmt->bindParam(':department', $department, PDO::PARAM_STR);
+			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
+			$stmt->bindParam(':index_url', $index_url, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Book Uploaded Successfully.";
+			}
+			else
+			{
+				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes.";
+			}
+		}
+		return false;
+	}
+
+	function get_uploaded_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_uploaded_books_by_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function enable_disable_book($disabled, $id)
+	{
+		global $db;
+		$sql = "UPDATE books SET disabled = '$disabled', modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function delete_book_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE books SET deleted = '1', deleted_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
+	}
 ?>

@@ -49,12 +49,6 @@
 								<span class="navlink_color_second_navbar_user">Sell Requests</span>
 							</a>
 						</li>
-						<li>
-							<a class="btn dropdown-item" href="/admin/change_password.php">
-								<i class="fa-solid fa-arrow-rotate-right"></i> 
-								<span class="navlink_color_second_navbar_user">Change Password</span>
-							</a>
-						</li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -64,12 +58,12 @@
 					</a>
 					<ul class="dropdown-menu second_navbar_dropdown" aria-expanded="false">
 						<li>
-							<a href="" class="btn dropdown-item">
+							<a href="/admin/accessory/create_accessory" class="btn dropdown-item">
 								<span class="navlink_color_second_navbar_user">Accessory</span>
 							</a>
 						</li>
 						<li>
-							<a href="" class="btn dropdown-item">
+							<a href="/admin/book/create_book" class="btn dropdown-item">
 								<span class="navlink_color_second_navbar_user">Book</span>
 							</a>
 						</li>
@@ -114,6 +108,10 @@
 					</ul>
                 </li>   
             </ul>
+			<a class="nav-link me-2" href="/admin/change_password.php">
+				<i class="fa-solid fa-arrow-rotate-right"></i> 
+                <span class="navlink_color_second_navbar_user">Change Password</span>
+            </a>
         </div>    
     </div>
 </nav>
