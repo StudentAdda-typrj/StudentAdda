@@ -87,7 +87,7 @@
                                                             <td><?php echo $book["title"]; ?></td>
                                                             <td><?php echo $category["name"]; ?></td>
                                                             <td>
-                                                                <a href="" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="uploaded_book_details" name="uploaded_book_details"><i class="fa-solid fa-circle-info"></i> Details</a>
+                                                                <a href="/admin/book/uploaded_book_details?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="uploaded_book_details" name="uploaded_book_details"><i class="fa-solid fa-circle-info"></i> Details</a>
                                                             </td>
                                                             <td>
                                                                 <?php if($book["disabled"] === "0"): ?>

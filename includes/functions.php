@@ -1186,4 +1186,105 @@
 		}
 		return false;
 	}
+
+	function get_accepted_accessories()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessory_selling WHERE verified = '1'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_uploaded_accessories()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function upload_accessory($data)
+	{
+		global $db;
+		extract($data);
+		//$photo_url_url = isset($_FILES['photo_url']) ? upload_file($_FILES['photo_url'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$sql = "INSERT INTO accessories (title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, disabled, deleted) VALUES (:title, :accessory_type, :brand, :processor, :screen_size, :price, :description, :photo_url, :photo_url2, '0', '0')";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+			$stmt->bindParam(':accessory_type', $accessory_type, PDO::PARAM_STR);
+			$stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+			$stmt->bindParam(':processor', $processor, PDO::PARAM_STR);
+			$stmt->bindParam(':screen_size', $screen_size, PDO::PARAM_STR);
+			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url', $photo_url, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url2', $photo_url2, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Accessory Uploaded Successfully.";
+			}
+			else
+			{
+				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes.";
+			}
+		}
+		return false;
+	}
+
+	function get_uploaded_accessories_by_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE id = $id";
+		$stmt = $db->prepare($sql);
+
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function enable_disable_accessory($disabled, $id)
+	{
+		global $db;
+		$sql = "UPDATE accessories SET disabled = '$disabled', modified_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{	
+			$_SESSION["success_messages"][] = "Updated Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function delete_accessory_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE accessories SET deleted = '1', deleted_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
+	}
 ?>

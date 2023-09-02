@@ -1,5 +1,5 @@
 <?php
-    $page_title = "Book Selling Details Page";
+    $page_title = "Accessory Selling Details Page";
     require_once($_SERVER["DOCUMENT_ROOT"]."/admin/nav.php");
 
     if(isset($_GET["q"]) && !empty($_GET["q"]) && is_numeric($_GET["q"]))

@@ -1,28 +1,24 @@
 <?php
-    $page_title = "Book Details";
+    $page_title = "Uploaded Accessory Details";
     require_once($_SERVER["DOCUMENT_ROOT"]."/admin/nav.php");
 
     if(isset($_GET["q"]) && !empty($_GET["q"]) && is_numeric($_GET["q"]))
     {
         $id = trim($_GET["q"]);
-        $book = get_book_sell_request_detail_using_id($id);
+        $accessory = get_uploaded_accessories_by_id($id);
     }
 ?>
 
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <?php $category = get_category_by_id($book["category_id"]); ?>
-            <?php $user = get_user_details_by_passing_id($book["user_id"]); ?>
-            <?php $language = get_language_by_id($book["language_id"]); ?>
-            <?php $department = get_department_by_id($book["department_id"]); ?>
             <div class="card master_config_main_card my-4">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card master_config_inner_card mb-3">
                                 <div class="card-header card_heading_text">
-                                    <strong>Book Details</strong>
+                                    <strong>Accessory Details</strong>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -33,15 +29,15 @@
                                                         <div class="col-lg-11 mx-auto">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <?php if($book["cover_url"] > 0): ?>
-                                                                        <img src="<?php echo $book["cover_url"]; ?>" class="rounded" alt="Book Image" height="200px" width="240px">
+                                                                    <?php if($accessory["photo_url"] > 0): ?>
+                                                                        <img src="<?php echo $accessory["photo_url"]; ?>" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php else: ?>
-                                                                        <img src="/assets/img/book_selling.jpg" class="rounded" alt="Book Image" height="200px" width="240px">
+                                                                        <img src="/assets/img/accessory_selling.jpg" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php endif; ?>
                                                                 </div>
                                                                 <div class="col-lg-8 mx-4 mt-3">
-                                                                    <h3 class="bold"><?php echo $book["title"]; ?></h3>
-                                                                    <h6 class="bold"><?php echo "By"." ".$book["author"]; ?></h6>
+                                                                    <h3 class="bold"><?php echo $accessory["title"]; ?></h3>
+                                                                    <h6 class="bold"><?php echo $accessory["brand"]; ?></h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -60,47 +56,33 @@
                                                             <div class="row mb-2">
                                                                 <div class="col-lg-6">
                                                                     <label>Title</label>
-                                                                    <div class="bold"><?php echo $book["title"]; ?></div>
+                                                                    <div class="bold"><?php echo $accessory["title"]; ?></div>
                                                                 </div>
                                                                 <div class="col-lg-6">
-                                                                    <label>Type</label>
-                                                                    <div class="bold"><?php echo $category["name"]; ?></div>
+                                                                    <label>Brand</label>
+                                                                    <div class="bold"><?php echo $accessory["brand"]; ?></div>
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-2">
                                                                 <div class="col-lg-6">
-                                                                    <label>Uploaded By</label>
-                                                                    <div class="bold"><?php echo $user["first_name"]." ".$user["middle_name"]." ".$user["last_name"]; ?></div>
+                                                                    <label>Processor</label>
+                                                                    <div class="bold"><?php echo $accessory["processor"]; ?></div>
                                                                 </div>
                                                                 <div class="col-lg-6">
-                                                                    <label>Email</label>
-                                                                    <div class="bold"><?php echo $user["email_address"]; ?></div>
+                                                                    <label>Screen Size</label>
+                                                                    <div class="bold"><?php echo $accessory["screen_size"]; ?></div>
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-2">
-                                                                <div class="col-lg-6">
-                                                                    <label>ISBN</label>
-                                                                    <div class="bold"><?php echo $book["isbn"]; ?></div>
-                                                                </div>
                                                                 <div class="col-lg-6">
                                                                     <label>Price</label>
-                                                                    <div class="bold"><?php echo $book["price"]; ?></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row mb-2">
-                                                                <div class="col-lg-6">
-                                                                    <label>Language</label>
-                                                                    <div class="bold"><?php echo $language["name"]; ?></div>
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <label>Department</label>
-                                                                    <div class="bold"><?php echo $department["name"]; ?></div>
+                                                                    <div class="bold"><?php echo $accessory["price"]; ?></div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <label>Description</label>
-                                                                    <div class="bold"><?php echo $book["description"]; ?></div>
+                                                                    <div class="bold"><?php echo $accessory["description"]; ?></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -109,11 +91,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 text-center mb-4">
-                                        <a href="/admin/book/upload_book?q=<?php echo $book["id"]; ?>" class="btn btn master_config_button_style col-md-2" id="upload_book" name="upload_book"><i class="fa-solid fa-plus"></i> Upload Book</a>
-                                        <a href="/admin/book/create_book" class="btn btn btn-danger master_config_cancel_button col-md-2" id="book_cancel" name="book_cancel">Close</a>
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center mt-3 mb-4">
+                                            <a href="/admin/accessory/create_accessory" class="btn btn btn-danger master_config_cancel_button col-md-2" id="cancel_button" name="cancel_button">Close</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
