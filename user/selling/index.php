@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <img src="/assets/img/selling_page_img.jpg" class="img-fluid shadow-sm mt-1 rounded rounded-2" id="" alt="Image" name="" style="width:100%;height:90%">
+            <img src="/assets/img/selling_page_img.jpg" class="img-fluid shadow-sm mt-1 rounded rounded-2" id="" alt="Image" name="" width="100%" height="90%">
         </div>
     </div>
     <div class="row">

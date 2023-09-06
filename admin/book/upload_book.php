@@ -96,7 +96,7 @@
                                                                 <option value="<?php echo $department["id"]; ?>" selected><?php echo $department["name"]; ?></option>
                                                                 <?php if($departments = get_department_names()): ?>
                                                                     <?php foreach ($departments as $department): ?>
-                                                                        <option value="<?php echo $department["id"]; ?>"><?php $department["name"]; ?></option>
+                                                                        <option value="<?php echo $department["id"]; ?>"><?php echo $department["name"]; ?></option>
                                                                     <?php endforeach; ?>
                                                                 <?php endif; ?>
                                                             </select>
