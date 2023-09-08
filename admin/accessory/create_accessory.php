@@ -28,6 +28,7 @@
                                                     <th class="col-md-5">Name</th>
                                                     <th>Type</th>
                                                     <th>Brand</th>
+                                                    <th class="col-md-2">Uploaded</th>
                                                     <th class="col-md-2">Details</th>
                                                 </tr>
                                             </thead>
@@ -43,6 +44,13 @@
                                                             <td><?php echo $accessory["title"]; ?></td>
                                                             <td><?php echo $sub_category["name"]; ?></td>
                                                             <td><?php echo $accessory["brand"]; ?></td>
+                                                            <td>
+                                                                <?php if($accessory["uploaded"] === "1"): ?>
+                                                                    <a href="/admin/accessory/uploaded_not_uploaded_accessory?q=<?php echo $accessory["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="uploaded" name="uploaded"><i class="fa-solid fa-circle-check"></i> Uploaded</a>
+                                                                <?php else: ?>
+                                                                    <a href="/admin/accessory/uploaded_not_uploaded_accessory?q=<?php echo $accessory["id"]; ?>" class="btn btn-sm btn-warning mx-auto d-block col-md-8" id="not_uploaded" name="not_uploaded"><i class="fa-solid fa-circle-dot"></i> Pending</a>
+                                                                <?php endif; ?>
+                                                            </td>
                                                             <td>
                                                                 <a href="/admin/accessory/accessory_details?q=<?php echo $accessory["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="accessory_details" name="accessory_details"><i class="fa-solid fa-circle-info"></i> Details</a>
                                                             </td>
@@ -80,7 +88,7 @@
                                                         $number = 1;
                                                         foreach($accessories as $accessory):
                                                     ?>
-                                                        <?php $subcategory = get_subcategory_by_id($accessory["sub_category_id"]); ?>
+                                                        <?php $sub_category = get_subcategory_by_id($accessory["sub_category_id"]); ?>
                                                         <tr>
                                                             <td><?php echo $number; ?></td>
                                                             <td><?php echo $accessory["title"]; ?></td>

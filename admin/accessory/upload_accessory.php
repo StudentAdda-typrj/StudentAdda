@@ -44,15 +44,14 @@
                                                     <div class="row mb-2">
                                                         <div class="col-lg-6">
                                                             <label for="accessory_type" class="text-dark required-highlight mb-1">Type</label>
-                                                            <select class="form-control" id="accessory_type" name="accessory_type" required>
+                                                            <select class="form-control" id="accessory_type" name="accessory_type" value="<?php echo $sub_category["name"]; ?>" required>
                                                                 <option value="" disabled>Select Type</option>
-                                                                <option value="<?php echo $sub_category["name"]; ?>" selected><?php echo $sub_category["name"]; ?></option>
+                                                                <option value="<?php echo $sub_category["id"]; ?> " selected><?php echo $sub_category["name"]; ?></option>
                                                                 <?php
                                                                     if($sub_categories = get_subcategory_names()): ?>
                                                                         <?php foreach($sub_categories as $sub_category): ?>
-                                                                            <option value ="<?php echo $sub_category["id"];?>"><?php echo $sub_category["name"]; ?></option>
-                                                                            <?php
-                                                                        endforeach ?>
+                                                                            <option value="<?php echo $sub_category["id"];?>"><?php echo $sub_category["name"]; ?></option>
+                                                                        <?php endforeach; ?>
                                                                     <?php endif; ?>
                                                             </select>
                                                             <div class="invalid-feedback">Select a type from the following.</div>

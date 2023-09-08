@@ -15,7 +15,9 @@
             <?php $category = get_category_by_id($book["category_id"]); ?>
             <?php $user = get_user_details_by_passing_id($book["user_id"]); ?>
             <?php $language = get_language_by_id($book["language_id"]); ?>
-            <?php $department = get_department_by_id($book["department_id"]); ?>
+            <?php if($book["department_id"] > '0'):?>
+                <?php $department = get_department_by_id($book["department_id"]); ?>
+            <?php endif; ?>
             <div class="card master_config_main_card my-4">
                 <div class="card-body">
                     <div class="row">
@@ -94,7 +96,11 @@
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <label>Department</label>
-                                                                    <div class="bold"><?php echo $department["name"]; ?></div>
+                                                                    <?php if($book["department_id"] > 0): ?>
+                                                                        <div class="bold"><?php echo $department["name"]; ?></div>
+                                                                    <?php else: ?>
+                                                                        <div class="bold"><?php echo "Not Available"; ?></div>
+                                                                    <?php endif; ?>
                                                                 </div>
                                                             </div>
                                                             <div class="row">

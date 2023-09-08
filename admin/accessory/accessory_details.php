@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 text-center mt-3 mb-4">
-                                            <a href="/admin/accessory/upload_accessory?q=<?php echo $accessory["id"]; ?>" class="btn btn master_config_button_style col-md-2" id="upload_accessory" name="upload_accessory"><i class="fa-solid fa-plus"></i> Upload Book</a>
+                                            <a href="/admin/accessory/upload_accessory?q=<?php echo $accessory["id"]; ?>" class="btn btn master_config_button_style col-md-2" id="upload_accessory" name="upload_accessory"><i class="fa-solid fa-plus"></i> Upload Accessory</a>
                                             <a href="/admin/accessory/create_accessory" class="btn btn btn-danger master_config_cancel_button col-md-2" id="accessory_cancel" name="accessory_cancel">Close</a>
                                         </div>
                                     </div>

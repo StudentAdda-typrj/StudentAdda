@@ -541,7 +541,7 @@
 		if(!isset($_SESSION["error_messages"]))
 		{
 			$user_id = $_SESSION["user_id"];
-			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, verified) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0')";
+			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, verified, uploaded) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
@@ -577,7 +577,7 @@
 		if(!isset($_SESSION["error_messages"]))
 		{
 			$user_id = $_SESSION["user_id"];
-			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, verified) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :description, :photo_url, :photo_url2, '0')";
+			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, verified, uploaded) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :description, :photo_url, :photo_url2, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
@@ -1088,7 +1088,7 @@
 	function get_accepted_books()
 	{
 		global $db;
-		$sql = "SELECT * FROM book_selling WHERE verified = '1'";
+		$sql = "SELECT * FROM book_selling WHERE verified = '1' AND uploaded = '0'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1102,8 +1102,6 @@
 	{
 		global $db;
 		extract($data);
-		//$cover_url = isset($_FILES['cover_url']) ? upload_file($_FILES['cover_url'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
-
 		if(!isset($_SESSION["error_messages"]))
 		{
 			$sql = "INSERT INTO books (title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, disabled, deleted) VALUES (:title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0', '0')";
@@ -1118,15 +1116,27 @@
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
 			$stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
 			$stmt->bindParam(':index_url', $index_url, PDO::PARAM_STR);
-
+			
 			if($stmt->execute())
 			{
 				$_SESSION["success_messages"][] = "Book Uploaded Successfully.";
+				return true;
 			}
-			else
-			{
-				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes.";
-			}
+		}
+		return false;
+	}
+
+	function uploaded_not_uploaded_book($uploaded,$id)
+	{
+		global $db;
+		$sql = "UPDATE book_selling SET uploaded = '$uploaded', uploaded_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Done!";
+			return true;
 		}
 		return false;
 	}
@@ -1190,7 +1200,7 @@
 	function get_accepted_accessories()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessory_selling WHERE verified = '1'";
+		$sql = "SELECT * FROM accessory_selling WHERE verified = '1' AND uploaded = '0'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1241,6 +1251,21 @@
 			{
 				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes.";
 			}
+		}
+		return false;
+	}
+
+	function uploaded_not_uploaded_accessory($uploaded,$id)
+	{
+		global $db;
+		$sql = "UPDATE accessory_selling SET uploaded = '$uploaded', uploaded_timestamp = NOW() WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Done!";
+			return true;
 		}
 		return false;
 	}

@@ -28,6 +28,7 @@
                                                     <th class="col-md-5">Name</th>
                                                     <th>Type</th>
                                                     <th>Language</th>
+                                                    <th class="col-md-2">Uploaded</th>
                                                     <th class="col-md-2">Details</th>
                                                 </tr>
                                             </thead>
@@ -44,6 +45,13 @@
                                                             <td><?php echo $book["title"]; ?></td>
                                                             <td><?php echo $category["name"]; ?></td>
                                                             <td><?php echo $language["name"]; ?></td>
+                                                            <td>
+                                                                <?php if($book["uploaded"] === "1"): ?>
+                                                                    <a href="/admin/book/uploaded_not_uploaded_book?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="uploaded" name="uploaded"><i class="fa-solid fa-circle-check"></i> Uploaded</a>
+                                                                <?php else: ?>
+                                                                    <a href="/admin/book/uploaded_not_uploaded_book?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-warning mx-auto d-block col-md-8" id="not_uploaded" name="not_uploaded"><i class="fa-solid fa-circle-dot"></i> Pending</a>
+                                                                <?php endif; ?>
+                                                            </td>
                                                             <td>
                                                                 <a href="/admin/book/book_details?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-primary mx-auto d-block col-md-8" id="book_details" name="book_details"><i class="fa-solid fa-circle-info"></i> Details</a>
                                                             </td>

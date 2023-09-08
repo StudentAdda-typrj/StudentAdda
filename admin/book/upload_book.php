@@ -21,7 +21,9 @@
         <div class="col-lg-12">
             <?php $category = get_category_by_id($book["category_id"]); ?>
             <?php $language = get_language_by_id($book["language_id"]); ?>
-            <?php $department = get_department_by_id($book["department_id"]); ?>
+            <?php if($book["department_id"] > '0'):?>
+                <?php $department = get_department_by_id($book["department_id"]); ?>
+            <?php endif; ?>
             <div class="my-3">
                 <?php require_once($_SERVER["DOCUMENT_ROOT"]."/includes/view_messages_and_errors.php"); ?>
             </div>
@@ -91,15 +93,26 @@
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <label for="department" class="text-dark required-highlight mb-1">Department</label>
-                                                            <select class="form-control" name="department" id="department" required disabled>
-                                                                <option value="" selected disabled>Select</option>
-                                                                <option value="<?php echo $department["id"]; ?>" selected><?php echo $department["name"]; ?></option>
-                                                                <?php if($departments = get_department_names()): ?>
-                                                                    <?php foreach ($departments as $department): ?>
-                                                                        <option value="<?php echo $department["id"]; ?>"><?php echo $department["name"]; ?></option>
-                                                                    <?php endforeach; ?>
-                                                                <?php endif; ?>
-                                                            </select>
+                                                            <?php if($book["department_id"] > 0): ?>
+                                                                <select class="form-control" name="department" id="department" required disabled>
+                                                                    <option value="" selected disabled>Select</option>
+                                                                    <option value="<?php echo $department["id"]; ?>" selected><?php echo $department["name"]; ?></option>
+                                                                    <?php if($departments = get_department_names()): ?>
+                                                                        <?php foreach ($departments as $department): ?>
+                                                                            <option value="<?php echo $department["id"]; ?>"><?php echo $department["name"]; ?></option>
+                                                                        <?php endforeach; ?>
+                                                                    <?php endif; ?>
+                                                                </select>
+                                                            <?php else: ?>
+                                                                <select class="form-control" name="department" id="department" required disabled>
+                                                                    <option value="" selected disabled>Select</option>
+                                                                    <?php if($departments = get_department_names()): ?>
+                                                                        <?php foreach ($departments as $department): ?>
+                                                                            <option value="<?php echo $department["id"]; ?>"><?php echo $department["name"]; ?></option>
+                                                                        <?php endforeach; ?>
+                                                                    <?php endif; ?>
+                                                                </select>
+                                                            <?php endif; ?>
                                                             <div class="invalid-feedback">Please specify the stream of the book.</div>
                                                         </div>
                                                     </div>
