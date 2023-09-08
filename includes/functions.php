@@ -1312,4 +1312,109 @@
 		}
 		return false;
 	}
+
+	function number_of_user_list_from_users()
+	{
+		global $db;
+
+		$sql = "SELECT COUNT(user_id) AS user_count FROM users WHERE role = 'user'";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['user_count'];
+		}
+		return false;
+	}
+
+	function number_of_accessories_uploaded()
+	{
+		global $db;
+
+		$sql = "SELECT COUNT(id) AS accessory_count FROM accessories";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['accessory_count'];
+		}
+		return false;
+	}
+
+	function number_of_books_uploaded()
+	{
+		global $db;
+
+		$sql = "SELECT COUNT(id) AS book_count FROM books";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['book_count'];
+		}
+		return false;
+	}
+
+	function number_of_book_requested()
+	{
+		global $db;
+
+		$sql = "SELECT COUNT(id) AS book_request_count FROM book_request";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['book_request_count'];
+		}
+		return false;
+	}
+
+	function number_of_selling_books()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+		$sql = "SELECT COUNT(id) AS book_count FROM book_selling WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['book_count'];
+		}
+		return false;
+	}
+
+	function number_of_selling_accessories()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+		$sql = "SELECT COUNT(id) AS accessory_count FROM accessory_selling WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['accessory_count'];
+		}
+		return false;
+	}
+
+	function number_of_book_requested_by_user()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+		$sql = "SELECT COUNT(id) AS book_request_count FROM book_request WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['book_request_count'];
+		}
+		return false;
+	}
 ?>
