@@ -231,37 +231,6 @@
     </form>
 </div>
 
-<style>
-    .upload{
-    position: relative;
-    }
-    .upload img{
-        border-radius: 50%;
-        border: 3px solid #FFCF72;
-    }
-    .upload .round{
-        position: absolute;
-        bottom: 10%;
-        right: 5%;
-        background: #FFCF72;
-        width: 32px;
-        height: 32px;
-        line-height: 33px;
-        overflow: hidden;
-        text-align: center;
-        border-radius: 50%;
-    }
-    .upload .round input[type='file']{
-        position: absolute;
-        transform: scale(2);
-        opacity: 0;
-        
-    }
-    .upload .round input[type='file']::-webkit-file-upload-button{
-        cursor: pointer;
-    }
-</style>
-
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");
 ?>
