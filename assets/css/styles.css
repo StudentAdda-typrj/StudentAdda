@@ -181,6 +181,14 @@ label.required-highlight:after {
   border-color: #FFCF72;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+.edit_profile_button:hover{
+  font-weight: bold;
+  font-size: 15px;
+  background-color: #FFD699;
+  border-radius: 30px;
+  border-color: #FFCF72;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 .admin_main_card{
   background: linear-gradient(90deg, #FAE6C0, rgba(250, 230, 192, 0.31)) !important;
   border-color: #FFCF72;

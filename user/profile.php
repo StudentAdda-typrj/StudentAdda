@@ -16,21 +16,24 @@
 ?>
 
 <div class="container">
-    <div class="my-3">
+    <div class="mt-3">
         <?php require_once($_SERVER["DOCUMENT_ROOT"]."/includes/view_messages_and_errors.php"); ?>
     </div>
     <form role="form" action="<?php echo get_action_attr_value_for_current_page(); ?>" method="post" enctype="multipart/form-data">
-        <?php
-            $user = get_user_details_using_id();
-        ?>
+        <?php $user = get_user_details_using_id(); ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mt-5 profile_upper_section">
-                    <div class="mx-auto">
-                        <label class="text-center" for="photo_url">
-                            <input type="file" id="photo_url" name="photo_url" style="display: none" />
-                            <img src="/assets/img/default_profile.jpeg" class="rounded-circle user_profile_image" alt="Image" value="" name="photo_url" id="photo_url">
-                        </label>
+                    <div class="upload mx-auto">
+                        <?php if($user["profile_url"] > '0'): ?>
+                            <img src="<?php echo substr($user["profile_url"],27); ?>" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="profile_image" id="profile_image">
+                        <?php else: ?>
+                            <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="default_pprofile_image" id="default_profile_image">
+                        <?php endif; ?>
+                        <div class="round">
+                            <input type="file" name="profile_url" id="profile_url"  accept="image/*"/>
+                            <i class="fa fa-camera" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="text-center py-2">
                         <h1 class="bold">Hello 
@@ -44,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <ul class="nav nav-pills my-3" role="tablist">
+        <ul class="nav nav-pills ms-5 mb-2 mt-4" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active link-dark" data-bs-toggle="pill" href="#profile">Profile</a>
             </li>
@@ -52,8 +55,9 @@
                 <a class="nav-link link-dark" data-bs-toggle="pill" href="#address">Address</a>
             </li>
         </ul>
+        <hr class="ms-5 me-5" style="color:#FFCF72;">
         <div class="row">
-            <div class="col-lg-12 pe-5 ps-5 pt-3">
+            <div class="col-lg-11 mx-auto pe-5 ps-5 pt-3">
                 <div class="tab-content">
                     <div id="profile" class="tab-pane active">
                         <div class="row">
@@ -99,7 +103,7 @@
                         <div class="row">
                             <div class="col-md-7">
                                 <label for="gender" class="text-dark required-highlight">Gender</label>
-                                <div class="row" id="details" name="details">
+                                <div class="row mb-3" id="details" name="details">
                                     <?php if ($user["gender"] === "male"): ?>
                                         <div class="col-md-2">
                                             <input type="radio" class="form-check-input" id=gender name="gender" value="Male" checked required>
@@ -180,20 +184,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 pe-5 ps-5 pt-3">
+            <div class="col-lg-11 mx-auto pe-5 ps-5">
                 <div class="tab-content">
                     <div id="address" class="tab-pane">
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="input-group-md mb-3">
                                     <label for="street_address" class="text-dark required-highlight">Street Address</label>
-                                    <input class="form-control" type="text" value="<?php echo $user["street_address"]?>" placeholder="Address" name="street_address" id="street_address" required>
+                                    <input class="form-control" type="text" value="<?php echo $user["street_address"]?>" placeholder="Address" name="street_address" id="street_address">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
                                     <label for="city" class="text-dark required-highlight">City</label>
-                                    <input class="form-control" type="text" value="<?php echo $user["city"]?>" placeholder="City" name="city" id="city" required>
+                                    <input class="form-control" type="text" value="<?php echo $user["city"]?>" placeholder="City" name="city" id="city">
                                 </div>
                             </div>
                         </div>
@@ -201,13 +205,13 @@
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
                                     <label for="state" class="text-dark required-highlight">State</label>
-                                    <input class="form-control" type="text" value="<?php echo $user["state"]?>" placeholder="State" name="state" id="state" required>
+                                    <input class="form-control" type="text" value="<?php echo $user["state"]?>" placeholder="State" name="state" id="state">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group-md mb-3">
                                     <label for="postal_code" class="text-dark required-highlight">Pincode</label>
-                                    <input class="form-control" type="number" value="<?php echo $user["postal_code"]?>" placeholder="PIN" name="postal_code" id="postal_code" required>
+                                    <input class="form-control" type="number" value="<?php echo $user["postal_code"]?>" placeholder="PIN" name="postal_code" id="postal_code">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -217,7 +221,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="my-3">
+                        <div class="mt-3 mb-5 pb-5">
                             <button type="submit" id="update_user_address_details_btn" name="update_user_address_details_btn"  class="btn btn-sm edit_profile_button pe-3 ps-3">Update</button>
                         </div>
                     </div>
@@ -226,6 +230,37 @@
         </div>
     </form>
 </div>
+
+<style>
+    .upload{
+    position: relative;
+    }
+    .upload img{
+        border-radius: 50%;
+        border: 3px solid #FFCF72;
+    }
+    .upload .round{
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        background: #FFCF72;
+        width: 32px;
+        height: 32px;
+        line-height: 33px;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 50%;
+    }
+    .upload .round input[type='file']{
+        position: absolute;
+        transform: scale(2);
+        opacity: 0;
+        
+    }
+    .upload .round input[type='file']::-webkit-file-upload-button{
+        cursor: pointer;
+    }
+</style>
 
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

@@ -134,8 +134,13 @@
 
 		if (!isset($_SESSION["error_messages"]))
 		{
+			$file_name = $_FILES["profile_url"]["name"];
+			$temp_name = $_FILES["profile_url"]["tmp_name"];
+			$folder = "C:/xampp/htdocs/StudentAdda/assets/img/user_profile/".$file_name;
+			move_uploaded_file($temp_name, $folder);
+			
 		    $user_id = $_SESSION["user_id"];
-		    $sql = "UPDATE user_details SET first_name = :first_name, middle_name = :middle_name, last_name = :last_name, dob = :dob, gender = :gender, contact_number = :contact_number, modified_timestamp = NOW() WHERE user_id = :user_id";
+		    $sql = "UPDATE user_details SET first_name = :first_name, middle_name = :middle_name, last_name = :last_name, dob = :dob, gender = :gender, contact_number = :contact_number, profile_url = '$folder', modified_timestamp = NOW() WHERE user_id = :user_id";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR);
@@ -514,29 +519,10 @@
 		}
 	}
 
-	// function upload_file($file, $targetDirectory, $allowedExtensions) {
-	// 	$fileName = basename($file["name"]);
-	// 	$targetFile = $targetDirectory . $fileName;
-	// 	$fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-	  
-	// 	// Check if the file has a valid extension
-	// 	if (!in_array($fileExtension, $allowedExtensions)) {
-	// 	  return ""; // Return an empty string if the file has an invalid extension
-	// 	}
-	  
-	// 	// Move the uploaded file to the target directory
-	// 	if (move_uploaded_file($file["tmp_name"], $targetFile)) {
-	// 	  return $targetFile; // Return the URL of the uploaded file
-	// 	}
-	  
-	// 	return ""; // Return an empty string if there was an error during file upload
-	// }
-
 	function perform_book_selling($data)
 	{
 		global $db;
 		extract($data);
-		//$cover_url = isset($_FILES['cover_url']) ? upload_file($_FILES['cover_url'], "assets/img/Sell_Request_Book_Images/", ["jpg", "jpeg", "png", "gif"]) : "";
 
 		if(!isset($_SESSION["error_messages"]))
 		{
