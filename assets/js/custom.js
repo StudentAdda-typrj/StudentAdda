@@ -35,3 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+//User profile Image upload preview
+const image = document.querySelector("img");
+const input =document.querySelector('input[name="profile_url"]');
+
+input.addEventListener("change", () => {
+    image.src = URL.createObjectURL(input.files[0]);
+});
