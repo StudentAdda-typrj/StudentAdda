@@ -54,7 +54,7 @@
                     </a>
                 </li>    
             </ul>
-            <a class="btn btn-sm navbar_button me-3 d-block" href="">
+            <a class="btn btn-sm navbar_button me-3 d-block" href="/about.php">
                 <strong class="p-3">About Us</strong>
             </a>
             <a class="btn btn-sm navbar_button me-3 d-block" href="">
