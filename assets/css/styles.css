@@ -355,3 +355,7 @@ label.required-highlight:after {
       font-size: 18px;
   }
 }
+hr.rounded {
+  border-top: 4px solid #FFCF72;
+  border-radius: 5px;
+}

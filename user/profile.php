@@ -55,7 +55,7 @@
                 <a class="nav-link link-dark" data-bs-toggle="pill" href="#address">Address</a>
             </li>
         </ul>
-        <hr class="ms-5 me-5" style="color:#FFCF72;">
+        <hr class="ms-5 me-5 rounded">
         <div class="row">
             <div class="col-lg-11 mx-auto pe-5 ps-5 pt-3">
                 <div class="tab-content">
