@@ -359,3 +359,27 @@ hr.rounded {
   border-top: 4px solid #FFCF72;
   border-radius: 5px;
 }
+.footer_background{
+  background-color: #FFF7EB;
+}
+.footer_style{
+  position: relative;
+}
+.footer_style:before{
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left:0;
+  height: 3px;
+  width: 100%;
+  transition: 0.25s;
+  border-radius: 25px;
+  transform: scaleX(0);
+  background: #000000;
+}
+.footer_style:hover:before{
+  transform: scaleX(1);
+}
+input{
+  caret-color: #FFD699;
+}

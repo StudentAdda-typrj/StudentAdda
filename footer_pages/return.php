@@ -1,6 +1,6 @@
 <?php
-    $page_title = "Selling Page";
-    require_once($_SERVER["DOCUMENT_ROOT"]."/user/nav.php");
+    $page_title = "Return and Replacement Policy";
+    require_once($_SERVER["DOCUMENT_ROOT"]."/includes/init.php");
 ?>
 
 <div class="container mt-3">
