@@ -317,3 +317,41 @@ label.required-highlight:after {
   border-color: #FFCF72;
   background-color: #FAE6C0;
 }
+.image_shadow{
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.5);
+}
+@media screen and (min-width: 601px) {
+  .choose_category {
+      font-size: 27px;
+  }
+  .text{
+      font-size: 18px;
+  }
+  .post_ad{
+      font-size: 35px;
+  }
+  .book{
+      font-size: 23px;
+  }
+  .accessory{
+      font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .choose_category {
+      font-size: 20px;
+  }
+  .text{
+      font-size: 13px;
+  }
+  .post_ad{
+      font-size: 25px;
+  }
+  .book{
+      font-size: 18px;
+  }
+  .accessory{
+      font-size: 18px;
+  }
+}
