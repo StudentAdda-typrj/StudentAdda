@@ -1,5 +1,5 @@
-  <footer class="text-lg-start text-black m-1 bold">
-    <hr class="rounded"/>
+  <hr class="rounded"/>
+  <footer class="text-lg-start text-black bold">
     <div class="p-4 text-start">
         <div class="row">
             <div class="col-lg-10 mx-auto">
@@ -52,17 +52,13 @@
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
                     <h5 class="text-uppercase mb-4 bold">Follow Us</h5>
-                    <ul class="list-unstyled">
-                      <li class="mb-2">
-                        <a href="https://www.instagram.com/" class="text-black text-decoration-none footer_style">Instagram</a>
-                      </li>
-                      <li class="mb-2">
-                        <a href="https://www.facebook.com/" class="text-black text-decoration-none footer_style">Facebook</a>
-                      </li>
-                      <li class="mb-2">
-                        <a href="https://twitter.com/" class="text-black text-decoration-none footer_style">Twitter</a>
-                      </li>
-                    </ul>
+                    <div class="row">
+                      <div class="col-lg-6 mx-auto">
+                        <a href="https://www.instagram.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-facebook"></i></a>
+                        <a href="https://twitter.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-twitter"></i></a>
+                      </div>
+                    </div>
                   </div>
               </div>
             </div>
