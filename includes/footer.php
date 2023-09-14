@@ -1,7 +1,8 @@
   <footer class="text-lg-start text-black m-1 bold">
+    <hr class="rounded"/>
     <div class="p-4 text-start">
-      <div class="row">
-          <div class="col-lg-10 mx-auto">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
               <div class="row">
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 pe-5">
                     <div class="mb-4 mx-auto">
@@ -16,7 +17,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                    <h5 class="text-uppercase mb-4">Explore</h5>
+                    <h5 class="text-uppercase mb-4 bold">Explore</h5>
                     <ul class="list-unstyled">
                       <li class="mb-2">
                         <a href="/index.php" class="text-black text-decoration-none footer_style">Home</a>
@@ -31,7 +32,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                    <h5 class="text-uppercase mb-4">Consumer Policy</h5>
+                    <h5 class="text-uppercase mb-4 bold">Consumer Policy</h5>
 
                     <ul class="list-unstyled">
                       <li class="mb-2">
@@ -64,10 +65,10 @@
                     </ul>
                   </div>
               </div>
-          </div>
-      </div>
+            </div>
+        </div>
     </div>
-    <div class="text-center pt-2 pb-2" style="background-color: rgba(0, 0, 0, 0.2)">
+    <div class="text-center pt-2 pb-2 footer_copyright">
       © 2023 Copyright:
       <a class="text-black" href="/index.php">StudentAdda.com</a>
     </div>
