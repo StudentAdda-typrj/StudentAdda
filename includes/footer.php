@@ -26,7 +26,7 @@
                         <a href="/footer_pages/about.php" class="text-black text-decoration-none footer_style">About</a>
                       </li>
                       <li class="mb-2">
-                        <a href="" class="text-black text-decoration-none footer_style">Contact</a>
+                        <a href="/footer_pages/contact.php" class="text-black text-decoration-none footer_style">Contact</a>
                       </li>
                     </ul>
                   </div>

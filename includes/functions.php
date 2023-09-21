@@ -1689,4 +1689,35 @@
 		}
 		return false;
 	}
+
+	function perform_contact_operation($data)
+	{
+		global $db;
+		extract($data);
+		print_r($data);
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$sql = "INSERT INTO user_queries (name, email,contact_number,description) VALUES (:name, :email, :contact_number, :description)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':name', $name, PDO::PARAM_STR);
+			$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+			$stmt->bindParam(':contact_number', $contact_number, PDO::PARAM_STR);
+			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Thank you for contacting us. Our team will asnwer your queries or contact you within 24 hours";
+			}
+			else
+			{
+				$_SESSION["error_messages"][] = "Sorry, Something went wrong try again after sometimes";
+			}
+		}
+		return false;
+	}
+	
+	
+	
+
 ?>
