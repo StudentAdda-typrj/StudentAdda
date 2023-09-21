@@ -107,8 +107,9 @@
                                                 <div class="col-lg-9 mx-auto">
                                                     <label for="cover_url" class="text-dark required-highlight mb-1">Upload Cover Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="cover_url" id="cover_url" accept="image/*" required>
+                                                        <input class="form-control" type="file" name="cover_url" id="cover_url" onchange="getCoverImagePreview(event)" accept="image/*" required>
                                                         <div class="invalid-feedback">Please choose an image file.</div>
+                                                        <div id="cover_image_preview" class="mt-2 text-center"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,8 +125,9 @@
                                                 <div class="col-lg-9 mx-auto">
                                                     <label for="index_url" class="text-dark required-highlight mb-1">Upload Index Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="index_url" id="index_url" accept="image/*" required>
+                                                        <input class="form-control" type="file" name="index_url" id="index_url" onchange="getIndexImagePreview(event)" accept="image/*" required>
                                                         <div class="invalid-feedback">Please choose an image file.</div>
+                                                        <div id="index_image_preview" class="mt-2 text-center"></div>
                                                     </div>
                                                 </div>
                                             </div>

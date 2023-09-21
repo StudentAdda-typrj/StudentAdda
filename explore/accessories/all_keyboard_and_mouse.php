@@ -19,7 +19,7 @@
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">
                                             <?php else: ?>
-                                                <img class="rounded img_height" src="/assets/img/K&M.png" alt="Image">
+                                                <img class="rounded img_height" src="/assets/img/Keyboard_mouse.png" alt="Image">
                                             <?php endif; ?>
                                             <div class="py-3 ps-3">
                                                 <div>

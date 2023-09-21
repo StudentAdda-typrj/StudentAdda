@@ -37,9 +37,57 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //User profile Image upload preview
-const image = document.querySelector("img");
-const input =document.querySelector('input[name="profile_url"]');
+const profile_image = document.querySelector("img");
+const profile_input =document.querySelector('input[name="profile_url"]');
 
-input.addEventListener("change", () => {
-    image.src = URL.createObjectURL(input.files[0]);
+profile_input.addEventListener("change", () => {
+    profile_image.src = URL.createObjectURL(input.files[0]);
 });
+
+function getCoverImagePreview (event) {
+  var cover_image = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('cover_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = cover_image;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getIndexImagePreview (event) {
+  var index_image = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('index_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = index_image;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getFinalCoverImagePreview (event) {
+  var cover_image = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('final_cover_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = cover_image;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getFinalIndexImagePreview (event) {
+  var index_image = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('final_index_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = index_image;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}

@@ -64,7 +64,11 @@
             </div>
         </nav>
     <?php endif; ?>
-    <?php if($page_title === 'Login' || $page_title === 'Explore' || $page_title === 'Registration' || $page_title === 'All Books' || $page_title === 'All Accessories'): ?>
+    <?php if($page_title === 'Login' || $page_title === 'Explore' || $page_title === 'Registration' || $page_title === 'All Books' 
+    || $page_title === 'All Accessories' || $page_title === 'All Competitive Exam Books' || $page_title === 'All Novels' || 
+    $page_title === 'All History Books' || $page_title === 'All University Books' || $page_title === 'All Anime Comics' || 
+    $page_title === 'All Laptops' || $page_title === 'All Keyboard&Mouse' || $page_title === 'All Monitors' || $page_title === 
+    'All CPUs' || $page_title === 'All Tablets'): ?>
         <nav class="navbar navbar-expand-sm primary_navbar">
             <div class="container-fluid">
                 <a class="ms-3 navbar-brand" href="/index.php">

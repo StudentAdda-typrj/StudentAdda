@@ -383,7 +383,10 @@ hr.rounded {
   transform: scaleX(1);
 }
 input{
-  caret-color: #FFD699;
+  caret-color: #FF9900;
+}
+textarea{
+  caret-color: #FF9900;
 }
 .footer_copyright{
   background-color: #FFD699;
