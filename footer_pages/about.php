@@ -1,5 +1,5 @@
 <?php
-    $page_title = "About Us Page";
+    $page_title = "About Us";
     require_once($_SERVER["DOCUMENT_ROOT"]."/includes/init.php");
 ?>
 
