@@ -64,7 +64,7 @@
             </div>
         </nav>
     <?php endif; ?>
-    <?php if($page_title === 'Login' || $page_title === 'Explore' || $page_title === 'Registration'): ?>
+    <?php if($page_title === 'Login' || $page_title === 'Explore' || $page_title === 'Registration' || $page_title === 'All Books' || $page_title === 'All Accessories'): ?>
         <nav class="navbar navbar-expand-sm primary_navbar">
             <div class="container-fluid">
                 <a class="ms-3 navbar-brand" href="/index.php">

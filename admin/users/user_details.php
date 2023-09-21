@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="col-md-2 text-center">
                                     <?php if ($user["profile_url"] > 0): ?>
-                                        <img src="<?php echo $user["profile_url"]; ?>" class="img rounded-circle w-75 m-2" alt="profile image">
+                                        <img src="<?php echo substr($user["profile_url"],27); ?>" class="img rounded-circle w-75 m-2" alt="profile image">
                                     <?php else: ?>
                                         <img src="/assets/img/default_profile.jpeg" class="img rounded-circle w-75 m-2" alt="profile image">
                                     <?php endif; ?>

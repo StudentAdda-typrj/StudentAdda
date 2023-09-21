@@ -1,5 +1,5 @@
-  <hr class="rounded"/>
   <footer class="text-lg-start text-black bold">
+    <hr class="rounded"/>
     <div class="p-4 text-start">
         <div class="row">
             <div class="col-lg-10 mx-auto">
@@ -17,7 +17,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                    <h5 class="text-uppercase mb-4 bold">Explore</h5>
+                    <h5 class="text-uppercase mb-4 bold text-decoration-underline">Explore</h5>
                     <ul class="list-unstyled">
                       <li class="mb-2">
                         <a href="/index.php" class="text-black text-decoration-none footer_style">Home</a>
@@ -32,7 +32,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                    <h5 class="text-uppercase mb-4 bold">Consumer Policy</h5>
+                    <h5 class="text-uppercase mb-4 bold text-decoration-underline">Consumer Policy</h5>
 
                     <ul class="list-unstyled">
                       <li class="mb-2">
@@ -51,7 +51,7 @@
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                    <h5 class="text-uppercase mb-4 bold">Follow Us</h5>
+                    <h5 class="text-uppercase mb-4 bold text-decoration-underline">Follow Us</h5>
                     <div class="row">
                       <div class="col-lg-6 mx-auto">
                         <a href="https://www.instagram.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-instagram"></i></a>

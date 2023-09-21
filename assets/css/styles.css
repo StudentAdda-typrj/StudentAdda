@@ -79,9 +79,11 @@
 }
 .img_height{
   max-height: 200px;
+  border: 7px solid #ffa600;
 }
 .explore_image_card{
   border:none;
+  background-color: rgba(255, 247, 235, 1);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 body{

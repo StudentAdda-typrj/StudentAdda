@@ -77,7 +77,7 @@
 			}
 			else
 			{
-				$_SESSION["error_messages"][] = "Sorry, something went wrong creating your account, Please try again soon.";	
+				$_SESSION["error_messages"][] = "Sorry, something went wrong while creating your account, Please try again later.";	
 			}
 		}
 		return false;
@@ -1400,6 +1400,292 @@
 		{
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
         	return $result['book_request_count'];
+		}
+		return false;
+	}
+
+	function get_books_to_sell()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_accessories_to_sell()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_competitive_exam_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '1' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_novel_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '2' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_history_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '4' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_university_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '5' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_anime_comic_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '6' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_laptop_accessory()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '1' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_keyboard_mouse_accessory()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '2' OR sub_category_id = '3' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_monitor_accessory()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '4' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_cpu_accessory()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '5' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_tablet_accessory()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '6' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_competitive_exam_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '1'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_novels()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '2'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_history_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '4'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_university_books()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '5'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_anime_comics()
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '6'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_laptops()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '1'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_keyboard_and_mouse()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '2' OR sub_category_id = '3'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_monitors()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '4'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_cpus()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '5'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_tablets()
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '6'";
+		$stmt = $db->prepare($sql);
+
+		if( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
 		}
 		return false;
 	}
