@@ -131,16 +131,6 @@
     </div>
 </div>
 
-<style>
-    .contact_us_info{
-        background-color: #FAE6C0;
-        height: 100%;
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid #FFCF72;
-    }
-</style>
-
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");
 ?>
