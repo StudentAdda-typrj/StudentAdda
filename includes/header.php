@@ -68,7 +68,7 @@
     || $page_title === 'All Accessories' || $page_title === 'All Competitive Exam Books' || $page_title === 'All Novels' || 
     $page_title === 'All History Books' || $page_title === 'All University Books' || $page_title === 'All Anime Comics' || 
     $page_title === 'All Laptops' || $page_title === 'All Keyboard&Mouse' || $page_title === 'All Monitors' || $page_title === 
-    'All CPUs' || $page_title === 'All Tablets'): ?>
+    'All CPUs' || $page_title === 'All Tablets' || $page_title === 'Explore Book Details' || $page_title === 'Explore Accessory Details'): ?>
         <nav class="navbar navbar-expand-sm primary_navbar">
             <div class="container-fluid">
                 <a class="ms-3 navbar-brand" href="/index.php">

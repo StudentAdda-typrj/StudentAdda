@@ -14,7 +14,7 @@
                         <?php if ($laptops = get_laptop_accessory()): ?>
                             <?php foreach ($laptops as $accessory): ?>
                                 <div class="col-lg-3">
-                                    <a href="" class="text-decoration-none link-dark">
+                                    <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">
@@ -50,7 +50,7 @@
                         <?php if ($keyboard = get_keyboard_mouse_accessory()): ?>
                             <?php foreach ($keyboard as $accessory): ?>
                                 <div class="col-lg-3">
-                                    <a href="" class="text-decoration-none link-dark">
+                                    <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">
@@ -86,7 +86,7 @@
                         <?php if ($monitors = get_monitor_accessory()): ?>
                             <?php foreach ($monitors as $accessory): ?>
                                 <div class="col-lg-3">
-                                    <a href="" class="text-decoration-none link-dark">
+                                    <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">
@@ -122,7 +122,7 @@
                         <?php if ($cpus = get_cpu_accessory()): ?>
                             <?php foreach ($cpus as $accessory): ?>
                                 <div class="col-lg-3">
-                                    <a href="" class="text-decoration-none link-dark">
+                                    <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">
@@ -158,7 +158,7 @@
                         <?php if ($tablets = get_tablet_accessory()): ?>
                             <?php foreach ($tablets as $accessory): ?>
                                 <div class="col-lg-3">
-                                    <a href="" class="text-decoration-none link-dark">
+                                    <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">

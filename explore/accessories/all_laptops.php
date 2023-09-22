@@ -14,7 +14,7 @@
                         <?php if ($laptops = get_all_laptops()): ?>
                             <?php foreach ($laptops as $accessory): ?>
                                 <div class="col-lg-3">
-                                    <a href="" class="text-decoration-none link-dark">
+                                    <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"], 27); ?>" alt="Image">
