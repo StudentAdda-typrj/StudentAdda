@@ -103,7 +103,7 @@
                                                 <label for="email" class="text-dark required-highlight mb-1">Email</label>
                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                                                 <label for="contact_number" class="text-dark required-highlight mb-1">Phone Number</label>
-                                                <input class="form-control" type="number" id="contact_number" name="contact_number" placeholder="Contact Number" required>
+                                                <input class="form-control" type="tel" id="contact_number" name="contact_number" minlength="10" maxlength="10" placeholder="Contact Number" required>
                                                 <label for="description" class="text-dark required-highlight mb-1">Message</label>
                                                 <textarea class="form-control textarea_style" name="description" id="description" cols="30" rows="5" placeholder="Please Specify the problem properly, so that it will be easy for us to solve your query." required></textarea>
                                                 <button class="btn btn-sm my-2 bold pe-3 ps-3 button_style" type="submit" id="book_request_btn" name="book_request_btn">Submit</button>
