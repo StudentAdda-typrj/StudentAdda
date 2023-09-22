@@ -391,3 +391,6 @@ textarea{
 .footer_copyright{
   background-color: #FFD699;
 }
+.textarea_style{
+  resize: none;
+}

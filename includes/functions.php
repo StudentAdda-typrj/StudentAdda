@@ -1722,7 +1722,6 @@
 	{
 		global $db;
 		extract($data);
-		print_r($data);
 
 		if(!isset($_SESSION["error_messages"]))
 		{
