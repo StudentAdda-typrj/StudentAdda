@@ -1739,7 +1739,7 @@
 
 			if($stmt->execute())
 			{
-				$_SESSION["success_messages"][] = "Thank you for contacting us. Our team will asnwer your queries or contact you within 24 hours";
+				$_SESSION["success_messages"][] = "Thank you for contacting us. Our team will asnwer your queries or contact you soon.";
 			}
 			else
 			{
@@ -1748,8 +1748,34 @@
 		}
 		return false;
 	}
-	
-	
-	
 
+
+	function smtp_mailer($to,$subject, $msg){
+		require 'C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php';
+		$mail = new PHPMailer(); 
+		$mail->IsSMTP(); 
+		$mail->SMTPAuth = true; 
+		$mail->SMTPSecure = 'tls'; 
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = 587; 
+		$mail->IsHTML(true);
+		$mail->CharSet = 'UTF-8';
+		//$mail->SMTPDebug = 2; 
+		$mail->Username = "studentadda.official@gmail.com";
+		$mail->Password = "jkrrwliqksuscnuu";
+		$mail->SetFrom("studentadda.official@gmail.com");
+		$mail->Subject = $subject;
+		$mail->Body =$msg;
+		$mail->AddAddress($to);
+		$mail->SMTPOptions=array('ssl'=>array(
+			'verify_peer'=>false,
+			'verify_peer_name'=>false,
+			'allow_self_signed'=>false
+		));
+		if(!$mail->Send()){
+			echo $mail->ErrorInfo;
+		}else{
+			return 'Sent';
+		}
+	}
 ?>
