@@ -67,10 +67,20 @@
                                                         
                                                     </div>
                                                     <div class="row mb-2">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <label for="price" class="text-dark required-highlight mb-1">Price</label>
                                                             <input class="form-control" type="number" id="price" name="price" placeholder="Price" required>
                                                             <div class="invalid-feedback">Please specify the suitable price.</div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label for="ram" class="text-dark required-highlight mb-1">RAM</label>
+                                                            <input class="form-control" type="text" name="ram" id="ram" placeholder="RAM" disabled required>
+                                                            <div class="invalid-feedback">Please specify the RAM size.</div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label for="connector_type" class="text-dark required-highlight mb-1">Connector Type</label>
+                                                            <input type="text" class="form-control" id="connector_type" name="connector_type" placeholder="Wired/Wireless" disabled required>
+                                                            <div class="invalid-feedback">Please specify the Connector type.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">
@@ -95,13 +105,15 @@
                                                     <div class="h6 bold text_color mb-2 text-center">Upload the images properly so that the product details and condition can be checked.</div>
                                                     <label for="photo_url" class="text-dark required-highlight mb-1">Upload First Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="photo_url" id="photo_url" accept="image/*" required multiple>
+                                                        <input class="form-control" type="file" name="photo_url" id="photo_url" onchange="getFrontImagePreview (event)" accept="image/*" required>
                                                         <div class="invalid-feedback">Upload front image.</div>
+                                                        <div id="front_image_preview" class="mt-2 text-center"></div>
                                                     </div>
                                                     <label for="photo_url2" class="text-dark required-highlight mb-1">Upload Second Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="photo_url2" id="photo_url2" accept="image/*" required multiple>
+                                                        <input class="form-control" type="file" name="photo_url2" id="photo_url2" onchange="getSecondImagePreview (event)" accept="image/*" required>
                                                         <div class="invalid-feedback">Upload another image.</div>
+                                                        <div id="second_image_preview" class="mt-2 text-center"></div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -52,8 +52,11 @@
                                                             <label for="language" class="text-dark required-highlight mb-1">Language</label>
                                                             <select class="form-control" name="language" id="language" required>
                                                                 <option value="" selected disabled>Select Language</option>
-                                                                <option value="1">English</option>
-                                                                <option value="2">Hindi</option>
+                                                                <?php if($languages = get_language_names()): ?>
+                                                                    <?php foreach($languages as $language): ?>
+                                                                        <option value="<?php echo $language["id"]; ?>"><?php echo $language["name"]; ?></option>
+                                                                    <?php endforeach; ?>
+                                                                <?php endif; ?>
                                                             </select>
                                                             <div class="invalid-feedback">Select the appropriate language.</div>
                                                         </div>
@@ -65,8 +68,9 @@
                                                             <div class="invalid-feedback">Please specify the suitable price.</div>
                                                         </div>
                                                         <div class="col-lg-7">
-                                                            <label for="author" class="text-dark mb-1">Author</label>
-                                                            <input class="form-control" type="text" id="author" name="author" placeholder="Author Name">
+                                                            <label for="author" class="text-dark required-highlight mb-1">Author</label>
+                                                            <input class="form-control" type="text" id="author" name="author" placeholder="Author Name" required>
+                                                            <div class="invalid-feedback">Please specify the author name.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -79,11 +83,29 @@
                                                             <label for="department" class="text-dark required-highlight mb-1">Department</label>
                                                             <select class="form-control" name="department" id="department" required disabled>
                                                                 <option value="" selected disabled>Select</option>
-                                                                <option value="1">Science</option>
-                                                                <option value="2">Arts</option>
-                                                                <option value="3">Commerce</option>
+                                                                <?php if($departments = get_department_names()): ?>
+                                                                    <?php foreach ($departments as $department): ?>
+                                                                        <option value="<?php echo $department["id"]; ?>"><?php echo $department["name"]; ?></option>
+                                                                    <?php endforeach; ?>
+                                                                <?php endif; ?>
                                                             </select>
                                                             <div class="invalid-feedback">Please specify the stream of the book.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-4">
+                                                            <label for="publisher" class="text-dark required-highlight mb-1">Publisher</label>
+                                                            <input type="text" class="form-control" id="publisher" name="publisher" value="" placeholder="Publisher" required>
+                                                            <div class="invalid-feedback">Please specify the publisher.</div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label for="edition" class="text-dark mb-1">Edition</label>
+                                                            <input type="text" class="form-control" id="edition" name="edition" value="" placeholder="Edition">
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label for="" class="text-dark required-highlight mb-1">Pages</label>
+                                                            <input type="number" class="form-control" id="pages" name="pages" value="" placeholder="Total Pages" required>
+                                                            <div class="invalid-feedback">Please specify total pages.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">
@@ -107,7 +129,7 @@
                                                 <div class="col-lg-9 mx-auto">
                                                     <label for="cover_url" class="text-dark required-highlight mb-1">Upload Cover Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="cover_url" id="cover_url" onchange="getCoverImagePreview(event)" accept="image/*" required>
+                                                        <input class="form-control" type="file" name="cover_url" id="cover_url" onchange="getCoverImagePreview (event)" accept="image/*" required>
                                                         <div class="invalid-feedback">Please choose an image file.</div>
                                                         <div id="cover_image_preview" class="mt-2 text-center"></div>
                                                     </div>
@@ -125,7 +147,7 @@
                                                 <div class="col-lg-9 mx-auto">
                                                     <label for="index_url" class="text-dark required-highlight mb-1">Upload Index Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="index_url" id="index_url" onchange="getIndexImagePreview(event)" accept="image/*" required>
+                                                        <input class="form-control" type="file" name="index_url" id="index_url" onchange="getIndexImagePreview (event)" accept="image/*" required>
                                                         <div class="invalid-feedback">Please choose an image file.</div>
                                                         <div id="index_image_preview" class="mt-2 text-center"></div>
                                                     </div>

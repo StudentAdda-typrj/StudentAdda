@@ -28,7 +28,7 @@
                             <h6 class="bold"><?php echo $book["author"]; ?></h6>
                             <hr class="rounded">
                             <div class="table-responsive">
-                                <table>
+                                <table class="table table-sm table-borderless master_config_table">
                                     <tr>
                                         <td>
                                             <h5 class="bold">Condition :</h5>
@@ -42,7 +42,12 @@
                                             <h5 class="bold">Status :</h5>
                                         </td>
                                         <td class="ps-4">
-                                            <h5>Buy</h5>
+                                            <h5>
+                                                Buy  
+                                                <?php if($book["rent"] === '1'): ?>
+                                                    | Rent
+                                                <?php endif; ?>
+                                            </h5>
                                         </td>
                                     </tr>
                                     <tr>
@@ -158,11 +163,11 @@
                         </div>
                         <div class="col-lg-5">
                             <label>Publisher</label>
-                            <div class="bold mb-2">Kn Books</div>
+                            <div class="bold mb-2"><?php echo $book["publisher"]; ?></div>
                             <label>Edition</label>
-                            <div class="bold mb-2">1st Edition</div>
+                            <div class="bold mb-2"><?php echo $book["edition"]; ?></div>
                             <label>Pages</label>
-                            <div class="bold mb-2">506</div>
+                            <div class="bold mb-2"><?php echo $book["pages"]; ?></div>
                             <label>Language</label>
                             <div class="bold mb-2"><?php echo $language["name"]; ?></div>
                         </div>

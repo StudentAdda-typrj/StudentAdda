@@ -536,7 +536,7 @@
 			move_uploaded_file($temp_name2, $folder2);
 
 			$user_id = $_SESSION["user_id"];
-			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, verified, uploaded) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :department, :description, '$folder1', '$folder2', '0', '0')";
+			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, publisher, edition, pages, department_id, description, cover_url, index_url, verified, uploaded) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :publisher, :edition, :pages, :department, :description, '$folder1', '$folder2', '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
@@ -545,6 +545,9 @@
 			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
 			$stmt->bindParam(':author', $author, PDO::PARAM_STR);
 			$stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+			$stmt->bindParam(':publisher', $publisher, PDO::PARAM_STR);
+			$stmt->bindParam(':edition', $edition, PDO::PARAM_STR);
+			$stmt->bindParam(':pages', $pages, PDO::PARAM_INT);
 			$stmt->bindParam(':department', $department, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
 
@@ -578,7 +581,7 @@
 			move_uploaded_file($temp_name2, $folder2);
 
 			$user_id = $_SESSION["user_id"];
-			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, verified, uploaded) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :description, '$folder1', '$folder2', '0', '0')";
+			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, ram, connector_type, description, photo_url, photo_url2, verified, uploaded) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :ram, :connector_type, :description, '$folder1', '$folder2', '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
@@ -587,6 +590,8 @@
 			$stmt->bindParam(':processor', $processor, PDO::PARAM_STR);
 			$stmt->bindParam(':screen_size', $screen_size, PDO::PARAM_STR);
 			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':ram', $ram, PDO::PARAM_STR);
+			$stmt->bindParam(':connector_type', $connector_type, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
 
 			if($stmt->execute())
@@ -1142,7 +1147,7 @@
 
 		if($stmt->execute())
 		{
-			$_SESSION["success_messages"][] = "Done!";
+			$_SESSION["success_messages"][] = "Confirmed!";
 			return true;
 		}
 		return false;
@@ -1278,7 +1283,7 @@
 
 		if($stmt->execute())
 		{
-			$_SESSION["success_messages"][] = "Done!";
+			$_SESSION["success_messages"][] = "Confirmed!";
 			return true;
 		}
 		return false;

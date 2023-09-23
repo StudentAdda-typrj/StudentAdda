@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>
                                             <h5 class="bold">Condition :</h5>
-                                        </td>
+                                        </td>0
                                         <td class="ps-4">
                                             <h5>Good</h5>
                                         </td>
@@ -42,7 +42,12 @@
                                             <h5 class="bold">Status :</h5>
                                         </td>
                                         <td class="ps-4">
-                                            <h5>Buy</h5>
+                                            <h5>
+                                                Buy  
+                                                <?php if($accessory["rent"] === '1'): ?>
+                                                    | Rent
+                                                <?php endif; ?>
+                                            </h5>
                                         </td>
                                     </tr>
                                     <tr>
@@ -139,18 +144,20 @@
                                 <label>Processor</label>
                                 <div class="bold mb-2"><?php echo $accessory["processor"]; ?></div>
                             <?php endif; ?>
-                            <?php if ($accessory["sub_category_id"] == '4'): ?>
+                        </div>
+                        <div class="col-lg-5">
+                            <?php if ($accessory["sub_category_id"] == '2' || $accessory["sub_category_id"] == '3' || $accessory["sub_category_id"] == '4'): ?>
+                                <label>Screen Size</label>
+                                <div class="bold mb-2"><?php echo $accessory["connector_type"]; ?></div>
+                            <?php endif; ?>
+                            <?php if ($accessory["sub_category_id"] == '1' || $accessory["sub_category_id"] == '4' || $accessory["sub_category_id"] == '6'): ?>
                                 <label>Screen Size</label>
                                 <div class="bold mb-2"><?php echo $accessory["screen_size"]; ?></div>
                             <?php endif; ?>
-                        </div>
-                        <div class="col-lg-5">
-                            <label>Publisher</label>
-                            <div class="bold mb-2">Kn Books</div>
-                            <label>Edition</label>
-                            <div class="bold mb-2">1st Edition</div>
-                            <label>Pages</label>
-                            <div class="bold mb-2">506</div>
+                            <?php if ($accessory["sub_category_id"] == '1' || $accessory["sub_category_id"] == '5' || $accessory["sub_category_id"] == '6'): ?>
+                                <label>RAM</label>
+                                <div class="bold mb-2 text-uppercase"><?php echo $accessory["ram"]; ?></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

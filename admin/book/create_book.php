@@ -49,7 +49,7 @@
                                                                 <?php if($book["uploaded"] === "1"): ?>
                                                                     <a href="/admin/book/uploaded_not_uploaded_book?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-success mx-auto d-block col-md-8" id="uploaded" name="uploaded"><i class="fa-solid fa-circle-check"></i> Uploaded</a>
                                                                 <?php else: ?>
-                                                                    <a href="/admin/book/uploaded_not_uploaded_book?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-warning mx-auto d-block col-md-8" id="not_uploaded" name="not_uploaded"><i class="fa-solid fa-circle-dot"></i> Pending</a>
+                                                                    <a href="/admin/book/uploaded_not_uploaded_book?q=<?php echo $book["id"]; ?>" class="btn btn-sm btn-warning mx-auto d-block col-md-10" id="not_uploaded" name="not_uploaded"><i class="fa-solid fa-circle-dot"></i> Click to Confirm</a>
                                                                 <?php endif; ?>
                                                             </td>
                                                             <td>

@@ -30,7 +30,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-3">
                                                                     <?php if($accessory["photo_url"] > 0): ?>
-                                                                        <img src="<?php echo $accessory["photo_url"]; ?>" class="rounded" alt="Book Image" height="200px" width="240px">
+                                                                        <img src="<?php echo substr($accessory["photo_url"],27); ?>" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php else: ?>
                                                                         <img src="/assets/img/accessory_selling.jpg" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php endif; ?>
@@ -74,6 +74,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-2">
+                                                            <div class="col-lg-6">
+                                                                    <label>RAM</label>
+                                                                    <div class="bold text-uppercase"><?php echo $accessory["ram"]; ?></div>
+                                                                </div>
                                                                 <div class="col-lg-6">
                                                                     <label>Price</label>
                                                                     <div class="bold"><?php echo $accessory["price"]; ?></div>

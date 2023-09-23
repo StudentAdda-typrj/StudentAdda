@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const sub_category = document.getElementById('accessory_type');
   const processor = document.getElementById('processor');
   const screen_size = document.getElementById('screen_size');
+  const ram = document.getElementById('ram');
+  const connector_type = document.getElementById('connector_type');
 
   sub_category.addEventListener('change', function() {
     if (this.value === '1' || this.value === '5' || this.value === '6') {
@@ -27,11 +29,23 @@ document.addEventListener('DOMContentLoaded', function() {
       processor.value = '';
       processor.disabled = true;
     }
-    if (this.value === '4') {
+    if (this.value === '1' || this.value === '4' || this.value === '6') {
       screen_size.disabled = false;
     } else{
       screen_size.value = '';
       screen_size.disabled = true;
+    }
+    if (this.value === '1' || this.value === '5' || this.value === '6') {
+      ram.disabled = false;
+    } else{
+      ram.value = '';
+      ram.disabled = true;
+    }
+    if (this.value === '2' || this.value === '3') {
+      connector_type.disabled = false;
+    } else{
+      connector_type.value = '';
+      connector_type.disabled = true;
     }
   });
 });
@@ -41,7 +55,7 @@ const profile_image = document.querySelector("img");
 const profile_input =document.querySelector('input[name="profile_url"]');
 
 profile_input.addEventListener("change", () => {
-    profile_image.src = URL.createObjectURL(input.files[0]);
+    profile_image.src = URL.createObjectURL(profile_input.files[0]);
 });
 
 function getCoverImagePreview (event) {
@@ -87,6 +101,54 @@ function getFinalIndexImagePreview (event) {
 
   preview_container.innerHTML = '';
   new_image.src = index_image;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getFrontImagePreview (event) {
+  var photo_url = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('front_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = photo_url;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getSecondImagePreview (event) {
+  var photo_url2 = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('second_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = photo_url2;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getFinalFrontImagePreview (event) {
+  var photo_url = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('final_front_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = photo_url;
+  new_image.width = "300";
+  new_image.height = "200";
+  preview_container.appendChild(new_image);
+}
+
+function getFinalSecondImagePreview (event) {
+  var photo_url2 = URL.createObjectURL(event.target.files[0]);
+  var preview_container = document.getElementById('final_second_image_preview');
+  var new_image = document.createElement('img');
+
+  preview_container.innerHTML = '';
+  new_image.src = photo_url2;
   new_image.width = "300";
   new_image.height = "200";
   preview_container.appendChild(new_image);

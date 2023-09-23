@@ -48,9 +48,8 @@
                                                     <div class="row mb-2">
                                                         <div class="col-lg-6">
                                                             <label for="book_type" class="text-dark required-highlight mb-1">Type</label>
-                                                            <select class="form-control" id="book_type" name="book_type" value="<?php echo $category["name"]; ?>" required>
-                                                                <option value="" disabled>Select Type</option>
-                                                                <option value="<?php echo $category["id"]; ?> " selected><?php echo $category["name"]; ?></option>
+                                                            <select class="form-control" id="book_type" name="book_type" required>
+                                                                <option value="" disabled selected>Select Type</option>
                                                                 <?php
                                                                     if($categories = get_category_names()): ?>
                                                                         <?php foreach($categories as $category): ?>
@@ -63,8 +62,7 @@
                                                         <div class="col-lg-6">
                                                             <label for="language" class="text-dark required-highlight mb-1">Language</label>
                                                             <select class="form-control" name="language" id="language" required>
-                                                                <option value="" disabled>Select Language</option>
-                                                                <option value="<?php echo $language["id"]; ?>" selected><?php echo $language["name"]; ?></option>
+                                                                <option value="" disabled selected>Select Language</option>
                                                                 <?php if($languages = get_language_names()): ?>
                                                                     <?php foreach($languages as $language): ?>
                                                                         <option value="<?php echo $language["id"]; ?>"><?php echo $language["name"]; ?></option>
@@ -81,8 +79,9 @@
                                                             <div class="invalid-feedback">Please specify the suitable price.</div>
                                                         </div>
                                                         <div class="col-lg-7">
-                                                            <label for="author" class="text-dark mb-1">Author</label>
-                                                            <input class="form-control" type="text" id="author" name="author" value="<?php echo $book["author"]; ?>" placeholder="Author Name">
+                                                            <label for="author" class="text-dark required-highlight mb-1">Author</label>
+                                                            <input class="form-control" type="text" id="author" name="author" value="<?php echo $book["author"]; ?>" placeholder="Author Name" required>
+                                                            <div class="invalid-feedback">Please specify the author name.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -114,6 +113,31 @@
                                                                 </select>
                                                             <?php endif; ?>
                                                             <div class="invalid-feedback">Please specify the stream of the book.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-3">
+                                                            <label for="publisher" class="text-dark required-highlight mb-1">Publisher</label>
+                                                            <input type="text" class="form-control" id="publisher" name="publisher" value="<?php echo $book["publisher"]; ?>" placeholder="Publisher" required>
+                                                            <div class="invalid-feedback">Please specify the publisher.</div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label for="edition" class="text-dark mb-1">Edition</label>
+                                                            <input type="text" class="form-control" id="edition" name="edition" value="<?php echo $book["edition"]; ?>" placeholder="Edition">
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label for="" class="text-dark required-highlight mb-1">Pages</label>
+                                                            <input type="number" class="form-control" id="pages" name="pages" value="<?php echo $book["pages"]; ?>" placeholder="Total Pages" required>
+                                                            <div class="invalid-feedback">Please specify total pages.</div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label for="rent" class="text-dark required-highlight mb-1">Set as Rent?</label>
+                                                            <select class="form-control" name="rent" id="rent" required>
+                                                                <option value="" selected disabled>Select</option>
+                                                                <option value="0">No</option>
+                                                                <option value="1">Yes</option>
+                                                            </select>
+                                                            <div class="invalid-feedback">Select a type.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">

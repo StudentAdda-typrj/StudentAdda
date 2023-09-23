@@ -45,8 +45,7 @@
                                                         <div class="col-lg-6">
                                                             <label for="accessory_type" class="text-dark required-highlight mb-1">Type</label>
                                                             <select class="form-control" id="accessory_type" name="accessory_type" value="<?php echo $sub_category["name"]; ?>" required>
-                                                                <option value="" disabled>Select Type</option>
-                                                                <option value="<?php echo $sub_category["id"]; ?> " selected><?php echo $sub_category["name"]; ?></option>
+                                                                <option value="" disabled selected>Select Type</option>
                                                                 <?php
                                                                     if($sub_categories = get_subcategory_names()): ?>
                                                                         <?php foreach($sub_categories as $sub_category): ?>
@@ -76,10 +75,20 @@
                                                         
                                                     </div>
                                                     <div class="row mb-2">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <label for="price" class="text-dark required-highlight mb-1">Price</label>
                                                             <input class="form-control" type="number" id="price" name="price" value="<?php echo $accessory["price"]; ?>" placeholder="Price" required>
                                                             <div class="invalid-feedback">Please specify the suitable price.</div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label for="ram" class="text-dark required-highlight mb-1">RAM</label>
+                                                            <input class="form-control" type="text" name="ram" id="ram" value="<?php echo $accessory["ram"]; ?>" placeholder="RAM" disabled required>
+                                                            <div class="invalid-feedback">Please specify the RAM size.</div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <label for="connector_type" class="text-dark required-highlight mb-1">Connector Type</label>
+                                                            <input type="text" class="form-control" id="connector_type" name="connector_type" value="<?php echo $accessory["connector_type"]; ?>" placeholder="Wired/Wireless" disabled required>
+                                                            <div class="invalid-feedback">Please specify the Connector type.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">
@@ -104,13 +113,15 @@
                                                     <div class="h6 bold text_color mb-2 text-center">Upload the images properly so that the product details and condition can be checked.</div>
                                                     <label for="photo_url" class="text-dark required-highlight mb-1">Upload First Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="photo_url" id="photo_url" accept="image/*" value="<?php echo $accessory["photo_url"]; ?>" required multiple>
+                                                        <input class="form-control" type="file" name="photo_url" id="photo_url" onchange="getFinalFrontImagePreview (event)" accept="image/*"  required>
                                                         <div class="invalid-feedback">Upload front image.</div>
+                                                        <div id="final_front_image_preview" class="mt-2 text-center"></div>
                                                     </div>
                                                     <label for="photo_url2" class="text-dark required-highlight mb-1">Upload Second Image</label>
                                                     <div class="form-group mb-2">
-                                                        <input class="form-control" type="file" name="photo_url2" id="photo_url2" accept="image/*" value="<?php echo $accessory["photo_url2"]; ?>" required multiple>
+                                                        <input class="form-control" type="file" name="photo_url2" id="photo_url2" accept="image/*" onchange="getFinalSecondImagePreview (event)" required>
                                                         <div class="invalid-feedback">Upload another image.</div>
+                                                        <div id="final_second_image_preview" class="mt-2 text-center"></div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -14,7 +14,7 @@
                         <?php if ($comics = get_all_anime_comics()): ?>
                             <?php foreach ($comics as $book): ?>
                                 <div class="col-lg-3">
-                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" class="text-decoration-none link-dark">
+                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">

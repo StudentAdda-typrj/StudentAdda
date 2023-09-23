@@ -14,7 +14,7 @@
                         <?php if ($exam_books = get_competitive_exam_books()): ?>
                             <?php foreach ($exam_books as $book): ?>
                                 <div class="col-lg-3">
-                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" class="text-decoration-none link-dark">
+                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
@@ -50,7 +50,7 @@
                         <?php if ($novels = get_novel_books()): ?>
                             <?php foreach ($novels as $book): ?>
                                 <div class="col-lg-3">
-                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" class="text-decoration-none link-dark">
+                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
@@ -86,7 +86,7 @@
                         <?php if ($histories = get_history_books()): ?>
                             <?php foreach ($histories as $book): ?>
                                 <div class="col-lg-3">
-                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" class="text-decoration-none link-dark">
+                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
@@ -122,7 +122,7 @@
                         <?php if ($university_books = get_university_books()): ?>
                             <?php foreach ($university_books as $book): ?>
                                 <div class="col-lg-3">
-                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" class="text-decoration-none link-dark">
+                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
@@ -158,7 +158,7 @@
                         <?php if ($comics = get_anime_comic_books()): ?>
                             <?php foreach ($comics as $book): ?>
                                 <div class="col-lg-3">
-                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" class="text-decoration-none link-dark">
+                                    <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
