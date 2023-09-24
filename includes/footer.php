@@ -4,16 +4,15 @@
         <div class="row">
             <div class="col-lg-10 mx-auto">
               <div class="row">
-                  <div class="col-lg-3 col-md-6 mb-4 mb-md-0 pe-5">
+                  <div class="col-lg-4 col-md-6 mb-4 mb-md-0 pe-5">
                     <div class="mb-4 mx-auto">
                     <h3 class="studentadda">Student<span id="adda">Adda</span></h3>
                     </div>
                     <p class="bold">StudentAdda is a marketplace 
                       where you can buy,sell and 
                       rent study book/accessories</p>
-                    <p class="bold">P:+91-1234567890 <br>   
-                      Email:student@adda.com
-                    </p>
+                    <p class="bold">P: +91-1234567890 </p>   
+                    <p class="bold">Email: studentadda.official@gmail.com</p> 
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
@@ -50,10 +49,10 @@
                     </ul>
                   </div>
 
-                  <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+                  <div class="col-lg-2 col-md-6 mb-4 mb-md-0 text-center">
                     <h5 class="text-uppercase mb-4 bold text-decoration-underline">Follow Us</h5>
                     <div class="row">
-                      <div class="col-lg-6 mx-auto">
+                      <div class="col-lg-10 mx-auto">
                         <a href="https://www.instagram.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-instagram"></i></a>
                         <a href="https://www.facebook.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-facebook"></i></a>
                         <a href="https://twitter.com/" class="text-black text-decoration-none footer_style me-2"><i class="fa-brands h4 fa-twitter"></i></a>

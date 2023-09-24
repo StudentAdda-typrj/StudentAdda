@@ -2,9 +2,13 @@
     $page_title = "Book Selling Page";
     require_once($_SERVER["DOCUMENT_ROOT"]."/user/nav.php");
 
+    $user = get_user_details_using_id();
+
     if(isset($_POST["book_selling_button"]))
     {
         perform_book_selling($_POST);
+        smtp_mailer_to_admin_or_user("studentadda.official@gmail.com","<h3>You have made a book sell request</h3>","<div><strong>Thank you for becoming a seller.</strong></div>Your product will be verified at our end and you'll get futher update soon!");
+        smtp_mailer_from_user_to_admin($user["email_address"],"<h3>New sell request</h3>", "You got a new sell request. Click here to <a href='http://localhost/login/index.php'>Login</a>");
         redirect_to_current_page();
     }
 ?>

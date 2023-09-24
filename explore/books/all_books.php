@@ -187,14 +187,6 @@
     </div>
 </div>
 
-<style>
-    .book_section_images{
-        height: 150px;
-        width: 150px;
-        background-color: rgba(215, 169, 90, 1);
-    }
-</style>
-
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");
 ?>

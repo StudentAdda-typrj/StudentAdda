@@ -7,17 +7,20 @@
         $id = trim($_GET["q"]);
         $accessory = get_accessory_sell_request_detail_using_id($id);
     }
+    $user = get_user_details_by_passing_id($accessory["user_id"]);
 
     if(isset($_POST["accept_accessory_selling_request"]))
     {
         accept_accessory_selling_request($_POST, $id);
-        redirect_to_current_page("q=$id");
+        smtp_mailer_to_admin_or_user($user["email_address"],"<h3>Confirmation of Sell of accessory request</h3>", "<div>Hello,</div>$msg");
+        redirect_to_current_page("/admin/request/sell_request/request_list");
     }
 
     if(isset($_POST["reject_accessory_selling_request"]))
     {
         reject_accessory_selling_request($_POST, $id);
-        redirect_to_current_page("q=$id");
+        smtp_mailer_to_admin_or_user($user["email_address"],"<h3>Rejection of Sell of accessory request</h3>", "<div>Hello,</div>$msg");
+        redirect_to_current_page("/admin/request/sell_request/request_list");
     }
 ?>
 

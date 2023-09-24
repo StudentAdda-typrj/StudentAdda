@@ -8,7 +8,7 @@
         $email_address = $_POST["email"];
         $contact = $_POST["contact_number"];
         $message = $_POST["description"];
-        smtp_mailer('studentadda.official@gmail.com','New Query',"<div><strong>Sender Name :</strong> $name</div><div><strong class='bold'>Sender Email :</strong> $email_address</div><div><strong class='bold'>Contact Number :</strong> $contact</div><div><strong class='bold'>Message :</strong> $message</div>");
+        smtp_mailer_to_admin_or_user('studentadda.official@gmail.com','<h3>New Query</h3>',"<div><strong>Sender Name :</strong> $name</div><div><strong class='bold'>Sender Email :</strong> $email_address</div><div><strong class='bold'>Contact Number :</strong> $contact</div><div><strong class='bold'>Message :</strong> $message</div>");
         perform_contact_operation($_POST);
         redirect_to_current_page();
     }

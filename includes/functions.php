@@ -553,7 +553,7 @@
 
 			if($stmt->execute())
 			{
-				$_SESSION["success_messages"][] = "Thank you for becoming a seller. Your product will be verified at our end and the details regarding it will be provided to you sooner!";
+				$_SESSION["success_messages"][] = "Thank you for becoming a seller.";
 			}
 			else
 			{
@@ -1750,7 +1750,7 @@
 	}
 
 
-	function smtp_mailer($to,$subject, $msg){
+	function smtp_mailer_to_admin_or_user($to,$subject, $msg){
 		require 'C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php';
 		$mail = new PHPMailer(); 
 		$mail->IsSMTP(); 
@@ -1777,5 +1777,94 @@
 		}else{
 			return 'Sent';
 		}
+	}
+
+	function smtp_mailer_from_user_to_admin($from,$subject, $msg){
+		require 'C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php';
+		$mail = new PHPMailer(); 
+		$mail->IsSMTP(); 
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls'; 
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = 587; 
+		$mail->IsHTML(true);
+		$mail->CharSet = 'UTF-8';
+		//$mail->SMTPDebug = 2; 
+		$mail->Username = $from;
+		$mail->Password = "jkrrwliqksuscnuu";
+		$mail->SetFrom($from);
+		$mail->Subject = $subject;
+		$mail->Body =$msg;
+		$mail->AddAddress("studentadda.official@gmail.com");
+		$mail->SMTPOptions=array('ssl'=>array(
+			'verify_peer'=>false,
+			'verify_peer_name'=>false,
+			'allow_self_signed'=>false
+		));
+		if(!$mail->Send()){
+			echo $mail->ErrorInfo;
+		}else{
+			return 'Sent';
+		}
+	}
+
+	function get_newly_added_books()
+	{
+		global $db;
+		$end_date = date('Y-m-d H:i:s');
+		$start_date = date('Y-m-d H:i:s', strtotime('-1 week', strtotime($end_date)));
+		$sql = "SELECT * FROM books WHERE created_timestamp >= '$start_date' AND created_timestamp <= '$end_date' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_newly_added_books()
+	{
+		global $db;
+		$end_date = date('Y-m-d H:i:s');
+		$start_date = date('Y-m-d H:i:s', strtotime('-1 week', strtotime($end_date)));
+		$sql = "SELECT * FROM books WHERE created_timestamp >= '$start_date' AND created_timestamp <= '$end_date'";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_newly_added_accessories()
+	{
+		global $db;
+		$end_date = date('Y-m-d H:i:s');
+		$start_date = date('Y-m-d H:i:s', strtotime('-1 week', strtotime($end_date)));
+		$sql = "SELECT * FROM accessories WHERE created_timestamp >= '$start_date' AND created_timestamp <= '$end_date' LIMIT 4";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_all_newly_added_accessories()
+	{
+		global $db;
+		$end_date = date('Y-m-d H:i:s');
+		$start_date = date('Y-m-d H:i:s', strtotime('-1 week', strtotime($end_date)));
+		$sql = "SELECT * FROM accessories WHERE created_timestamp >= '$start_date' AND created_timestamp <= '$end_date'";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
 	}
 ?>

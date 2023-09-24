@@ -7,21 +7,21 @@
         $id = trim($_GET["q"]);
         $book = get_book_sell_request_detail_using_id($id);
     }
+    $user = get_user_details_by_passing_id($book["user_id"]);
 
     if(isset($_POST["accept_book_selling_request"]))
     {
+        $msg = $_POST["accept_description"];
         accept_book_selling_request($_POST, $id);
-        redirect_to_current_page("q=$id");
-        echo "<script>window.location='/admin/request/sell_request/request_list';</script>";
-	    exit(0);
+        smtp_mailer_to_admin_or_user($user["email_address"],"<h3>Confirmation of sell book request</h3>", "<div>Hello,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
+        redirect_to_current_page("/admin/request/sell_request/request_list");
     }
 
     if(isset($_POST["reject_book_selling_request"]))
     {
         reject_book_selling_request($_POST, $id);
-        redirect_to_current_page("q=$id");
-        echo "<script>window.location='/admin/request/sell_request/request_list';</script>";
-	    exit(0);
+        smtp_mailer_to_admin_or_user($user["email_address"],"<h3>Rejection of sell of book request</h3>", "<div>Hello,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
+        redirect_to_current_page("/admin/request/sell_request/request_list");
     }
 ?>
 

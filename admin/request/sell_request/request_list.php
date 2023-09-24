@@ -1,15 +1,6 @@
 <?php
 	$page_title = "Sell Requests";
 	require_once($_SERVER["DOCUMENT_ROOT"]."/admin/nav.php");
-
-    // if(isset($_GET["q"]) && !empty($_GET["q"]) && is_numeric($_GET["q"]))
-    // {
-    //     $id = trim($_GET["q"]);
-    // }
-    // if (isset($_POST["book_sell_request_accept"])) {
-    //     accept_book_selling($id);
-    //     redirect_to_current_page();
-    // }
 ?>
 
 <div class="container">

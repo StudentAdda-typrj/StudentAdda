@@ -1,18 +1,18 @@
 <?php
-	$page_title = "All CPUs";
+	$page_title = "Newly Added Accessories";
     $display_navbar_flag = false;
 	require_once($_SERVER["DOCUMENT_ROOT"]."/includes/init.php");
 ?>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-12">
             <div class="card explore_page_card_border my-3">
                 <div class="card-body">
-                    <h4 class="bold mt-0 text-decoration-underline">CPUs</h4>
+                    <h4 class="bold mt-0 text-decoration-underline">Newly Added Accessories</h4>
                     <div class="row mt-4">
-                        <?php if ($cpus = get_all_cpus()): ?>
-                            <?php foreach ($cpus as $accessory): ?>
+                        <?php if ($accessories = get_all_newly_added_accessories()): ?>
+                            <?php foreach ($accessories as $accessory): ?>
                                 <div class="col-lg-3">
                                     <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                         <div class="card explore_image_card my-2">
