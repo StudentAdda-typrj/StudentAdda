@@ -18,37 +18,52 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link drop-toggle" href="" role="button" data-bs-toggle="dropdown">
-                        <span class="navlink_color_second_navbar_user">Categories
+                        <span class="navlink_color_second_navbar_home">Books
                         <i class="fa-solid fa-caret-down"></i></span>
                     </a>
-                    <ul class="dropdown-menu second_navbar_dropdown">
+                    <ul class="dropdown-menu  second_navbar_dropdown">
                         <li>
-							<a class="btn dropdown-item navlink_color_second_navbar_user" href="">Books</a>
-						</li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/books/all_competitive_exam_books">Competitive Exam Book</a>
+                        </li>
                         <li>
-							<a class="btn dropdown-item navlink_color_second_navbar_user" href="">Laptop</a>
-						</li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/books/all_novels">Novel</a>
+                        </li>
                         <li>
-							<a class="btn dropdown-item navlink_color_second_navbar_user" href="">Tablet</a>
-						</li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/books/all_history_books">History</a>
+                        </li>
                         <li>
-							<a class="btn dropdown-item navlink_color_second_navbar_user" href="">CPU</a>
-						</li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/books/all_university_books">University Book</a>
+                        </li>
                         <li>
-							<a class="btn dropdown-item navlink_color_second_navbar_user" href="">Monitor</a>
-						</li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/books/all_anime_comics">Anime Comic</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link drop-toggle" href="" role="button" data-bs-toggle="dropdown">
+                        <span class="navlink_color_second_navbar_home">Accessories
+                        <i class="fa-solid fa-caret-down"></i></span>
+                    </a>
+                    <ul class="dropdown-menu  second_navbar_dropdown">
                         <li>
-							<a class="btn dropdown-item navlink_color_second_navbar_user" href="">Mouse&Keyboard</a>
-						</li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/accessories/all_laptops">Laptop</a>
+                        </li>
+                        <li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/accessories/all_tablets">Tablet</a>
+                        </li>
+                        <li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/accessories/all_cpus">CPU</a>
+                        </li>
+                        <li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/accessories/all_monitors">Monitor</a>
+                        </li>
+                        <li>
+                            <a class="btn dropdown-item navlink_color_second_navbar_user" href="/explore/accessories/all_keyboard_and_mouse">Mouse & Keyboard</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <span class="navlink_color_second_navbar_user">Top Rated</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/explore/newly_added/all_newly_added">
                         <span class="navlink_color_second_navbar_user">Newly Added</span>
                     </a>
                 </li>   

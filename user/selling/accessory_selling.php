@@ -6,9 +6,9 @@
 
     if (isset($_POST["accessory_selling_button"])) {
         perform_accessory_selling($_POST);
-        smtp_mailer_to_admin_or_user("studentadda.official@gmail.com","<h3>You have made an accessory sell request</h3>","<div><strong>Thank you for becoming a seller.</strong></div>Your product will be verified at our end and you'll get futher update soon!");
-        smtp_mailer_from_user_to_admin($user["email_address"],"<h3>New sell request</h3>", "You got a new sell request. Click here to <a href='http://localhost/login/index.php'>Login</a>");
-        redirect_to_current_page();
+        smtp_mailer_to_admin_or_user("studentadda.official@gmail.com","You have made an accessory sell request","<div><strong>Thank you for becoming a seller.</strong></div>Your product will be verified at our end and you'll get futher update soon!");
+        smtp_mailer_from_user_to_admin($user["email_address"],"New sell request", "You got a new sell request. Click here to <a href='http://localhost/login/index.php'>Login</a>");
+        header("location:/user/selling/index");
     }
 ?>
 

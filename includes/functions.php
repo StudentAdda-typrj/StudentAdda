@@ -1867,4 +1867,81 @@
 		}
 		return false;
 	}
+
+	function reset_password($data)
+	{
+		global $db;
+		extract($data);
+		$email_address = htmlspecialchars(trim($email_address));
+
+		if(filter_var($email_address, FILTER_VALIDATE_EMAIL) === false)
+		{
+			$_SESSION["error_messages"][] = "Invalid email address, Please enter vaild email address.";
+		}
+
+		if(is_email_address_available_in_users_table($email_address) === false)
+		{
+			$_SESSION["error_messages"][] = "Incorrect Email address. Please enter the registered email address.";	
+		}
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$sql = "SELECT * FROM user_details WHERE email_address = :email_address";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':email_address', $email_address,PDO::PARAM_STR);
+
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "We have sent a confirmation mail to $email_address. Please check that for recovering your account.";
+				return $stmt->fetch(PDO::FETCH_ASSOC);
+   			}
+   			else
+   			{
+    			$_SESSION["error_messages"][] = "Sorry, Something went wrong. Try again later.";
+   			}
+		}
+		return false;
+	}
+
+	function get_user_details_by_passing_email($email_address)
+	{
+		global $db;
+		$sql = "SELECT * FROM user_details WHERE email_address = :email_address";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':email_address', $email_address,PDO::PARAM_STR);
+		
+		if($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function update_reset_password($new_password, $token)
+	{
+		global $db;
+
+		if(!isset($_SESSION["error_messages"]))
+		{
+			$new_password = create_hash($new_password);
+			$sql = "UPDATE users SET password = :new_password, last_reset_password_timestamp = NOW() WHERE token = :token";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
+			$stmt->bindParam(':token', $token, PDO::PARAM_STR);
+			
+			if($stmt->execute())
+			{
+				$_SESSION["success_messages"][] = "Congratulation, password successfully changed";
+    			return true;
+   			}
+   			else
+   			{
+    			$_SESSION["error_messages"][] = "Sorry, password didn't changed.";
+   			}
+		}
+		else
+		{
+			return false;
+		}
+	}
 ?>

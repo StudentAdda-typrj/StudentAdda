@@ -8,20 +8,22 @@
         $book = get_book_sell_request_detail_using_id($id);
     }
     $user = get_user_details_by_passing_id($book["user_id"]);
+    $user_name = $user["first_name"];
 
     if(isset($_POST["accept_book_selling_request"]))
     {
         $msg = $_POST["accept_description"];
         accept_book_selling_request($_POST, $id);
-        smtp_mailer_to_admin_or_user($user["email_address"],"<h3>Confirmation of sell book request</h3>", "<div>Hello,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
-        redirect_to_current_page("/admin/request/sell_request/request_list");
+        smtp_mailer_to_admin_or_user($user["email_address"],"Confirmation of sell book request", "<div>Hello $user_name,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
+        header("location:/admin/request/sell_request/request_list");
     }
 
     if(isset($_POST["reject_book_selling_request"]))
     {
+        $msg = $_POST["reject_description"];
         reject_book_selling_request($_POST, $id);
-        smtp_mailer_to_admin_or_user($user["email_address"],"<h3>Rejection of sell of book request</h3>", "<div>Hello,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
-        redirect_to_current_page("/admin/request/sell_request/request_list");
+        smtp_mailer_to_admin_or_user($user["email_address"],"Rejection of sell of book request", "<div>Hello $user_name,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
+        header("location:/admin/request/sell_request/request_list");
     }
 ?>
 
