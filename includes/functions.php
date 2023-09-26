@@ -1944,4 +1944,15 @@
 			return false;
 		}
 	}
+	function get_total_price($price)
+	{
+		if($price >=599)
+		{
+			return $price;
+		}
+		else{
+			return 45+$price;		
+		}
+
+	}
 ?>

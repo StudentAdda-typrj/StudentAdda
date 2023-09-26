@@ -7,7 +7,8 @@
     {
         $id = trim($_GET["q"]);
         $book = get_uploaded_books_by_id($id);
-    }
+    }   
+    $type=1;
 ?>
 
 <div class="container">
@@ -96,7 +97,7 @@
                                 <div class="card-body">
                                     <h4 class="bold text-center text-danger mb-3"><?php echo 'Rs. '.$book["price"]; ?></h4>
                                     <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
-                                        <a href="" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
+                                        <a href="/payment/order_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
                                     <?php else: ?>
                                         <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
                                     <?php endif; ?>
