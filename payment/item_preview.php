@@ -1,7 +1,7 @@
 <?php
     $page_title = "BOOK PREVIEW";
     require_once($_SERVER["DOCUMENT_ROOT"]."/includes/init.php");
-    require('razorpay-php/Razorpay.php');
+    require('C:/xampp/htdocs/StudentAdda/payment/razorpay-php/razorpay-php/Razorpay.php');
 
     if(isset($_GET["q"]) && !empty($_GET["q"]) && is_numeric($_GET["q"]))
     {
@@ -115,34 +115,27 @@
                                 <table class="table table-sm table-borderless master_config_table">
                                     <tr>
                                         <td>
-                                            <h5 class="bold">Condition :</h5>
+                                            <p class="bold fs-5">Condition :</p>
                                         </td>
                                         <td class="ps-4">
-                                            <h5>Good</h5>
+                                        <p class="bold fs-5">Good</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <h5 class="bold">Status :</h5>
+                                            <h5 class="bold">Type :</h5>
                                         </td>
                                         <td class="ps-4">
                                             <h5>
                                                 <?php if($type==2) :?>
                                                 Buy  
                                                 <?php else:?>
+                                                    Buy
                                                     <?php if($item["rent"] === '1'): ?>
                                                         | Rent
                                                     <?php endif; ?>
                                                 <?php endif;?>
                                             </h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h5 class="bold">Availability :</h5>
-                                        </td>
-                                        <td class="ps-4">
-                                            <h5>In Stock</h5>
                                         </td>
                                     </tr>
                                     <?php if($type==1) :?>
@@ -178,6 +171,7 @@
                             <div class="card explore_page_details_card my-5 ">
                                 <div class="card-body">
                                     <h4 class="bold text-center text-danger mb-3">Order Summery</h4>
+                                    <hr class="rounded">
                                     <table class="table table-sm table-borderless master_config_table">
                                     <tr>
                                         <td>
@@ -239,18 +233,22 @@
 <style>
     .razorpay-payment-button
     {
-        background-color:#FFCF72;;
-        border: none;
-        color: black;
-        padding: 13px 30px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 30px;
+        background-color: #FFD699;
+        border-color: #FFCF72;
+        font-weight: bold;
+        border-radius: 9px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 8px 32px;
+        border-radius:40px;
     }
+    .razorpay-payment-button:hover{
+        background-color: #F0C27D;
+        border-color: #FFCF72;
+        font-weight: bold;
+        border-radius: 9px;
+        padding: 8px 32px;
+        border-radius:40px;
+}
 </style>
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

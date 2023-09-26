@@ -9,7 +9,7 @@
         $token = $user_token["token"];
         $user_name = $user["first_name"];
         $email_address = $_POST["email_address"];
-        $msg = "Hello $user_name,<div>Click the below link to reset your account password.</div><div>http://localhost/reset_password.php?q=$token</div>";
+        $msg = "Hello $user_name,<div>Click the below link to reset your account password.</div><div>http://localhost/reset_password?q=$token</div>";
         reset_password($_POST);
         smtp_mailer_to_admin_or_user($email_address,"Recover Account Confirmation Mail",$msg);
     }
