@@ -230,28 +230,7 @@
         </div>
     </div>
 </div>
-<style>
-    .razorpay-payment-button
-    {
-        background-color: #FFD699;
-        border-color: #FFCF72;
-        font-weight: bold;
-        border-radius: 9px;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        padding: 8px 32px;
-        border-radius:40px;
-    }
-    .razorpay-payment-button:hover{
-        background-color: #F0C27D;
-        border-color: #FFCF72;
-        font-weight: bold;
-        border-radius: 9px;
-        padding: 8px 32px;
-        border-radius:40px;
-}
-</style>
+
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");
 ?>
-
-
