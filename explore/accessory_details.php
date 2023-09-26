@@ -8,6 +8,16 @@
         $id = trim($_GET["q"]);
         $accessory = get_uploaded_accessories_by_id($id);
     }
+    if(isset($_POST["add_to_cart_accessory"]))
+    {
+        if(isset($_GET["q"]) && !empty($_GET["q"]))
+        {
+            $id = trim($_GET["q"]);
+            add_accessories_to_cart($_POST, $id);
+            redirect_to_current_page("q=$id");
+        }
+    }
+    $type=2;
 ?>
 
 <div class="container">
@@ -88,14 +98,14 @@
                                 <div class="card-body">
                                     <h4 class="bold text-center text-danger mb-3"><?php echo 'Rs. '.$accessory["price"]; ?></h4>
                                     <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
-                                        <a href="" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
+                                        <a href="/payment/order_address.php?q=<?php echo $accessory["id"];?>&r=<?php echo $type;?>" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
                                     <?php else: ?>
                                         <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
                                     <?php endif; ?>
                                     <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
                                         <a href="" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                                     <?php else: ?>
-                                        <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
+                                        <button type="submit" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" id="add_to_cart_accessory" name="add_to_cart_accessory"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                                     <?php endif; ?>
                                     <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
                                         <a href="" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Rent</a>
