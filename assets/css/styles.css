@@ -414,3 +414,11 @@ textarea{
   --bs-nav-tabs-link-hover-border-color: rgba(255, 214, 153, 0.6);
   border-bottom: 6px solid rgba(255, 214, 153, 1);
 }
+.cart_page_inner_card{
+  background: linear-gradient(to right, #FFD699, rgba(255, 214, 153, 0.35)) !important;
+  border-width: 4px;
+}
+.cart_image{
+  height: 200px;
+  width: 230px;
+}

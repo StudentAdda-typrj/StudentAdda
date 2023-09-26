@@ -14,7 +14,8 @@
 		<title>StudentAdda</title>
 	<?php endif; ?>
 	<link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xw1UVhG2vj9caBcXzg+Zekr+I8CfbI9WMpR7FcmwhiZYYb3L5uVgIa8LQeetTIv89/1fVjz3V6JA5WHy9pU57Eg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/dcb64a7e7d.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -39,7 +40,7 @@
                         <a class="btn btn-sm navbar_button me-3 d-block" href="/explore/index.php">
                             <strong class="p-3">Explore</strong>
                         </a>
-                        <a class="nav-link me-3" href="">
+                        <a class="nav-link me-3" href="/user/shopping_cart/cart">
                             <i class="fa-solid fa-cart-shopping cart"></i>
                         </a>
                         <a class="nav-link me-3" href="/logout.php">
@@ -50,14 +51,14 @@
                             <strong class="homepage_login me-3">Logout</strong>
                         </a>
                     <?php else: ?>
+                        <a class="nav-link me-4" href="/login/index">
+                            <i class="fa-solid fa-cart-shopping cart"></i>
+                        </a>
                         <a class="btn btn-sm navbar_button me-3 d-block" href="/explore/index.php">
                             <strong class="p-3">Explore</strong>
                         </a>
                         <a class="nav-link me-3" href="/login/index.php">
                             <strong class="homepage_login">Login</strong>
-                        </a>
-                        <a class="nav-link me-5" href="">
-                            <i class="fa-solid fa-cart-shopping cart"></i>
                         </a>
                     <?php endif; ?>
                 </div>    

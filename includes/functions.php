@@ -1944,4 +1944,78 @@
 			return false;
 		}
 	}
+
+	function add_books_to_cart($data, $id)
+	{
+		global $db;
+		extract($data);
+		$user_id = $_SESSION["user_id"];
+		$sql = "INSERT INTO book_cart (user_id, product_id) VALUES (:user_id, :id)";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if ($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Item added to the cart.<a href='/user/shopping_cart/cart'>Check Here</a>";
+			return true;
+		}
+		return false;
+	}
+
+	function add_accessories_to_cart($data, $id)
+	{
+		global $db;
+		extract($data);
+		$user_id = $_SESSION["user_id"];
+		$sql = "INSERT INTO accessory_cart (user_id, product_id) VALUES (:user_id, :id)";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if ($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Item added to the cart.<a href='/user/shopping_cart/cart'>Check Here</a>";
+			return true;
+		}
+		return false;
+	}
+
+	function get_book_cart_items_using_user_id()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+
+		$sql = "SELECT * FROM book_cart WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function get_accessory_cart_items_using_user_id()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+
+		$sql = "SELECT * FROM accessory_cart WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		else
+		{
+			return false;
+		}
+	}
 ?>
