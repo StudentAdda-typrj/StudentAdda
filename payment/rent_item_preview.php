@@ -1,6 +1,6 @@
 <?php
-    $page_title = "BOOK PREVIEW";
-    require_once($_SERVER["DOCUMENT_ROOT"]."/includes/init.php");
+    $page_title = "Rented Book Preview";
+    require_once($_SERVER["DOCUMENT_ROOT"]."/user/nav.php");
     require('C:/xampp/htdocs/StudentAdda/payment/razorpay-php/razorpay-php/Razorpay.php');
 
     if(isset($_GET["q"]) && !empty($_GET["q"]) && is_numeric($_GET["q"]))
@@ -13,10 +13,14 @@
         header('Location:/user/profile.php ');
         exit;
     }
+    if(isset($_GET["s"]) && !empty($_GET["s"]) && is_numeric($_GET["s"]))
+    {
+        $duration = trim($_GET["s"]);
+    }
     if(isset($_GET["r"]) && !empty($_GET["r"]) && is_numeric($_GET["r"]))
-        {
-            $type = trim($_GET["r"]);
-        }
+    {
+        $type = trim($_GET["r"]);
+    }
     if($type==1)
     {
         $item = get_uploaded_books_by_id($id);
@@ -26,7 +30,7 @@
         $item = get_uploaded_accessories_by_id($id);
     }
     $newDate = date('d F ,Y', strtotime(' + 3 days'));
-    $total_price=get_total_price($item['price']);
+    $total_price=get_rental_price($item['rent_price'], $duration);
 ?>
 
 <div class="container">
@@ -37,6 +41,7 @@
             $api = new Api($keyId, $keySecret);
             $_SESSION['users_id']=$user['id'];
             $_SESSION['product_id']=$item['id'];
+            $_SESSION['duration']=$duration;
             $_SESSION['type']=$type;
             $_SESSION['amount']=$total_price;
             $displayCurrency='INR';
@@ -97,9 +102,9 @@
                                 <?php endif; ?>
                             <?php else: ?>
                                 <?php if ($item["photo_url"] > '0'): ?>
-                                <img src="<?php echo substr($item["photo_url"],27); ?>" class="my-3 img-fluid" alt="" height="400" width="400">
+                                    <img src="<?php echo substr($item["photo_url"],27); ?>" class="my-3 img-fluid" alt="" height="400" width="400">
                                 <?php else: ?>
-                                <img src="/assets/img/accessory_selling.jpg" class="my-3 img-fluid" alt="" height="400" width="400"> 
+                                    <img src="/assets/img/accessory_selling.jpg" class="my-3 img-fluid" alt="" height="400" width="400"> 
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>
@@ -171,9 +176,16 @@
                                     <table class="table table-sm table-borderless master_config_table">
                                     <tr>
                                         <td>
-                                            <p class="bold">item price</p>
+                                            <p class="bold">Rent Price</p>
                                         <td class="ps-4">
-                                            <p><?php echo $item['price'];?></p>
+                                            <p><?php echo $item['rent_price'];?></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bold">Duration</p>
+                                        <td class="ps-4">
+                                            <p><?php echo $duration." Month";?></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -196,7 +208,7 @@
                                     </tr>
                                 </table>
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <form action="verify.php" method="POST">
+                                    <form action="rent_verify.php" method="POST">
                                         <script
                                             src="https://checkout.razorpay.com/v1/checkout.js"'
                                             data-key="<?php echo $data['key']?>"
@@ -215,8 +227,7 @@
                                         >
                                         </script> 
                                         <input type="hidden" name="shopping_order_id" value="<?php echo $book['id'];?>">
-                                        </form>
-                                </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -8,15 +8,22 @@
         $request = get_book_request_detail_using_id($id);
     }
 
+    $user = get_user_details_by_passing_id($request["user_id"]);
+    $user_name = $user["first_name"];
+
     if(isset($_POST["accept_request"]))
     {
+        $msg = $_POST["accept_description"];
         accept_book_request($_POST, $id);
+        smtp_mailer_to_admin_or_user($user["email_address"],"Confirmation of Requested book", "Hello $user_name,<div>$msg Keep supporting and exploring with us.</div><br><div><strong>StudentAdda Team</strong></div>");
         redirect_to_current_page("q=$id");
     }
 
     if(isset($_POST["reject_request"]))
     {
+        $msg = $_POST["reject_description"];
         reject_book_request($_POST, $id);
+        smtp_mailer_to_admin_or_user($user["email_address"],"Rejection of Requested book", "Hello $user_name,<div>$msg Keep supporting and exploring with us.</div><br><div><strong>StudentAdda Team</strong></div>");
         redirect_to_current_page("q=$id");
     }
 ?>

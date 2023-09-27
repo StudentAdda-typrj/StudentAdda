@@ -88,12 +88,6 @@
 						</li>
 						<li>
 							<a class="btn dropdown-item" href="">
-								<i class="fa-solid fa-registered"></i> 
-								<span class="navlink_color_second_navbar_user">Rent a Book/Accessory</span>
-							</a>
-						</li>
-						<li>
-							<a class="btn dropdown-item" href="">
 								<i class="fa-solid fa-circle-info"></i> 
 								<span class="navlink_color_second_navbar_user">Rent Information</span>
 							</a>

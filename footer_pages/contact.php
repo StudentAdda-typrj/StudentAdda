@@ -42,7 +42,7 @@
                                                 <label for="description" class="text-dark required-highlight mb-1">Message</label>
                                                 <textarea class="form-control textarea_style mb-1" name="description" id="description" cols="30" rows="5" placeholder="Please Specify the problem properly, so that it will be easy for us to solve your query." required></textarea>
                                                 <button class="btn btn-sm my-2 bold pe-3 ps-3 button_style" type="submit" id="contact_button" name="contact_button">Submit</button>
-                                                <a href="/user/index.php" class="btn btn-sm btn-secondary cancel_button_style bold col-md-2">Cancel</a>
+                                                <a href="/index.php" class="btn btn-sm btn-secondary cancel_button_style bold col-md-2">Cancel</a>
                                             </div>
                                             <div class="col-lg-4 ms-auto">
                                                 <div class="contact_us_info p-4">

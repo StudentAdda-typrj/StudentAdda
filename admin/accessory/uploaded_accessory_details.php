@@ -30,7 +30,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-3">
                                                                     <?php if($accessory["photo_url"] > 0): ?>
-                                                                        <img src="<?php echo substr($accessory["photo_url"],27); ?>" class="rounded" alt="Book Image" height="200px" width="240px">
+                                                                        <img src="<?php echo substr($accessory["photo_url"],27); ?>" class="rounded" alt="Accessory Image" height="200px" width="240px">
                                                                     <?php else: ?>
                                                                         <img src="/assets/img/accessory_selling.jpg" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php endif; ?>

@@ -15,7 +15,6 @@
         $msg = $_POST["accept_description"];
         accept_book_selling_request($_POST, $id);
         smtp_mailer_to_admin_or_user($user["email_address"],"Confirmation of sell book request", "<div>Hello $user_name,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
-        header("location:/admin/request/sell_request/request_list");
     }
 
     if(isset($_POST["reject_book_selling_request"]))
@@ -23,7 +22,6 @@
         $msg = $_POST["reject_description"];
         reject_book_selling_request($_POST, $id);
         smtp_mailer_to_admin_or_user($user["email_address"],"Rejection of sell of book request", "<div>Hello $user_name,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
-        header("location:/admin/request/sell_request/request_list");
     }
 ?>
 

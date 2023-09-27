@@ -447,7 +447,7 @@
 
 	function get_book_request_detail(){
 		global $db;
-		$sql = "SELECT * FROM book_request";
+		$sql = "SELECT * FROM book_request WHERE status = '0'";
 		$stmt = $db->prepare($sql);
 
 		if($stmt->execute())
@@ -553,7 +553,7 @@
 
 			if($stmt->execute())
 			{
-				$_SESSION["success_messages"][] = "Thank you for becoming a seller.";
+				$_SESSION["success_messages"][] = "Thank you for becoming a seller! <a href='http://localhost/user/index.php'>Click here</a> to go to dashboard.";
 			}
 			else
 			{
@@ -596,7 +596,7 @@
 
 			if($stmt->execute())
 			{
-				$_SESSION["success_messages"][] = "Thank you for becoming a seller. Your product will be verified at our end and the details regarding it will be provided to you sooner!";
+				$_SESSION["success_messages"][] = "Thank you for becoming a seller! <a href='http://localhost/user/index.php'>Click here</a> to go to dashboard.";
 			}
 			else
 			{
@@ -1986,7 +1986,7 @@
 		global $db;
 		$user_id = $_SESSION["user_id"];
 
-		$sql = "SELECT * FROM book_cart WHERE user_id = :user_id";
+		$sql = "SELECT * FROM book_cart WHERE user_id = :user_id AND deleted = '0'";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 
@@ -2005,7 +2005,7 @@
 		global $db;
 		$user_id = $_SESSION["user_id"];
 
-		$sql = "SELECT * FROM accessory_cart WHERE user_id = :user_id";
+		$sql = "SELECT * FROM accessory_cart WHERE user_id = :user_id AND deleted = '0'";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 
@@ -2030,7 +2030,7 @@
 	}
 
 	//Function to search for books
-	function searchBooks($search_items)
+	function search_books($search_items)
 	{
 		global $db;
 		$sql = "SELECT * FROM books WHERE title LIKE :search_items OR author LIKE :search_items OR isbn LIKE :search_items OR publisher LIKE :search_items AND deleted = '0'";
@@ -2045,7 +2045,7 @@
 	}
 	
 	// Function to search for accessories
-	function searchAccessories($search_items)
+	function search_accessories($search_items)
 	{
 		global $db;
 		$sql = "SELECT * FROM accessories WHERE title LIKE :search_items OR brand LIKE :search_items AND deleted = '0'";
@@ -2060,16 +2060,42 @@
 	}
 	
 	// Function to perform a combined search
-	function combinedSearch($search_items) {
+	function combined_search($search_items) {
 		$search_items = '%' . $search_items . '%';
 	
-		$resultsBooks = searchBooks($search_items);
-		$resultsAccessories = searchAccessories($search_items);
+		$resultsBooks = search_books($search_items);
+		$resultsAccessories = search_accessories($search_items);
 		// Combine and return the results
 		$results = array(
 			'books' => $resultsBooks,
 			'accessories' => $resultsAccessories
 		);
 		return $results;
+	}
+
+	function get_rental_price($price, $duration)
+	{
+		if($price >=599)
+		{
+			return $price * $duration;
+		}
+		else{
+			return 45 + ($price * $duration);		
+		}
+	}
+
+	function delete_cart_item_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE book_cart SET deleted = '1', deleted_timestamp = NOW() WHERE product_id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
 	}
 ?>

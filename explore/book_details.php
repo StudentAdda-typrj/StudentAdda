@@ -121,7 +121,7 @@
                                             <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                                         <?php endif; ?>
                                         <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
-                                            <a href="" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" id="rent_book" name="rent_book">Rent</a>
+                                            <a href="/user/rent/rent_item?q=<?php echo $book["id"]; ?>&r=<?php echo $type;?>" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" id="rent_book" name="rent_book">Rent</a>
                                         <?php else: ?>
                                             <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Rent</a>
                                         <?php endif; ?>

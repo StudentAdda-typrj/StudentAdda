@@ -90,22 +90,10 @@
 					</ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link drop-toggle" href="" role="button" data-bs-toggle="dropdown">
+                    <a class="nav-link drop-toggle" href="">
 						<i class="fa-solid fa-registered navlink_color_second_navbar_user"></i>  
 						<span class="navlink_color_second_navbar_user">Rent Information</span>
 					</a>
-					<ul class="dropdown-menu second_navbar_dropdown" aria-expanded="false">
-						<li>
-							<a href="" class="btn dropdown-item">
-								<span class="navlink_color_second_navbar_user">Rent Request</span>
-							</a>
-						</li>
-						<li>
-							<a href="" class="btn dropdown-item">
-								<span class="navlink_color_second_navbar_user">Approved Rent</span>
-							</a>
-						</li>
-					</ul>
                 </li>   
             </ul>
 			<a class="nav-link me-2" href="/admin/change_password.php">

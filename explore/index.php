@@ -13,7 +13,7 @@
                     <div class="col-md-10 mx-auto pt-4">
                         <form action="<?php echo get_action_attr_value_for_current_page(); ?>" method="post" enctype="multipart/form-data">
                             <div class="input-group input-group-lg search_bar">
-                                <input type="text" class="form-control search_field" placeholder="Search For Books, Authors, Accessories" name="search_items">
+                                <input type="text" class="form-control search_field" placeholder="Search For Books, Authors, Accessories, ISBN" name="search_items">
                                 <button class="btn btn-sm search_button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </form>
@@ -24,7 +24,7 @@
     </div>
     <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') :
         $searchQuery = $_POST['search_items'];
-        $results = combinedSearch($searchQuery);
+        $results = combined_search($searchQuery);
         $noResultsFound = empty($results['books']) && empty($results['accessories']);
     ?>
         <?php if (!$noResultsFound): ?>

@@ -15,7 +15,6 @@
         $msg = $_POST["accept_description"];
         accept_accessory_selling_request($_POST, $id);
         smtp_mailer_to_admin_or_user($user["email_address"],"Confirmation of Sell of accessory request", "<div>Hello $user_name,</div>$msg");
-        header("location:/admin/request/sell_request/request_list");
     }
 
     if(isset($_POST["reject_accessory_selling_request"]))
@@ -23,7 +22,6 @@
         $msg = $_POST["reject_description"];
         reject_accessory_selling_request($_POST, $id);
         smtp_mailer_to_admin_or_user($user["email_address"],"Rejection of Sell of accessory request", "<div>Hello $user_name,</div>$msg");
-        header("location:/admin/request/sell_request/request_list");
     }
 ?>
 
@@ -49,7 +47,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-3">
                                                                     <?php if($accessory["photo_url"] > 0): ?>
-                                                                        <img src="<?php echo substr($accessory["photo_url"],27); ?>" class="rounded" alt="Book Image" height="200px" width="240px">
+                                                                        <img src="<?php echo substr($accessory["photo_url"],27); ?>" class="rounded" alt="Accessory Image" height="200px" width="240px">
                                                                     <?php else: ?>
                                                                         <img src="/assets/img/accessory_selling.jpg" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php endif; ?>

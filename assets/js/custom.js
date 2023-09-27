@@ -153,3 +153,24 @@ function getFinalSecondImagePreview (event) {
   new_image.height = "200";
   preview_container.appendChild(new_image);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const duration_in_month = document.getElementById('duration');
+  const rent_price = document.getElementById('price');
+  const rentItemLink = document.getElementById('pay_for_rent'); // Get the anchor tag by id
+
+  duration_in_month.addEventListener('input', function() {
+      // Get the selected duration_in_month value and parse it as a number
+      const selectedDuration = parseFloat(duration_in_month.value);
+
+      // Get the current rent_price value and parse it as a number
+      const currentPrice = parseFloat(rent_price.value);
+
+      // Check if both values are valid numbers
+      if (!isNaN(selectedDuration) && !isNaN(currentPrice)) {
+
+      // Update the href attribute of the anchor tag with the new URL including the duration as a query parameter
+        rentItemLink.href = `/payment/rent_item_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>&s=${selectedDuration}`;
+      }
+  });
+});

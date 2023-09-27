@@ -79,7 +79,7 @@
 }
 .img_height{
   height: 240px;
-  border: 7px solid #ffa600;
+  border: 7px inset #ffa600;
 }
 .explore_image_card{
   border:none;
