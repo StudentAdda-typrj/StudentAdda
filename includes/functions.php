@@ -2027,6 +2027,49 @@
 		else{
 			return 45+$price;		
 		}
+	}
 
+	//Function to search for books
+	function searchBooks($search_items)
+	{
+		global $db;
+		$sql = "SELECT * FROM books WHERE title LIKE :search_items OR author LIKE :search_items OR isbn LIKE :search_items OR publisher LIKE :search_items AND deleted = '0'";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':search_items', $search_items, PDO::PARAM_STR);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+	
+	// Function to search for accessories
+	function searchAccessories($search_items)
+	{
+		global $db;
+		$sql = "SELECT * FROM accessories WHERE title LIKE :search_items OR brand LIKE :search_items AND deleted = '0'";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':search_items', $search_items, PDO::PARAM_STR);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+	
+	// Function to perform a combined search
+	function combinedSearch($search_items) {
+		$search_items = '%' . $search_items . '%';
+	
+		$resultsBooks = searchBooks($search_items);
+		$resultsAccessories = searchAccessories($search_items);
+		// Combine and return the results
+		$results = array(
+			'books' => $resultsBooks,
+			'accessories' => $resultsAccessories
+		);
+		return $results;
 	}
 ?>
