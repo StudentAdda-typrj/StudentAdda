@@ -8,6 +8,7 @@
         $id = trim($_GET["q"]);
     }
     $user = get_user_details_using_id(); 
+    echo $user["first_name"];
     if($user['email_address']== '' && $user['contact_number']=='')
     {
         header('Location:/user/profile.php ');
@@ -39,7 +40,7 @@
             include("config.php");
             use Razorpay\Api\Api;
             $api = new Api($keyId, $keySecret);
-            $_SESSION['users_id']=$user['id'];
+            $_SESSION['user_id']=$user['user_id'];
             $_SESSION['product_id']=$item['id'];
             $_SESSION['duration']=$duration;
             $_SESSION['type']=$type;

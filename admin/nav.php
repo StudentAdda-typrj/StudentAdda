@@ -90,7 +90,7 @@
 					</ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link drop-toggle" href="">
+                    <a class="nav-link drop-toggle" href="/admin/rent/rent_list">
 						<i class="fa-solid fa-registered navlink_color_second_navbar_user"></i>  
 						<span class="navlink_color_second_navbar_user">Rent Information</span>
 					</a>

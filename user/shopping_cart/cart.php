@@ -37,11 +37,11 @@
                                                             <div class="card-body">
                                                                 <div class="row g-0">
                                                                     <div class="col-md-4">
-                                                                    <?php if ($book["cover_url"] > '0'): ?>
-                                                                        <img class="rounded img-fluid img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
-                                                                    <?php else: ?>
-                                                                        <img class="rounded img-fluid img_height" src="/assets/img/book_selling.jpg" alt="">
-                                                                    <?php endif; ?>
+                                                                        <?php if ($book["cover_url"] > '0'): ?>
+                                                                            <img class="rounded img-fluid img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
+                                                                        <?php else: ?>
+                                                                            <img class="rounded img-fluid img_height" src="/assets/img/book_selling.jpg" alt="">
+                                                                        <?php endif; ?>
                                                                     </div>
                                                                     <div class="col-md-8">
                                                                         <div class="card-body">

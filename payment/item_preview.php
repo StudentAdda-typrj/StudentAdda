@@ -35,7 +35,7 @@
             include("config.php");
             use Razorpay\Api\Api;
             $api = new Api($keyId, $keySecret);
-            $_SESSION['users_id']=$user['id'];
+            $_SESSION['user_id']=$user['user_id'];
             $_SESSION['product_id']=$item['id'];
             $_SESSION['type']=$type;
             $_SESSION['amount']=$total_price;
@@ -106,9 +106,9 @@
                         <div class="col-lg-5">
                             <h3 class="bold text_color"><?php echo $item["title"]; ?></h3>
                             <?php if($type==1):?>
-                            <h6 class="bold"><?php echo $item["author"]; ?></h6>
+                                <h6 class="bold"><?php echo $item["author"]; ?></h6>
                             <?php else:?>
-                            <h6 class="bold"><?php echo $item["brand"]; ?></h6>
+                                <h6 class="bold"><?php echo $item["brand"]; ?></h6>
                             <?php endif;?>
                             <hr class="rounded">
                             <div class="table-responsive">
@@ -215,8 +215,7 @@
                                         >
                                         </script> 
                                         <input type="hidden" name="shopping_order_id" value="<?php echo $book['id'];?>">
-                                        </form>
-                                </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

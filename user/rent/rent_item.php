@@ -51,7 +51,7 @@
                                                         <input type="number" class="form-control mb-2" id="price" name="price" value="<?php echo $book["rent_price"]; ?>" placeholder="Price" required>
                                                     </div>
                                                 </div>
-                                                <a href="/payment/rent_item_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>" class="btn btn-sm my-2 bold pe-3 ps-3 button_style col-md-2" type="submit" id="pay_for_rent" name="pay_for_rent">Pay</a>
+                                                <a href="/payment/rent_item_address?q=<?php echo $book["id"]; ?>&r=<?php echo $type; ?>" class="btn btn-sm my-2 bold pe-3 ps-3 button_style col-md-2" id="pay_for_rent" name="pay_for_rent">Pay</a>
                                                 <a href="/user/index.php" class="btn btn-sm btn-secondary cancel_button_style bold col-md-2">Cancel</a>
                                             </div>
                                             <div class="col-lg-5 ms-auto">
@@ -76,6 +76,31 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const duration_in_month = document.getElementById('duration');
+        const rent_price = document.getElementById('price');
+        const rentItemLink = document.getElementById('pay_for_rent'); // Get the anchor tag by id
+
+        duration_in_month.addEventListener('input', function() {
+            // Get the selected duration_in_month value and parse it as a number
+            const selectedDuration = parseFloat(duration_in_month.value);
+
+            // Get the current rent_price value and parse it as a number
+            const currentPrice = parseFloat(rent_price.value);
+
+            // Check if both values are valid numbers
+            if (!isNaN(selectedDuration) && !isNaN(currentPrice)) {
+            // Calculate the updated price by multiplying duration_in_month with rent_price
+            const updatedPrice = selectedDuration * currentPrice;
+
+            // Update the href attribute of the anchor tag with the new URL including the duration as a query parameter
+            rentItemLink.href = `/payment/rent_item_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>&s=${selectedDuration}`;
+            }
+        });
+    });
+</script>
 
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

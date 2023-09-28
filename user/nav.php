@@ -87,7 +87,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="btn dropdown-item" href="">
+							<a class="btn dropdown-item" href="/user/rent/rent_information">
 								<i class="fa-solid fa-circle-info"></i> 
 								<span class="navlink_color_second_navbar_user">Rent Information</span>
 							</a>

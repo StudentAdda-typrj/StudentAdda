@@ -36,7 +36,7 @@
 
                 if ($success === true)
                 {
-                    $user_id=$_SESSION['users_id'];
+                    $user_id=$_SESSION['user_id'];
                     $product_id=$_SESSION['product_id'];
                     $product_type=$_SESSION['type'];
                     if(isset($_POST['razorpay_payment_id']))
@@ -71,6 +71,7 @@
                                     $user_name = $user["first_name"];
                                     $msg = "Thank you $user_name for your purchase on <strong>StudentAdda</strong>! We truly appreciate your contribution. 🎉 We hope you enjoy the product. Your satisfaction is our top priority!<div><div>If you have any questions or need assistance, please don't hesitate to contact our support team.Go to http://localhost/footer_pages/contact</div><div><strong>StudentAdda Team</strong></div>";
                                     smtp_mailer_to_admin_or_user($email,"Transaction done Successfully",$msg);
+                                    smtp_mailer_to_admin_or_user("studentadda.official@gmail.com","New Order Placed","An order has been placed by $email. Transaction is successful!");
                                 }
                                 
                             }?>

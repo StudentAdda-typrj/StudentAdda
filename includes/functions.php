@@ -1751,7 +1751,7 @@
 
 
 	function smtp_mailer_to_admin_or_user($to,$subject, $msg){
-		require 'C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php';
+		require_once('C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php');
 		$mail = new PHPMailer(); 
 		$mail->IsSMTP(); 
 		$mail->SMTPAuth = true; 
@@ -1780,7 +1780,7 @@
 	}
 
 	function smtp_mailer_from_user_to_admin($from,$subject, $msg){
-		require 'C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php';
+		require_once('C:/xampp/htdocs/StudentAdda/smtp/PHPMailerAutoload.php');
 		$mail = new PHPMailer(); 
 		$mail->IsSMTP(); 
 		$mail->SMTPAuth = true;
@@ -2095,6 +2095,99 @@
 		{
 			$_SESSION["success_messages"][] = "Deleted Successfully.";
 			return true;
+		}
+		return false;
+	}
+
+	function number_of_rented_items()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+		$sql = "SELECT COUNT(id) AS rent_count FROM rent WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['rent_count'];
+		}
+		return false;
+	}
+
+	function get_rent_information_using_id()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+
+		$sql = "SELECT * FROM rent WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function get_all_rented_items_using_id()
+	{
+		global $db;
+		$user_id = $_SESSION["user_id"];
+
+		$sql = "SELECT * FROM rent WHERE user_id = :user_id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function get_rented_items()
+	{
+		global $db;
+		$sql = "SELECT * FROM rent";
+		$stmt = $db->prepare($sql);
+
+		if ( $stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_rent_details_by_passing_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM rent WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if ($stmt->execute() )
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function total_number_of_rented_items()
+	{
+		global $db;
+		$sql = "SELECT COUNT(id) AS rent_count FROM rent";
+		$stmt = $db->prepare($sql);
+		if ($stmt->execute())
+		{
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+        	return $result['rent_count'];
 		}
 		return false;
 	}

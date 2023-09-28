@@ -36,7 +36,7 @@
 
                 if ($success === true)
                 {
-                    $user_id=$_SESSION['users_id'];
+                    $user_id=$_SESSION['user_id'];
                     $product_id=$_SESSION['product_id'];
                     $duration = $_SESSION['duration'];
                     $product_type=$_SESSION['type'];
@@ -73,6 +73,7 @@
                                     $user_name = $user["first_name"];
                                     $msg = "Thank you $user_name for renting an item on <strong>StudentAdda</strong>! You will get another mail at the time of expiration of due date for returning of the product. Please return the item on time otherwise the fine will be generate against your account and you have to pay extra cost. If you want to keep the product on renting further then you have to again rent that item for the desired period of time. We truly appreciate your contribution. 🎉 We hope you enjoy the product. Your satisfaction is our top priority!<div><div>If you have any questions or need assistance, please don't hesitate to contact our support team.Go to http://localhost/footer_pages/contact</div><div><strong>StudentAdda Team</strong></div>";
                                     smtp_mailer_to_admin_or_user($email,"Transaction done Successfully",$msg);
+                                    smtp_mailer_to_admin_or_user("studentadda.official@gmail.com","New Rent Order Placed","You got a new rent order from $email. Transaction is successful!");
                                 }
                                 
                             }?>

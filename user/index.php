@@ -16,7 +16,7 @@
                                     <div class="p-4">
                                         <div class="user_inner_card_icon"><i class="fa-solid fa-book"></i></div>
                                         <div class="mb-4">
-                                            <h5 class="card-title mb-0">Books</h5>
+                                            <h5 class="card-title mb-0">Sold Books</h5>
                                         </div>
                                         <div class="row mb-2 d-flex">
                                             <div class="col-2">
@@ -34,7 +34,7 @@
                                     <div class="p-4">
                                         <div class="user_inner_card_icon"><i class="fa-solid fa-laptop"></i></div>
                                         <div class="mb-4">
-                                            <h5 class="card-title mb-0">Accessories</h5>
+                                            <h5 class="card-title mb-0">Sold Accessories</h5>
                                         </div>
                                         <div class="row mb-2 d-flex">
                                             <div class="col-2">
@@ -48,6 +48,7 @@
                             </div>
                             <div class="col-lg-4 col-xl-4">
                                 <div class="card my-2 user_inner_cards">
+                                    <?php $rented_items = number_of_rented_items(); ?>
                                     <div class="p-4">
                                         <div class="user_inner_card_icon"><i class="fa-solid fa-registered"></i></div>
                                         <div class="mb-4">
@@ -56,7 +57,7 @@
                                         <div class="row mb-2 d-flex">
                                             <div class="col-2">
                                                 <h2 class="d-flex mb-0">
-                                                    0
+                                                    <?php echo $rented_items; ?>
                                                 </h2>
                                             </div>   
                                         </div>  

@@ -14,9 +14,8 @@
 		<title>StudentAdda</title>
 	<?php endif; ?>
 	<link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xw1UVhG2vj9caBcXzg+Zekr+I8CfbI9WMpR7FcmwhiZYYb3L5uVgIa8LQeetTIv89/1fVjz3V6JA5WHy9pU57Eg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/dcb64a7e7d.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

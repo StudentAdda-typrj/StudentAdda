@@ -249,6 +249,7 @@ label.required-highlight:after {
 }
 .card_heading_text{
   color: #CBAA00;
+  font-size: large;
   text-shadow: 1px 1px 2px #FFFFFF;
 }
 .master_config_button_style{
