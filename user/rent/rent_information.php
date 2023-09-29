@@ -2,21 +2,24 @@
     $page_title = 'Rent Information';
     require_once($_SERVER["DOCUMENT_ROOT"])."/user/nav.php";
     $item = get_rent_information_using_id();
-    $type = $item["product_type"];
-    $id = $item["product_id"];
+    if($item !=null)
+    {
+        $type = $item["product_type"];
+        $id = $item["product_id"];
+        if($type==1)
+        {
+            $item_type = get_uploaded_books_by_id($id);
+        }
+        else
+        {
+            $item_type = get_uploaded_accessories_by_id($id);
+        }
+        $duration = $item["duration"];
+
+        $return_date = date('Y-m-d', strtotime("+$duration month", strtotime($item["created_timestamp"])));
+
+    }
     
-    if($type==1)
-    {
-        $item_type = get_uploaded_books_by_id($id);
-    }
-    else
-    {
-        $item_type = get_uploaded_accessories_by_id($id);
-    }
-
-    $duration = $item["duration"];
-
-    $return_date = date('Y-m-d', strtotime("+$duration month", strtotime($item["created_timestamp"])));
 
     echo "<script>";
     echo "const dueDate = " . json_encode($return_date) . ";";

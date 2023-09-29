@@ -8,7 +8,7 @@
         $id = trim($_GET["q"]);
     }
     $user = get_user_details_using_id(); 
-    echo $user["first_name"];
+    //echo $user["first_name"];
     if($user['email_address']== '' && $user['contact_number']=='')
     {
         header('Location:/user/profile.php ');
