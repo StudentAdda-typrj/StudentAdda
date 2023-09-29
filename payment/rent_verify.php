@@ -77,61 +77,64 @@
                                 }
                                 
                             }?>
-                            <div class="container" id="success_registration_page">
-                                <div class="row">
-                                    <div class="col-md-6 offset-md-3">
-                                        <div class="card login_registration_card my-5">
-                                            <div class="card-body">
-                                                <div class="mb-3 text-center">
-                                                    <i class="fa fa-check-circle"></i>
+                                        <div class="container" id="success_registration_page">
+                                            <div class="row">
+                                                <div class="col-md-6 offset-md-3">
+                                                    <div class="card login_registration_card my-5">
+                                                        <div class="card-body">
+                                                            <div class="mb-3 text-center">
+                                                                <i class="fa fa-check-circle"></i>
+                                                            </div>
+                                                            <div class="mb-3 text-center">
+                                                                <h2><?php echo $subject; ?></h2>
+                                                                <h4 id="adda"><?php echo "ThankYou For Purchasing!";?></h4>
+                                                            </div>
+                                                            <a href="/user/index.php" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" ><span class="p-2"><i class="fa-solid fa-arrow-left"></i></span>Return to Dashboard</a></p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3 text-center">
-                                                    <h2><?php echo $subject; ?></h2>
-                                                    <h4 id="adda"><?php echo "ThankYou For Purchasing!";?></h4>
-                                                </div>
-                                                <a href="/user/index.php" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" ><span class="p-2"><i class="fa-solid fa-arrow-left"></i></span>Return to Dashboard</a></p>
                                             </div>
-                                        </div>
-                                    </div>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        $html="<p>Invalid Transaction . Please try Again</p>";
+                                        $error_found=1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                $html="<p>Invalid Transaction . Please try Again</p>
+                                <p>{$error}</p>";
+                                $error_found=1;
+                            }
+                            if(isset($html)){
+                                echo $html;
+                            }         
+                        ?>
+            <?php if(isset($error_found)){ ?>
+            <div class="container" id="success_registration_page">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="card login_registration_card my-5">
+                            <div class="card-body">
+                                <div class="mb-3 text-center">
+                                    <i class="fa-solid fa-ban"></i>
                                 </div>
-                            <?php
-                        }
-                        else
-                        {
-                            $html="<p>Invalid Transaction . Please try Again</p>";
-                            $error_found=1;
-                        }
-                    }
-                }
-                else
-                {
-                    $html="<p>Invalid Transaction . Please try Again</p>
-                    <p>{$error}</p>";
-                    $error_found=1;
-                }
-                if(isset($html)){
-                    echo $html;
-                }         
-            ?>
-<?php if(isset($error_found)){ ?>
-<div class="container" id="success_registration_page">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="card login_registration_card my-5">
-                <div class="card-body">
-                    <div class="mb-3 text-center">
-                        <i class="fa-solid fa-ban"></i>
-                    </div>
-                    <div class="mb-3 text-center">
-                        <h2><?php echo "Transaction Failed Please Try Again After Some Time"; ?></h2>
-                    </div>
-                        <a href="/explore/index.php" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" ><span class="p-2"><i class="fa-solid fa-arrow-left"></i></span>continue shopping</a></p>
+                                <div class="mb-3 text-center">
+                                    <h2><?php echo "Transaction Failed Please Try Again After Some Time"; ?></h2>
+                                </div>
+                                    <a href="/explore/index.php" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" ><span class="p-2"><i class="fa-solid fa-arrow-left"></i></span>continue shopping</a></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
-    <?php } ?>
 </div>
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

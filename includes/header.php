@@ -64,11 +64,7 @@
             </div>
         </nav>
     <?php endif; ?>
-    <?php if($page_title === 'Login' || $page_title === 'Explore' || $page_title === 'Registration' || $page_title === 'All Books' 
-    || $page_title === 'All Accessories' || $page_title === 'All Competitive Exam Books' || $page_title === 'All Novels' || 
-    $page_title === 'All History Books' || $page_title === 'All University Books' || $page_title === 'All Anime Comics' || 
-    $page_title === 'All Laptops' || $page_title === 'All Keyboard&Mouse' || $page_title === 'All Monitors' || $page_title === 
-    'All CPUs' || $page_title === 'All Tablets' || $page_title === 'Explore Book Details' || $page_title === 'Explore Accessory Details' || $page_title === 'Newly Added' || $page_title === 'Newly Added Books' || $page_title === 'Newly Added Accessories'): ?>
+    <?php if($page_title === 'Login' ||  $page_title === 'Registration'): ?>
         <nav class="navbar navbar-expand-sm primary_navbar">
             <div class="container-fluid">
                 <a class="ms-3 navbar-brand" href="/index.php">
@@ -77,6 +73,31 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            </div>
+        </nav>
+    <?php endif; ?>
+    <?php if ($page_title === 'Explore' || $page_title === 'All Accessories' || $page_title === 'All Competitive Exam Books' || $page_title === 'All Novels' || 
+    $page_title === 'All History Books' || $page_title === 'All University Books' || $page_title === 'All Anime Comics' || 
+    $page_title === 'All Laptops' || $page_title === 'All Keyboard&Mouse' || $page_title === 'All Monitors' || $page_title === 
+    'All CPUs' || $page_title === 'All Tablets' || $page_title === 'Explore Book Details' || $page_title === 'Explore Accessory Details' 
+    || $page_title === 'Newly Added' || $page_title === 'Newly Added Books' || $page_title === 'Newly Added Accessories'): ?>
+        <nav class="navbar navbar-expand-sm primary_navbar">
+            <div class="container-fluid">
+                <a class="ms-3 navbar-brand" href="/index.php">
+                    <h3 class="studentadda">Student<span id="adda">Adda</span></h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
+                    <a class="btn btn-sm navbar_button me-3 d-block" href="/user/index">
+                        <strong class="p-3"><i class="fas fa-user-circle"></i> My Account</strong>
+                    </a>
+                <?php else: ?>
+                    <a class="btn btn-sm navbar_button me-3 d-block" href="/login/index">
+                        <strong class="p-3"><i class="fas fa-user-circle"></i> My Account</strong>
+                    </a>
+                <?php endif; ?>
             </div>
         </nav>
     <?php endif; ?>

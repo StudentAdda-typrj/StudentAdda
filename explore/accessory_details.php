@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>
                                             <h5 class="bold">Condition :</h5>
-                                        </td>0
+                                        </td>
                                         <td class="ps-4">
                                             <h5>Good</h5>
                                         </td>
