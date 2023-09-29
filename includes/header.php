@@ -27,7 +27,10 @@
         <nav class="navbar navbar-expand-sm primary_navbar">
             <div class="container-fluid">
                 <a class="ms-3 navbar-brand" href="index.php">
-                    <h3 class="studentadda">Student<span id="adda">Adda</span></h3>
+                    <div class="h3 studentadda">
+                        <img src="/assets/img/StudentAddaLogo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                        Student<span id="adda">Adda</span>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primarynavbar">
                     <span class="navbar-toggler-icon"></span>
