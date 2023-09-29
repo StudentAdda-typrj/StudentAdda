@@ -107,7 +107,7 @@
 					</ul>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">
+					<a class="nav-link" href="/user/purchased_items">
 						 <i class="fa-solid fa-circle-dollar-to-slot navlink_color_second_navbar_user"></i>
 						<span class="navlink_color_second_navbar_user">My Purchase</span>
 					</a>

@@ -2190,4 +2190,19 @@
 		}
 		return false;
 	}
+
+	function get_purchased_items()
+	{
+		global $db;
+		$user_id = $_SESSION['user_id'];
+		$sql = 'SELECT * FROM transaction where user_id = :user_id';
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+		if ($stmt->execute() )
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
 ?>

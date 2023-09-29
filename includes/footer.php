@@ -12,7 +12,7 @@
                       where you can buy,sell and 
                       rent study book/accessories</p>
                     <p class="bold">P: +91-1234567890 </p>   
-                    <p class="bold">Email: studentadda.official@gmail.com</p> 
+                    <p class="bold footer_email">Email: studentadda.official@gmail.com</p> 
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
