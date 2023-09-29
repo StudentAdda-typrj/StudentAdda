@@ -540,18 +540,12 @@
 
 		if(!isset($_SESSION["error_messages"]))
 		{
-			$file_name1 = $_FILES["cover_url"]["name"];
-			$temp_name1 = $_FILES["cover_url"]["tmp_name"];
-			$folder1 = "C:/xampp/htdocs/StudentAdda/assets/img/sell_request_book_image/".$file_name1;
-			move_uploaded_file($temp_name1, $folder1);
-
-			$file_name2 = $_FILES["index_url"]["name"];
-			$temp_name2 = $_FILES["index_url"]["tmp_name"];
-			$folder2 = "C:/xampp/htdocs/StudentAdda/assets/img/sell_request_book_image/".$file_name2;
-			move_uploaded_file($temp_name2, $folder2);
+			$image_folder = "C:/xampp/htdocs/StudentAdda/assets/img/sell_request_book_image/";
+			$cover_url = upload_image("cover_url", $image_folder);
+			$index_url = upload_image("index_url", $image_folder);
 
 			$user_id = $_SESSION["user_id"];
-			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, publisher, edition, pages, department_id, description, cover_url, index_url, verified, uploaded) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :publisher, :edition, :pages, :department, :description, '$folder1', '$folder2', '0', '0')";
+			$sql = "INSERT INTO book_selling (user_id, title, category_id, language_id, price, author, isbn, publisher, edition, pages, department_id, description, cover_url, index_url, verified, uploaded) VALUES (:user_id, :title, :book_type, :language, :price, :author, :isbn, :publisher, :edition, :pages, :department, :description, :cover_url, :index_url, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
@@ -565,6 +559,8 @@
 			$stmt->bindParam(':pages', $pages, PDO::PARAM_INT);
 			$stmt->bindParam(':department', $department, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
+			$stmt->bindParam('index_url', $index_url, PDO::PARAM_STR);
 
 			if($stmt->execute())
 			{
@@ -585,18 +581,12 @@
 		
 		if(!isset($_SESSION["error_messages"]))
 		{
-			$file_name1 = $_FILES["photo_url"]["name"];
-			$temp_name1 = $_FILES["photo_url"]["tmp_name"];
-			$folder1 = "C:/xampp/htdocs/StudentAdda/assets/img/sell_request_accessory_image/".$file_name1;
-			move_uploaded_file($temp_name1, $folder1);
-
-			$file_name2 = $_FILES["photo_url2"]["name"];
-			$temp_name2 = $_FILES["photo_url2"]["tmp_name"];
-			$folder2 = "C:/xampp/htdocs/StudentAdda/assets/img/sell_request_accessory_image/".$file_name2;
-			move_uploaded_file($temp_name2, $folder2);
+			$image_folder = "C:/xampp/htdocs/StudentAdda/assets/img/sell_request_accessory_image/";
+			$photo_url = upload_image("photo_url", $image_folder);
+			$photo_url2 = upload_image("photo_url2", $image_folder);
 
 			$user_id = $_SESSION["user_id"];
-			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, ram, connector_type, description, photo_url, photo_url2, verified, uploaded) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :ram, :connector_type, :description, '$folder1', '$folder2', '0', '0')";
+			$sql = "INSERT INTO accessory_selling (user_id, title, sub_category_id, brand, processor, screen_size, price, ram, connector_type, description, photo_url, photo_url2, verified, uploaded) VALUES (:user_id, :title, :accessory_type, :brand, :processor, :screen_size, :price, :ram, :connector_type, :description, :photo_url, :photo_url2, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
@@ -608,6 +598,8 @@
 			$stmt->bindParam(':ram', $ram, PDO::PARAM_STR);
 			$stmt->bindParam(':connector_type', $connector_type, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url', $photo_url, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url2', $photo_url2, PDO::PARAM_STR);
 
 			if($stmt->execute())
 			{
@@ -1123,17 +1115,11 @@
 		extract($data);
 		if(!isset($_SESSION["error_messages"]))
 		{
-			$file_name1 = $_FILES["cover_url"]["name"];
-			$temp_name1 = $_FILES["cover_url"]["tmp_name"];
-			$folder1 = "C:/xampp/htdocs/StudentAdda/assets/img/book_images/".$file_name1;
-			move_uploaded_file($temp_name1, $folder1);
+			$image_folder = "C:/xampp/htdocs/StudentAdda/assets/img/book_images/";
+			$cover_url = upload_image("cover_url", $image_folder);
+			$index_url = upload_image("index_url", $image_folder);
 
-			$file_name2 = $_FILES["index_url"]["name"];
-			$temp_name2 = $_FILES["index_url"]["tmp_name"];
-			$folder2 = "C:/xampp/htdocs/StudentAdda/assets/img/book_images/".$file_name2;
-			move_uploaded_file($temp_name2, $folder2);
-
-			$sql = "INSERT INTO books (title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, disabled, deleted) VALUES (:title, :book_type, :language, :price, :author, :isbn, :department, :description, '$folder1', '$folder2', '0', '0')";
+			$sql = "INSERT INTO books (title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, disabled, deleted) VALUES (:title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
 			$stmt->bindParam(':book_type', $book_type, PDO::PARAM_STR);
@@ -1143,6 +1129,8 @@
 			$stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
 			$stmt->bindParam(':department', $department, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
+			$stmt->bindParam(':index_url', $index_url, PDO::PARAM_STR);
 			
 			if($stmt->execute())
 			{
@@ -1257,17 +1245,11 @@
 		
 		if(!isset($_SESSION["error_messages"]))
 		{
-			$file_name1 = $_FILES["photo_url"]["name"];
-			$temp_name1 = $_FILES["photo_url"]["tmp_name"];
-			$folder1 = "C:/xampp/htdocs/StudentAdda/assets/img/accessory_images/".$file_name1;
-			move_uploaded_file($temp_name1, $folder1);
+			$image_folder = "C:/xampp/htdocs/StudentAdda/assets/img/accessory_images/";
+			$photo_url = upload_image("photo_url", $image_folder);
+			$photo_url2 = upload_image("photo_url2", $image_folder);
 
-			$file_name2 = $_FILES["photo_url2"]["name"];
-			$temp_name2 = $_FILES["photo_url2"]["tmp_name"];
-			$folder2 = "C:/xampp/htdocs/StudentAdda/assets/img/accessory_images/".$file_name2;
-			move_uploaded_file($temp_name2, $folder2);
-
-			$sql = "INSERT INTO accessories (title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, disabled, deleted) VALUES (:title, :accessory_type, :brand, :processor, :screen_size, :price, :description, '$folder1', '$folder2', '0', '0')";
+			$sql = "INSERT INTO accessories (title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, disabled, deleted) VALUES (:title, :accessory_type, :brand, :processor, :screen_size, :price, :description, :photo_url, :photo_url2, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
 			$stmt->bindParam(':accessory_type', $accessory_type, PDO::PARAM_STR);
@@ -1276,6 +1258,8 @@
 			$stmt->bindParam(':screen_size', $screen_size, PDO::PARAM_STR);
 			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url', $photo_url, PDO::PARAM_STR);
+			$stmt->bindParam(':photo_url2', $photo_url2, PDO::PARAM_STR);
 
 			if($stmt->execute())
 			{
