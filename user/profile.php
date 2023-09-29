@@ -27,6 +27,8 @@
                     <div class="upload mx-auto">
                         <?php if($user["profile_url"] > '0'): ?>
                             <img src="<?php echo substr($user["profile_url"],27); ?>" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="user_profile_image" id="user_profile_image">
+                        <?php elseif ($user["profile_url"] === '0'): ?>
+                            <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="default_profile_image" id="default_profile_image">
                         <?php else: ?>
                             <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="default_profile_image" id="default_profile_image">
                         <?php endif; ?>

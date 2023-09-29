@@ -127,6 +127,22 @@
 		}
 	}
 
+	function upload_image($input_name, $image_folder)
+	{
+		if (isset($_FILES[$input_name]) && !empty($_FILES[$input_name]["name"])) {
+			$file_name = $_FILES[$input_name]["name"];
+			$temp_name = $_FILES[$input_name]["tmp_name"];
+			$target_path = $image_folder . $file_name;
+
+			if (move_uploaded_file($temp_name, $target_path)) {
+				return $target_path;
+			} else {
+				$_SESSION["error_messages"][] = "Failed to upload $input_name image.";
+			}
+		}
+		return null;
+	}
+
 	function update_user_profile_detail($data)
 	{
 		global $db;
@@ -134,13 +150,11 @@
 
 		if (!isset($_SESSION["error_messages"]))
 		{
-			$file_name = $_FILES["profile_url"]["name"];
-			$temp_name = $_FILES["profile_url"]["tmp_name"];
-			$folder = "C:/xampp/htdocs/StudentAdda/assets/img/user_profile/".$file_name;
-			move_uploaded_file($temp_name, $folder);
+			$image_folder = "C:/xampp/htdocs/StudentAdda/assets/img/user_profile/";
+			$profile_url = upload_image("profile_url", $image_folder);
 			
 		    $user_id = $_SESSION["user_id"];
-		    $sql = "UPDATE user_details SET first_name = :first_name, middle_name = :middle_name, last_name = :last_name, dob = :dob, gender = :gender, contact_number = :contact_number, profile_url = '$folder', modified_timestamp = NOW() WHERE user_id = :user_id";
+		    $sql = "UPDATE user_details SET first_name = :first_name, middle_name = :middle_name, last_name = :last_name, dob = :dob, gender = :gender, contact_number = :contact_number, profile_url = :profile_url, modified_timestamp = NOW() WHERE user_id = :user_id";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 			$stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR);
@@ -149,6 +163,7 @@
 			$stmt->bindParam(':dob', $dob, PDO::PARAM_STR);
 			$stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
 			$stmt->bindParam(':contact_number', $contact_number, PDO::PARAM_INT);
+			$stmt->bindParam(':profile_url', $profile_url, PDO::PARAM_STR);
 			  
 			  
 		   if($stmt->execute())
