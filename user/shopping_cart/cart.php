@@ -98,6 +98,7 @@
                                                         </div>
                                                     </div>
                                                 </a>
+                                                <a href="/user/shopping_cart/delete_cart_item?q=<?php echo $cart_item["product_id"]; ?>" class="btn btn-sm btn-secondary mx-auto d-block col-md-2">Remove</a>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </div>
