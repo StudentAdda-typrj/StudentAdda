@@ -7,7 +7,7 @@
 
     if (isset($_POST["accessory_selling_button"])) {
         perform_accessory_selling($_POST);
-        smtp_mailer_to_admin_or_user($user["email_address"],"You have made an accessory sell request","Hello $user_name, <div><strong>Thank you for becoming a seller.</strong></div>Your product will be verified at our end and you'll get futher update soon!");
+        smtp_mailer_to_admin_or_user($user["email_address"],"You have made an accessory sell request","Hello $user_name, <div><strong>Thank you for becoming a seller.</strong></div>Your product will be verified at our end and you'll get futher update soon!<div><strong>StudentAdda Team</strong></div>");
     }
 ?>
 

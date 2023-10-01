@@ -14,14 +14,14 @@
     {
         $msg = $_POST["accept_description"];
         accept_accessory_selling_request($_POST, $id);
-        smtp_mailer_to_admin_or_user($user["email_address"],"Confirmation of Sell of accessory request", "<div>Hello $user_name,</div>$msg");
+        smtp_mailer_to_admin_or_user($user["email_address"],"Confirmation of Sell of accessory request", "<div>Hello $user_name,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
     }
 
     if(isset($_POST["reject_accessory_selling_request"]))
     {
         $msg = $_POST["reject_description"];
         reject_accessory_selling_request($_POST, $id);
-        smtp_mailer_to_admin_or_user($user["email_address"],"Rejection of Sell of accessory request", "<div>Hello $user_name,</div>$msg");
+        smtp_mailer_to_admin_or_user($user["email_address"],"Rejection of Sell of accessory request", "<div>Hello $user_name,</div>$msg<br><div><strong>StudentAdda Team</strong></div>");
     }
 ?>
 
