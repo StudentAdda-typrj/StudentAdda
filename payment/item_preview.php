@@ -59,9 +59,9 @@
             $data = [
                 "key"               => $keyId,
                 "amount"            => $amount,
-                "name"              => "Student Adda",
+                "name"              => "StudentAdda",
                 "description"       => $item['title'],
-                "image"             => "https://s29.postimg.org/r6dj1g85z/daft_punk.jpg",
+                "image"             => "/assets/img/StudentAddaLogo.png",
                 "prefill"           => [
                 "name"              => $user['first_name'].' '.$user['last_name'],
                 "email"             => $user['email_address'],
@@ -86,7 +86,7 @@
         <div class="col-lg-12">
             <div class="card mt-3 mb-3 explore_page_details_card">
                 <div class="card-body">
-                    <h3 class="bold text-danger mb-3">Delivery Date : <?php echo $newDate;?></h3>
+                    <h3 class="bold text-danger text-end">Delivery Date : <?php echo $newDate;?></h3>
                     <div class="row">
                         <div class="col-lg-4 text-center">
                             <?php if($type==1):?>
@@ -224,6 +224,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <?php
