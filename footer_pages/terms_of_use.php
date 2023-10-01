@@ -13,11 +13,11 @@
                         <div class="row">
                             <div class="col-lg-11 mx-auto" style="font-size:14px;">
                             <p class="text-start fw-bold">
-                                StudentAdda website strictly focuses on the privacy of our customers and our loyalty towards our commitment. 
+                                <h4 class="studentadda">Student<span id="adda">Adda</span></h4> website strictly focuses on the privacy of our customers and our loyalty towards our commitment. 
                                 The policy discloses the practice by which we gather the necessary information through our website.</p>
                             <p class="text-start fw-bold">The Information that is collected</p>
                             <p class="text-start">
-                                When you sign up for a StdentAdda account and want to avail the products & services that are offered by our website,
+                                When you sign up for a <h4 class="studentadda">Student<span id="adda">Adda</span></h4> account and want to avail the products & services that are offered by our website,
                                 we safely store all the information that is provided by you. We make use of an order form whereby we provide the opportunity our customers
                                 to request for information, products & services. We also collect the contact information (email address & mobile number) of our visitors 
                                 along with the financial information (credit card & debit card). We use contact information to send orders to the customers along with the 
@@ -62,7 +62,7 @@
                             <p class="text-start fw-bold">Choice/Opt-out.</p>  
                             <p class="text-start">
                                 Customers can unsubscribe the email at any point of time according to their desire by following the suggestion given at the bottom
-                                 of the StudentAdad email/newsletter.</p>
+                                 of the <h4 class="studentadda">Student<span id="adda">Adda</span></h4> email.</p>
                             <p class="text-start fw-bold">ContactingStudentAdda</p>
                             <p class="text-start">
                                 If there are any changes that you would like to make in your current information then do remove your previous contact details so 
@@ -70,7 +70,7 @@
                             <p class="text-start fw-bold">Children's Privacy</p>
                             <p class="text-start">
                                 Our Services do not address anyone under the age of 18. We do not knowingly collect personally identifiable information from children
-                                under 18. In the case we discover that a child under 18 has provided us with personal information, we immediately delete this from our 
+                                under 16. In the case we discover that a child under 16 has provided us with personal information, we immediately delete this from our 
                                 servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact 
                                 us so that we will be able to do the necessary actions.</p>
                             </div>

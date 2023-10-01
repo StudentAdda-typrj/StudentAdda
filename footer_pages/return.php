@@ -32,7 +32,7 @@
                                 <p class="text-start">If the Seller doesn't respond to the Buyer's replacement request, within three (3) days from the date of the replacement request placed by the Buyer, the refund shall be processed in favor of the Buyer and the Seller shall be liable to refund the amount paid to the Seller.</p>
                                 <p class="text-start">On either side courier charges shall be borne by the Buyer.</p>
                                 <p class="text-start">Contact Us</p>
-                                <p class="text-start">If you have any questions on how to return your item to us, contact us. Email id here: cs@bookchor.com or call us at 9050111218</p>
+                                <p class="text-start">If you have any questions on how to return your item to us, contact us. Email id here: studentadda.official@gmail.com or call us at +91-1234567890</p>
                             
                             </div>
                         </div>

@@ -25,7 +25,7 @@
                                         <p>"Swap,Exchange,Study-Until Your Study Gear Shines Bright!"</p>
                                     </blockquote>
                                     <figcaption class="blockquote-footer">
-                                        StudentAdda
+                                        <h4 class="studentadda">Student<span id="adda">Adda</span></h4>
                                     </figcaption>
                                 </figure>
                             </div>
@@ -37,8 +37,8 @@
                         <div class="row">
                             <div class="col-lg-11 mx-auto">
                                 <p class="fs-6">Ever lusted over a book/accessories but had to control yourself because it was too expensive?</p>
-                                <p class="text-start"><span id="adda" class="fs-5 fw-bold">Worry not!</span>   Because <span id="adda"> StudentAdda  </span>is here to answer all your literary
-                                    prayers. Knowledge is priceless but the books/accessories come with a bill and the <span id="adda"> StudentAdda Team </span>  
+                                <p class="text-start"><span id="adda" class="fs-5 fw-bold">Worry not!</span>   Because <span id="adda"> StudentAdda  </span><h4 class="studentadda">Student<span id="adda">Adda</span></h4> is here to answer all your literary
+                                    prayers. Knowledge is priceless but the books/accessories come with a bill and the <h4 class="studentadda">Student<span id="adda">Adda</span> Team</h4>
                                     is committed to bring to you the best of the brilliant from the world of written text,
                                     at prices which are literally a steal. Call us the Robin Hood of ABCs for we shall 
                                     use every weapon there is to meet your bibliophilic fantasies. So fellas’ put on your
@@ -48,10 +48,10 @@
                                     Never will you even have to scan over the price tag again as you pretend to 
                                     read the preface. Let the only thing that comes between you and the next book/accessories 
                                     be the 5 books you are reading right now. The books will always wait for you
-                                    like loyal lovers with faithful hearts and the <span id="adda"> StudentAdda Team </span>, promises to be 
+                                    like loyal lovers with faithful hearts and the <h4 class="studentadda">Student<span id="adda">Adda</span> Team</h4>, promises to be 
                                     the best wingman ever.
                                 </p>
-                                <p class="text-start">Let not the power of price stop you, read with <span id="adda"> StudentAdda!  </span></p>
+                                <p class="text-start">Let not the power of price stop you, read with <h4 class="studentadda">Student<span id="adda">Adda!</span></h4></p>
                             </div>
                         </div>
                     </div>

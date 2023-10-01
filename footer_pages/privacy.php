@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-lg-11 mx-auto" style="font-size:14px;">
                             <p class="text-start fw-bold">
-                                StudentAdda website strictly focuses on the privacy of our customers and our loyalty towards our commitment. 
+                                <h4 class="studentadda">Student<span id="adda">Adda</span></h4> website strictly focuses on the privacy of our customers and our loyalty towards our commitment. 
                                 The policy discloses the practice by which we gather the necessary information through our website.</p>
                             <p class="text-start fw-bold">The Information that is collected</p>
                             <p class="text-start">
@@ -31,7 +31,7 @@
                                 cookie in the browser option.</p>
                             <p class="text-start fw-bold">Uses of the collected information</p>     
                             <p class="text-start">
-                                To improve the online customer experience, StdentAdda makes use of the information collected. Thus, when you sign 
+                                To improve the online customer experience, <h4 class="studentadda">Student<span id="adda">Adda</span></h4> makes use of the information collected. Thus, when you sign 
                                 in, it authenticates you and sends a notification through email. Your request can be fulfilled for different products & services.
                                 We will use the information for customizing the advertisements and content according to the customer’s needs. Information used for
                                 capturing data insights for internal and external clients.</p>     
@@ -47,12 +47,12 @@
                                 pop-ups of other websites and the information given to them is not our responsibility.</p>     
                             <p class="text-start fw-bold">Data integrity</p>     
                             <p class="text-start">
-                                StdentAdda collected the customer’s personal information and processes it in accordance with the privacy policy. We ensure that
+                                <h4 class="studentadda">Student<span id="adda">Adda</span></h4> collected the customer’s personal information and processes it in accordance with the privacy policy. We ensure that
                                 the data we collected, and stored for different process practices are needed to provide a meaningful online service to the customer. 
                                 Thus, we request our customers provide the data as accurately as possible.</p>     
                             <p class="text-start fw-bold">Security & Confidentiality</p>     
                             <p class="text-start">
-                                StdentAdda restricts access to personal information to the employees, moderators, contractors, and agents for updates, delivery, 
+                                <h4 class="studentadda">Student<span id="adda">Adda</span></h4> restricts access to personal information to the employees, moderators, contractors, and agents for updates, delivery, 
                                 and for improvement of the product and services. They have to abide by the confidentiality agreement failing which they will be 
                                 terminated.</p>     
                             <p class="text-start">
@@ -62,15 +62,15 @@
                             <p class="text-start fw-bold">Choice/Opt-out.</p>  
                             <p class="text-start">
                                 Customers can unsubscribe the email at any point of time according to their desire by following the suggestion given at the bottom
-                                 of the StudentAdad email/newsletter.</p>
+                                 of the <h4 class="studentadda">Student<span id="adda">Adda</span></h4> email.</p>
                             <p class="text-start fw-bold">ContactingStudentAdda</p>
                             <p class="text-start">
                                 If there are any changes that you would like to make in your current information then do remove your previous contact details so 
                                 that you don’t get any updates in your old contacts. You can also be with us through the following contacts:</p>
                             <p class="text-start fw-bold">Children's Privacy</p>
                             <p class="text-start">
-                                Our Services do not address anyone under the age of 18. We do not knowingly collect personally identifiable information from children
-                                under 18. In the case we discover that a child under 18 has provided us with personal information, we immediately delete this from our 
+                                Our Services do not address anyone under the age of 16. We do not knowingly collect personally identifiable information from children
+                                under 18. In the case we discover that a child under 16 has provided us with personal information, we immediately delete this from our 
                                 servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact 
                                 us so that we will be able to do the necessary actions.</p>
                             </div>
