@@ -85,7 +85,6 @@
   border:none;
   background-color: rgba(255, 247, 235, 1);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  height: 400px;
 }
 body{
     background-color: rgba(255, 247, 235, 1);
@@ -481,4 +480,8 @@ textarea{
   border-radius: 9px;
   padding: 8px 32px;
   border-radius:40px;
+}
+.logo-text {
+  display: flex;
+  align-items: center;
 }

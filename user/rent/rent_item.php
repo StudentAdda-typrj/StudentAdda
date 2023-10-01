@@ -30,7 +30,7 @@
                         <div class="col-lg-10 mx-auto">
                             <div class="card request_page_card my-2">
                                 <div class="card-body">
-                                    <form role="form" action="<?php echo get_action_attr_value_for_current_page(); ?>" method="post" enctype="multipart/form-data" class="was-validated">
+                                    <form role="form" action="<?php echo get_action_attr_value_for_current_page(); ?>" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-lg-6 ms-auto my-auto">
                                                 <div class="row">
@@ -42,7 +42,8 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label for="duration" class="text-dark required-highlight mb-1">Duration</label>
-                                                        <input type="number" class="form-control mb-2" id="duration" name="duration" placeholder="In Month" required>
+                                                        <input type="number" class="form-control mb-2" id="duration" name="duration" placeholder="In Month">
+                                                        <div class="text-danger" id="duration_error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -81,22 +82,21 @@
     document.addEventListener('DOMContentLoaded', function() {
         const duration_in_month = document.getElementById('duration');
         const rent_price = document.getElementById('price');
-        const rentItemLink = document.getElementById('pay_for_rent'); // Get the anchor tag by id
+        const rentItemLink = document.getElementById('pay_for_rent');
+        const error_msg =document.getElementById('duration_error');
 
-        duration_in_month.addEventListener('input', function() {
-            // Get the selected duration_in_month value and parse it as a number
-            const selectedDuration = parseFloat(duration_in_month.value);
+        rentItemLink.addEventListener('click', function(event) {
+            const selectedDuration = duration_in_month.value.trim();
 
-            // Get the current rent_price value and parse it as a number
-            const currentPrice = parseFloat(rent_price.value);
-
-            // Check if both values are valid numbers
-            if (!isNaN(selectedDuration) && !isNaN(currentPrice)) {
-            // Calculate the updated price by multiplying duration_in_month with rent_price
-            const updatedPrice = selectedDuration * currentPrice;
-
-            // Update the href attribute of the anchor tag with the new URL including the duration as a query parameter
-            rentItemLink.href = `/payment/rent_item_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>&s=${selectedDuration}`;
+            if (selectedDuration === "") {
+                event.preventDefault();
+                error_msg.innerHTML= "Please enter a value for Duration.";
+            } else {
+                const currentPrice = parseFloat(rent_price.value);
+                if (!isNaN(selectedDuration) && !isNaN(currentPrice)) {
+                    const updatedPrice = selectedDuration * currentPrice;
+                    rentItemLink.href = `/payment/rent_item_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>&s=${selectedDuration}`;
+                }
             }
         });
     });

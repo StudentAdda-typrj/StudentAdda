@@ -39,7 +39,7 @@
                                     <?php foreach ($result_book as $book): ?>
                                         <div class="col-lg-3">
                                             <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
-                                                <div class="card explore_image_card custom_card my-2">
+                                                <div class="card explore_image_card my-2">
                                                     <?php if ($book["cover_url"] > '0'): ?>
                                                         <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
                                                     <?php else: ?>
@@ -87,7 +87,7 @@
                                     <?php foreach ($result_accessory as $accessory): ?>
                                         <div class="col-lg-3">
                                             <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
-                                                <div class="card explore_image_card custom_card my-2">
+                                                <div class="card explore_image_card my-2">
                                                     <?php if($accessory["photo_url"] > '0'): ?>
                                                         <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"],27); ?>" alt="Image">
                                                     <?php else: ?>
@@ -135,7 +135,7 @@
                             <?php foreach ($books as $book): ?>
                                 <div class="col-lg-3">
                                     <a href="/explore/book_details?q=<?php echo $book["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
-                                        <div class="card explore_image_card custom_card my-2">
+                                        <div class="card explore_image_card my-2">
                                             <?php if ($book["cover_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($book["cover_url"],27); ?>" alt="Image">
                                             <?php else: ?>
@@ -179,7 +179,7 @@
                             <?php foreach($accessories as $accessory): ?>
                                 <div class="col-lg-3">
                                     <a href="/explore/accessory_details?q=<?php echo $accessory["id"]; ?>" target="_blank" class="text-decoration-none link-dark">
-                                        <div class="card explore_image_card custom_card my-2">
+                                        <div class="card explore_image_card my-2">
                                             <?php if($accessory["photo_url"] > '0'): ?>
                                                 <img class="rounded img_height" src="<?php echo substr($accessory["photo_url"],27); ?>" alt="Image">
                                             <?php else: ?>

@@ -2205,4 +2205,31 @@
 		}
 		return false;
 	}
+
+	function get_all_orders()
+	{
+		global $db;
+		$sql = "SELECT * FROM transaction";
+		$stmt = $db->prepare($sql);
+
+		if ($stmt->execute())
+		{
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
+
+	function get_order_detail_using_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM transaction WHERE id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if ($stmt->execute() )
+		{
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		return false;
+	}
 ?>

@@ -26,10 +26,12 @@
 	<?php if($display_navbar_flag === true): ?>
         <nav class="navbar navbar-expand-sm primary_navbar">
             <div class="container-fluid">
-                <a class="ms-3 navbar-brand" href="index.php">
+                <a class=" navbar-brand" href="index.php">
                     <div class="h3 studentadda">
-                        <img src="/assets/img/StudentAddaLogo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
-                        Student<span id="adda">Adda</span>
+                        <div class="logo-text">
+                            <img src="/assets/img/StudentAddaLogo.png" alt="Avatar Logo" style="width: 40px;" class="rounded-pill">
+                            <span class="ms-1">tudent<span id="adda">Adda</span></span>
+                        </div>
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primarynavbar">

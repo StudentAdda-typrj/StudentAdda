@@ -49,6 +49,12 @@
 								<span class="navlink_color_second_navbar_user">Sell Requests</span>
 							</a>
 						</li>
+						<li>
+							<a href="/admin/order/order_list" class="btn dropdown-item">
+							<i class="fa-solid fa-money-check-dollar"></i> 
+								<span class="navlink_color_second_navbar_user">Orders</span>
+							</a>
+						</li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
