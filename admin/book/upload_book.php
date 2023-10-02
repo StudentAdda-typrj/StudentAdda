@@ -85,12 +85,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <label for="isbn" class="text-dark required-highlight mb-1">ISBN</label>
                                                             <input class="form-control" type="text" id="isbn" name="isbn" value="<?php echo $book["isbn"]; ?>" placeholder="ISBN" required>
                                                             <div class="invalid-feedback">Please specify the 13-digit ISBN number.</div>
                                                         </div>
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <label for="department" class="text-dark required-highlight mb-1">Department</label>
                                                             <?php if($book["department_id"] > 0): ?>
                                                                 <select class="form-control" name="department" id="department" required disabled>
@@ -114,13 +114,13 @@
                                                             <?php endif; ?>
                                                             <div class="invalid-feedback">Please specify the stream of the book.</div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-lg-3">
+                                                        <div class="col-lg-4">
                                                             <label for="publisher" class="text-dark required-highlight mb-1">Publisher</label>
                                                             <input type="text" class="form-control" id="publisher" name="publisher" value="<?php echo $book["publisher"]; ?>" placeholder="Publisher" required>
                                                             <div class="invalid-feedback">Please specify the publisher.</div>
                                                         </div>
+                                                    </div>
+                                                    <div class="row mb-2">
                                                         <div class="col-lg-3">
                                                             <label for="edition" class="text-dark mb-1">Edition</label>
                                                             <input type="text" class="form-control" id="edition" name="edition" value="<?php echo $book["edition"]; ?>" placeholder="Edition">
@@ -138,6 +138,11 @@
                                                                 <option value="1">Yes</option>
                                                             </select>
                                                             <div class="invalid-feedback">Select a type.</div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label for="publisher" class="text-dark required-highlight mb-1">Rent amount/month</label>
+                                                            <input type="number" class="form-control" id="rent_price" name="rent_price" placeholder="Rent Price" required disabled>
+                                                            <div class="invalid-feedback">Please specify the Rent Price.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">

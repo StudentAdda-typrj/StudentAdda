@@ -1119,7 +1119,7 @@
 			$cover_url = upload_image("cover_url", $image_folder);
 			$index_url = upload_image("index_url", $image_folder);
 
-			$sql = "INSERT INTO books (title, category_id, language_id, price, author, isbn, department_id, description, cover_url, index_url, disabled, deleted) VALUES (:title, :book_type, :language, :price, :author, :isbn, :department, :description, :cover_url, :index_url, '0', '0')";
+			$sql = "INSERT INTO books (title, category_id, language_id, price, author, isbn, department_id, publisher, edition, pages, rent, rent_price, description, cover_url, index_url, disabled, deleted) VALUES (:title, :book_type, :language, :price, :author, :isbn, :department, :publisher, :edition, :pages, :rent, :rent_price, :description, :cover_url, :index_url, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
 			$stmt->bindParam(':book_type', $book_type, PDO::PARAM_STR);
@@ -1128,6 +1128,11 @@
 			$stmt->bindParam(':author', $author, PDO::PARAM_STR);
 			$stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
 			$stmt->bindParam(':department', $department, PDO::PARAM_STR);
+			$stmt->bindParam(':publisher', $publisher, PDO::PARAM_STR);
+			$stmt->bindParam(':edition', $edition, PDO::PARAM_STR);
+			$stmt->bindParam(':pages', $pages, PDO::PARAM_STR);
+			$stmt->bindParam(':rent', $rent, PDO::PARAM_STR);
+			$stmt->bindParam(':rent_price', $rent_price, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
 			$stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
 			$stmt->bindParam(':index_url', $index_url, PDO::PARAM_STR);
@@ -1249,7 +1254,7 @@
 			$photo_url = upload_image("photo_url", $image_folder);
 			$photo_url2 = upload_image("photo_url2", $image_folder);
 
-			$sql = "INSERT INTO accessories (title, sub_category_id, brand, processor, screen_size, price, description, photo_url, photo_url2, disabled, deleted) VALUES (:title, :accessory_type, :brand, :processor, :screen_size, :price, :description, :photo_url, :photo_url2, '0', '0')";
+			$sql = "INSERT INTO accessories (title, sub_category_id, brand, processor, screen_size, price, connector_type, ram, rent, rent_price, description, photo_url, photo_url2, disabled, deleted) VALUES (:title, :accessory_type, :brand, :processor, :screen_size, :price, :connector_type, :ram, :rent, :rent_price, :description, :photo_url, :photo_url2, '0', '0')";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':title', $title, PDO::PARAM_STR);
 			$stmt->bindParam(':accessory_type', $accessory_type, PDO::PARAM_STR);
@@ -1257,6 +1262,10 @@
 			$stmt->bindParam(':processor', $processor, PDO::PARAM_STR);
 			$stmt->bindParam(':screen_size', $screen_size, PDO::PARAM_STR);
 			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':connector_type', $connector_type, PDO::PARAM_STR);
+			$stmt->bindParam(':ram', $ram, PDO::PARAM_STR);
+			$stmt->bindParam(':rent', $rent, PDO::PARAM_STR);
+			$stmt->bindParam(':rent_price', $rent_price, PDO::PARAM_STR);
 			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
 			$stmt->bindParam(':photo_url', $photo_url, PDO::PARAM_STR);
 			$stmt->bindParam(':photo_url2', $photo_url2, PDO::PARAM_STR);

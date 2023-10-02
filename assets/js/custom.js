@@ -50,6 +50,21 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const rent = document.getElementById('rent');
+  const rent_price = document.getElementById('rent_price');
+
+  rent.addEventListener('change', function() {
+    if (this.value === '1') {
+      rent_price.disabled = false;
+    }
+    else{
+      rent_price.value = '0';
+      rent_price.disabled = true;
+    }
+  });
+});
+
 //User profile Image upload preview
 const profile_image = document.querySelector("img");
 const profile_input =document.querySelector('input[name="profile_url"]');

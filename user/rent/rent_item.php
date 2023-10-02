@@ -5,12 +5,20 @@
     if(isset($_GET["q"]) && !empty($_GET["q"]) && is_numeric($_GET["q"]))
     {
         $id = trim($_GET["q"]);
-        $book = get_uploaded_books_by_id($id);
     }
 
     if(isset($_GET["r"]) && !empty($_GET["r"]) && is_numeric($_GET["r"]))
     {
         $type = trim($_GET["r"]);
+    }
+
+    if ($type == '1')
+    {
+        $item_type = get_uploaded_books_by_id($id);
+    }
+    else
+    {
+        $item_type = get_uploaded_accessories_by_id($id);
     }
 ?>
 
@@ -36,7 +44,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label for="ad_title" class="text-dark required-highlight mb-1">Title</label>
-                                                        <input type="text" class="form-control mb-2" id="ad_title" name="ad_title" placeholder="Title" value="<?php echo $book["title"] ?>" required>
+                                                        <input type="text" class="form-control mb-2" id="ad_title" name="ad_title" placeholder="Title" value="<?php echo $item_type["title"] ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -49,10 +57,14 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label for="price" class="text-dark required-highlight mb-1">Price</label>
-                                                        <input type="number" class="form-control mb-2" id="price" name="price" value="<?php echo $book["rent_price"]; ?>" placeholder="Price" required>
+                                                        <input type="number" class="form-control mb-2" id="price" name="price" value="<?php echo $item_type["rent_price"]; ?>" placeholder="Price" required>
                                                     </div>
                                                 </div>
-                                                <a href="/payment/rent_item_address?q=<?php echo $book["id"]; ?>&r=<?php echo $type; ?>" class="btn btn-sm my-2 bold pe-3 ps-3 button_style col-md-2" id="pay_for_rent" name="pay_for_rent">Pay</a>
+                                                <?php if ($type == '1'): ?>
+                                                    <a href="/payment/rent_item_address?q=<?php echo $item_type["id"]; ?>&r=<?php echo $type; ?>" class="btn btn-sm my-2 bold pe-3 ps-3 button_style col-md-2" id="pay_for_rent" name="pay_for_rent">Pay</a>
+                                                <?php else: ?>
+                                                    <a href="/payment/rent_item_address?q=<?php echo $item_type["id"]; ?>&r=<?php echo $type; ?>" class="btn btn-sm my-2 bold pe-3 ps-3 button_style col-md-2" id="pay_for_rent" name="pay_for_rent">Pay</a>
+                                                <?php endif; ?>
                                                 <a href="/user/index.php" class="btn btn-sm btn-secondary cancel_button_style bold col-md-2">Cancel</a>
                                             </div>
                                             <div class="col-lg-5 ms-auto">
@@ -95,7 +107,7 @@
                 const currentPrice = parseFloat(rent_price.value);
                 if (!isNaN(selectedDuration) && !isNaN(currentPrice)) {
                     const updatedPrice = selectedDuration * currentPrice;
-                    rentItemLink.href = `/payment/rent_item_address.php?q=<?php echo $book["id"];?>&r=<?php echo $type;?>&s=${selectedDuration}`;
+                    rentItemLink.href = `/payment/rent_item_address.php?q=<?php echo $item_type["id"];?>&r=<?php echo $type;?>&s=${selectedDuration}`;
                 }
             }
         });

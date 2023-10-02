@@ -125,7 +125,9 @@
                                                 <a href="/user/rent/rent_item?q=<?php echo $book["id"]; ?>&r=<?php echo $type;?>" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3" id="rent_book" name="rent_book">Rent</a>
                                             <?php endif; ?>
                                         <?php else: ?>
-                                            <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Rent</a>
+                                            <?php if ($book["rent"] === '1'): ?>
+                                                <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Rent</a>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </div>
                                 </div>

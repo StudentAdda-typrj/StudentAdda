@@ -62,33 +62,46 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
-                                                    <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <label for="processor" class="text-dark required-highlight mb-1">Processor</label>
                                                             <input class="form-control" type="text" id="processor" name="processor" value="<?php echo $accessory["processor"]; ?>" placeholder="Processor" disabled required>
                                                             <div class="invalid-feedback">Please specify the processor of accessory .</div>
                                                         </div>
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <label for="screen_size" class="text-dark required-highlight mb-1">Screen Size</label>
                                                             <input class="form-control" type="text" id="screen_size" name="screen_size" placeholder="Screen Size" value="<?php echo $accessory["screen_size"]; ?>" disabled required>
                                                             <div class="invalid-feedback">Please specify the Screen Size in inches.</div>
                                                         </div>
-                                                        
-                                                    </div>
-                                                    <div class="row mb-2">
                                                         <div class="col-lg-4">
                                                             <label for="price" class="text-dark required-highlight mb-1">Price</label>
                                                             <input class="form-control" type="number" id="price" name="price" value="<?php echo $accessory["price"]; ?>" placeholder="Price" required>
                                                             <div class="invalid-feedback">Please specify the suitable price.</div>
                                                         </div>
-                                                        <div class="col-lg-4">
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-lg-3">
                                                             <label for="ram" class="text-dark required-highlight mb-1">RAM</label>
                                                             <input class="form-control" type="text" name="ram" id="ram" value="<?php echo $accessory["ram"]; ?>" placeholder="RAM" disabled required>
                                                             <div class="invalid-feedback">Please specify the RAM size.</div>
                                                         </div>
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-3">
                                                             <label for="connector_type" class="text-dark required-highlight mb-1">Connector Type</label>
                                                             <input type="text" class="form-control" id="connector_type" name="connector_type" value="<?php echo $accessory["connector_type"]; ?>" placeholder="Wired/Wireless" disabled required>
                                                             <div class="invalid-feedback">Please specify the Connector type.</div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label for="rent" class="text-dark required-highlight mb-1">Set as Rent?</label>
+                                                            <select class="form-control" name="rent" id="rent" required>
+                                                                <option value="" selected disabled>Select</option>
+                                                                <option value="0">No</option>
+                                                                <option value="1">Yes</option>
+                                                            </select>
+                                                            <div class="invalid-feedback">Select a type.</div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label for="publisher" class="text-dark required-highlight mb-1">Rent amount/month</label>
+                                                            <input type="number" class="form-control" id="rent_price" name="rent_price" placeholder="Rent Price" required disabled>
+                                                            <div class="invalid-feedback">Please specify the Rent Price.</div>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4">

@@ -35,7 +35,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-3">
                                                                     <?php if($book["cover_url"] > 0): ?>
-                                                                        <img src="<?php echo $book["cover_url"]; ?>" class="rounded" alt="Book Image" height="200px" width="240px">
+                                                                        <img src="<?php echo substr($book["cover_url"],27); ?>" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php else: ?>
                                                                         <img src="/assets/img/book_selling.jpg" class="rounded" alt="Book Image" height="200px" width="240px">
                                                                     <?php endif; ?>
