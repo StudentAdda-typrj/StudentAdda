@@ -82,17 +82,17 @@
                                                     <div class="card p-3 mt-3 mb-2 border_color cart_page_inner_card">
                                                         <div class="row">
                                                             <div class="col-lg-4">
-                                                                <?php if ($book["cover_url"] > '0'): ?>
-                                                                    <img class="rounded img-fluid img_height" src="<?php echo substr($accessory["cover_url"],27); ?>" alt="Image">
+                                                                <?php if ($accessory["photo_url"] > '0'): ?>
+                                                                    <img class="rounded img-fluid img_height" src="<?php echo substr($accessory["photo_url"],27); ?>" alt="Image">
                                                                 <?php else: ?>
-                                                                    <img class="rounded img-fluid img_height" src="/assets/img/book_selling.jpg" alt="">
+                                                                    <img class="rounded img-fluid img_height" src="/assets/img/accessory_selling.jpg" alt="">
                                                                 <?php endif; ?>
                                                             </div>
                                                             <div class="col-lg-8">
-                                                                <?php $sub_category = get_category_by_id($accessory["sub_category_id"]); ?>
+                                                                <?php $sub_category = get_subcategory_by_id($accessory["sub_category_id"]); ?>
                                                                 <h3 class="bold"><?php echo $accessory["title"]; ?></h3>
                                                                 <h5 class="bold"><i class="fa-solid fa-indian-rupee-sign"></i> <?php echo $accessory["price"]; ?></h5>
-                                                                <h6 class="bold"><?php echo $accessory["brand_name"]; ?></h6>
+                                                                <h6 class="bold"><?php echo $accessory["brand"]; ?></h6>
                                                                 <h6 class="bold"><?php echo $sub_category["name"]; ?></h6>
                                                             </div>
                                                         </div>
