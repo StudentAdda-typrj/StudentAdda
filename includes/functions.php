@@ -2092,10 +2092,25 @@
 		}
 	}
 
-	function delete_cart_item_by_id($id)
+	function delete_book_cart_item_by_id($id)
 	{
 		global $db;
 		$sql = "UPDATE book_cart SET deleted = '1', deleted_timestamp = NOW() WHERE product_id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+		if($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Deleted Successfully.";
+			return true;
+		}
+		return false;
+	}
+
+	function delete_accessory_cart_item_by_id($id)
+	{
+		global $db;
+		$sql = "UPDATE accessory_cart SET deleted = '1', deleted_timestamp = NOW() WHERE product_id = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
