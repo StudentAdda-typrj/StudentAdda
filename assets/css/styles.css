@@ -146,13 +146,13 @@ text-decoration: none;
 }
 .upload img{
   border-radius: 50%;
-  border: 3px solid #FFCF72;
+  border: 4px inset #ffa600;
 }
 .upload .round{
   position: absolute;
   bottom: 10%;
   right: 5%;
-  background: #FFCF72;
+  background: #ffa600;
   width: 32px;
   height: 32px;
   line-height: 31px;

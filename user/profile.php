@@ -28,12 +28,12 @@
                         <?php if($user["profile_url"] > '0'): ?>
                             <img src="<?php echo substr($user["profile_url"],27); ?>" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="user_profile_image" id="user_profile_image">
                         <?php elseif ($user["profile_url"] === '0'): ?>
-                            <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="default_profile_image" id="default_profile_image">
+                            <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="user_profile_image" id="default_profile_image">
                         <?php else: ?>
-                            <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="default_profile_image" id="default_profile_image">
+                            <img src="/assets/img/default_profile.jpeg" class="mx-auto d-block rounded-circle user_profile_image" alt="Image" value="" name="user_profile_image" id="default_profile_image">
                         <?php endif; ?>
                         <div class="round">
-                            <input type="file" name="profile_url" id="profile_url" onchange="getImagePreview (event)"  accept="image/*"/>
+                            <input type="file" name="profile_url" id="profile_url" accept="image/*"/>
                             <i class="fa fa-camera" style="color: #ffffff;"></i>
                         </div>
                     </div>

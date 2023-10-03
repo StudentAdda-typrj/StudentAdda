@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //User profile Image upload preview
-const profile_image = document.querySelector("img");
+const profile_image = document.querySelector('img[name="user_profile_image"]');
 const profile_input =document.querySelector('input[name="profile_url"]');
 
 profile_input.addEventListener("change", () => {
