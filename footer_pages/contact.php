@@ -44,14 +44,14 @@
                                                 <button class="btn btn-sm my-2 bold pe-3 ps-3 button_style" type="submit" id="contact_button" name="contact_button">Submit</button>
                                                 <a href="/index.php" class="btn btn-sm btn-secondary cancel_button_style bold col-md-2">Cancel</a>
                                             </div>
-                                            <div class="col-lg-4 ms-auto">
+                                            <div class="col-lg-5 ms-auto">
                                                 <div class="contact_us_info p-4">
-                                                    <h3 class="studentadda text-center text_color ">Our Contacts</h5>
-                                                    <h5 class="bold">StudentAdda.com</h5>
+                                                    <h3 class="studentadda text-center text_color">Our Contacts</h5>
+                                                    <h5 class="bold"><span class="studentadda">Student<span id="adda">Adda</span>.com</h5>
                                                     <p class="fs-6 bold">Last Page - StudentAdda Book/Accessory Store,
                                                     SIES College of Arts, Science and Commerce, Jain Society, Sion West, Mumbai 400 022</p>
                                                     <p class="fw-bold text-wrap fs-6">P:+91-1234567890</p>   
-                                                    <p class="fw-bold fs-6">Email:student@adda.com</p>
+                                                    <p class="fw-bold fs-6">Email:studentadda.official@gmail.com</p>
                                                 </div>
                                             </div>
                                         </div>

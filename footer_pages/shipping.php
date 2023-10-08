@@ -12,12 +12,12 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-11 mx-auto"  style="font-size:14px;">
-                            <p class="text-start">
-                                At <h4 class="studentadda">Student<span id="adda">Adda</span></h4>, we strive to make your shopping experience as seamless and hassle-free 
+                            <p class="text-start fs-6">
+                                At <span class="studentadda h5">Student<span id="adda">Adda</span></span>, we strive to make your shopping experience as seamless and hassle-free 
                                 as possible. We offer free delivery for all orders above Rs. 599, and for orders below this 
                                 amount, we have a simple and transparent delivery charge system based on the number of books/accessories 
                                 in your order.</p>
-                            <p class="text-start">If you order only one book/accessory, the delivery charge will be Rs. 45. For two books/accessories,
+                            <p class="text-start fs-6">If you order only one book/accessory, the delivery charge will be Rs. 45. For two books/accessories,
                                 the delivery charge will be Rs. 66, which is Rs. 33 per book. For three books, the delivery
                                 charge will be Rs. 75, which is Rs. 25 per book/accessories. And for four books/accessories, the delivery charge will
                                 be Rs. 80, which is Rs. 20 per book/accessory.</p>
@@ -77,8 +77,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <p class="text-start">We understand the importance of receiving your books in a timely manner, and we work closely with our shipping partners to ensure that your orders are delivered to you as quickly as possible. Our delivery charges are calculated based on the number of books in your order, so you can rest assured that you are only paying for the delivery of the books you have ordered.</p>
-                            <p class="text-start">We also offer free shipping on all orders above Rs. 599, making it even more convenient and affordable for you to shop with us. Whether you're ordering a single book or multiple books, we strive to make your shopping experience with StudentAdda.com a positive and memorable one.</p>                  
+                            <p class="text-start fs-6">We understand the importance of receiving your books in a timely manner, and we work closely with our shipping partners to ensure that your orders are delivered to you as quickly as possible. Our delivery charges are calculated based on the number of books in your order, so you can rest assured that you are only paying for the delivery of the books you have ordered.</p>
+                            <p class="text-start fs-6">We also offer free shipping on all orders above Rs. 599, making it even more convenient and affordable for you to shop with us. Whether you're ordering a single book or multiple books, we strive to make your shopping experience with StudentAdda.com a positive and memorable one.</p>                  
                             </div>
                         </div>
                     </div>
