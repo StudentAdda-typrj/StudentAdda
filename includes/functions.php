@@ -1500,7 +1500,7 @@
 	function get_history_books()
 	{
 		global $db;
-		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '4' LIMIT 4";
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '3' LIMIT 4";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1513,7 +1513,7 @@
 	function get_university_books()
 	{
 		global $db;
-		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '5' LIMIT 4";
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '4' LIMIT 4";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1526,7 +1526,7 @@
 	function get_anime_comic_books()
 	{
 		global $db;
-		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '6' LIMIT 4";
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '5' LIMIT 4";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1552,7 +1552,7 @@
 	function get_keyboard_mouse_accessory()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '2' OR sub_category_id = '3' LIMIT 4";
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '5' OR sub_category_id = '6' LIMIT 4";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1578,7 +1578,7 @@
 	function get_cpu_accessory()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '5' LIMIT 4";
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '3' LIMIT 4";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1591,7 +1591,7 @@
 	function get_tablet_accessory()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '6' LIMIT 4";
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '2' LIMIT 4";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1630,7 +1630,7 @@
 	function get_all_history_books()
 	{
 		global $db;
-		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '4'";
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '3'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1643,7 +1643,7 @@
 	function get_all_university_books()
 	{
 		global $db;
-		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '5'";
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '4'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1656,7 +1656,7 @@
 	function get_all_anime_comics()
 	{
 		global $db;
-		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '6'";
+		$sql = "SELECT * FROM books WHERE deleted = '0' AND category_id = '5'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1682,7 +1682,7 @@
 	function get_all_keyboard_and_mouse()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '2' OR sub_category_id = '3'";
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '5' OR sub_category_id = '6'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1708,7 +1708,7 @@
 	function get_all_cpus()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '5'";
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '3'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )
@@ -1721,7 +1721,7 @@
 	function get_all_tablets()
 	{
 		global $db;
-		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '6'";
+		$sql = "SELECT * FROM accessories WHERE deleted = '0' AND sub_category_id = '2'";
 		$stmt = $db->prepare($sql);
 
 		if( $stmt->execute() )

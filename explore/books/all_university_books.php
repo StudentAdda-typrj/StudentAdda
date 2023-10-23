@@ -26,7 +26,15 @@
                                                     <h5 class="bold"><?php echo $book["title"]; ?></h5>
                                                 </div>
                                                 <div>
-                                                    <p>Status : <strong>Rental | Buy</strong></p>
+                                                    <p>
+                                                        Status : 
+                                                        <strong>
+                                                            Buy  
+                                                            <?php if($book["rent"] === '1'): ?>
+                                                                | Rent
+                                                            <?php endif; ?>
+                                                        </strong>
+                                                    </p>
                                                     <p>Condition : <strong>Excellent</strong></p>
                                                     <p>Rs : <strong><?php echo $book["price"]; ?></strong></p>
                                                 </div>

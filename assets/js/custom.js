@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const department = document.getElementById('department');
 
   category.addEventListener('change', function() {
-    if (this.value === '5') {
+    if (this.value === '4') {
       department.disabled = false;
     }
     else{
@@ -23,25 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const connector_type = document.getElementById('connector_type');
 
   sub_category.addEventListener('change', function() {
-    if (this.value === '1' || this.value === '5' || this.value === '6') {
+    if (this.value === '1' || this.value === '2' || this.value === '3') {
       processor.disabled = false;
     } else{
       processor.value = '';
       processor.disabled = true;
     }
-    if (this.value === '1' || this.value === '4' || this.value === '6') {
+    if (this.value === '1' || this.value === '2' || this.value === '4') {
       screen_size.disabled = false;
     } else{
       screen_size.value = '';
       screen_size.disabled = true;
     }
-    if (this.value === '1' || this.value === '5' || this.value === '6') {
+    if (this.value === '1' || this.value === '2' || this.value === '3') {
       ram.disabled = false;
     } else{
       ram.value = '';
       ram.disabled = true;
     }
-    if (this.value === '2' || this.value === '3') {
+    if (this.value === '5' || this.value === '6') {
       connector_type.disabled = false;
     } else{
       connector_type.value = '';

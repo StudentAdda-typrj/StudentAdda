@@ -62,7 +62,15 @@
                                                     <h5 class="bold"><?php echo $accessory["title"]; ?></h5>
                                                 </div>
                                                 <div>
-                                                    <p>Status : <strong>Rental | Buy</strong></p>
+                                                    <p>
+                                                        <strong>
+                                                            Status : 
+                                                            Buy  
+                                                            <?php if($accessory["rent"] === '1'): ?>
+                                                                | Rent
+                                                            <?php endif; ?>
+                                                        </strong>
+                                                    </p>
                                                     <p>Condition : <strong>Excellent</strong></p>
                                                     <p>Rs : <strong><?php echo $accessory["price"]; ?></strong></p>
                                                 </div>
