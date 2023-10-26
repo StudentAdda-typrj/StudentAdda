@@ -30,7 +30,7 @@
                                                         <strong>
                                                             Status : 
                                                             Buy  
-                                                            <?php if($accessory["rent"] === '1'): ?>
+                                                            <?php if($book["rent"] === '1'): ?>
                                                                 | Rent
                                                             <?php endif; ?>
                                                         </strong>
