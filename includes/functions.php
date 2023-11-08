@@ -2256,4 +2256,38 @@
 		}
 		return false;
 	}
+
+	function post_review($data, $id)
+	{
+		global $db;
+		extract($data);
+		$user_id = $_SESSION["user_id"];
+		$sql = "INSERT INTO feedback (user_id, product_id, description) VALUES (:user_id, :product_id, :review_book)";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		$stmt->bindParam(":product_id", $id, PDO::PARAM_INT);
+		$stmt->bindParam(":review_book", $review_book, PDO::PARAM_STR);
+
+		if ($stmt->execute())
+		{
+			$_SESSION["success_messages"][] = "Review Posted Successfully!";
+			return true;
+		}
+		return false;
+	}
+
+	function get_reviews($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM feedback WHERE product_id = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if ($stmt->execute() )
+		{
+			$reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        	return $reviews;
+		}
+		return false;
+	}
 ?>

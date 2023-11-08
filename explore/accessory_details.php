@@ -18,6 +18,11 @@
         }
     }
     $type=2;
+    if(isset($_POST["review_submit"]))
+    {
+        post_review($_POST, $id);
+        redirect_to_current_page("q=$id");
+    }
 ?>
 
 <div class="container">
@@ -196,6 +201,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-sm btn-danger cancel_button_style bold ps-5 pe-5" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-sm master_config_button_style col-md-3" name="review_submit" id="review_submit">Submit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -203,6 +209,37 @@
                         <?php else: ?>
                             <h6 class="bold mt-3">To review something, you have to login first. Click here to <a href="/login/index">Login!</a></h6>
                         <?php endif; ?>
+                        <h4 class="mt-4 bold text_color">All Reviews</h4>
+                        <div class="card my-3 master_config_main_card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-11 mx-auto">
+                                        <?php $reviews = get_reviews($id); ?>
+                                        <?php if($reviews !== false): ?>
+                                            <?php if(empty($reviews)): ?>
+                                                <h4 class="bold text-center">No Reviews</h4>
+                                            <?php else: ?>
+                                                <?php foreach($reviews as $review): ?>
+                                                    <?php
+                                                        $user = get_user_details_by_passing_id($review["user_id"]);
+                                                    ?>
+                                                    <div class="card master_config_inner_card mb-2">
+                                                        <div class="card-body">
+                                                            <?php if($user["first_name"] > 0 || $user["last_name"] > 0) :?>
+                                                                <span class="bold h5"><?php echo $user["first_name"]." ".$user["middle_name"]." ".$user["last_name"]; ?></span><span class="ms-2 bold">(<?php echo substr($review["created_timestamp"],0,10); ?>)</span>
+                                                            <?php else: ?>
+                                                                <span class="bold h5">Unknown</span><span class="ms-2 bold">(<?php echo substr($review["created_timestamp"],0,10); ?>)</span>
+                                                            <?php endif; ?>
+                                                            <h6 class="pt-2"><?php echo $review["description"]; ?></h6>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
