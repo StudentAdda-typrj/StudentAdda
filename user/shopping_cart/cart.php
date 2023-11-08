@@ -78,7 +78,7 @@
                                         <?php else: ?>
                                             <?php foreach ($cart_items as $cart_item): ?>
                                                 <?php $accessory = get_uploaded_accessories_by_id($cart_item["product_id"]); ?>
-                                                <a href="/explore/book_details?q=<?php echo $cart_item["product_id"]; ?>" target="_blank" class="text-decoration-none link-dark">
+                                                <a href="/explore/accessory_details?q=<?php echo $cart_item["product_id"]; ?>" target="_blank" class="text-decoration-none link-dark">
                                                     <div class="card p-3 mt-3 mb-2 border_color cart_page_inner_card">
                                                         <div class="row">
                                                             <div class="col-lg-4">

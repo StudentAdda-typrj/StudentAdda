@@ -26,7 +26,7 @@
 ?>
 
 <div class="container">
-    <form role="form" action="" method="post" enctype="multipart/form-data" class="was-validated">
+    <form role="form" action="" method="post" enctype="multipart/form-data">
         <div class="my-3">
             <?php require_once($_SERVER["DOCUMENT_ROOT"]."/includes/view_messages_and_errors.php"); ?>
         </div>
@@ -196,7 +196,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <h4>
-                                                <textarea name="review_book" id="review_book" class="form-control textarea_style" placeholder="Write your experience regrarding this book"></textarea>
+                                                <textarea name="review" id="feedback" class="form-control textarea_style" placeholder="Write your experience regrarding this book"></textarea>
+                                                <h6 id="error_message" class="text-danger"></h6>
                                             </h4>
                                         </div>
                                         <div class="modal-footer">
@@ -246,6 +247,20 @@
         </div>
     </form>
 </div>
+
+<script>
+    document.getElementById("review_submit").addEventListener("click", function(event) {
+        const reviewInput = document.getElementById("feedback");
+        const errorMessage = document.getElementById("error_message");
+
+        if (reviewInput.value.length > 0) {
+            errorMessage.textContent = ""; 
+        } else {
+            errorMessage.textContent = "Please write your review before submitting.";
+            event.preventDefault();
+        }
+    });
+</script>
 
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

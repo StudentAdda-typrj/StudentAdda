@@ -7,19 +7,18 @@
     {
         $id = trim($_GET["q"]);
         $book = get_uploaded_books_by_id($id);
-    }   
-
+    }
     if(isset($_POST["add_to_cart_book"]))
     {
         if(isset($_GET["q"]) && !empty($_GET["q"]))
         {
+            echo "Hello";
             $id = trim($_GET["q"]);
             add_books_to_cart($_POST, $id);
             redirect_to_current_page("q=$id");
         }
     }
     $type=1;
-
     if(isset($_POST["review_submit"]))
     {
         post_review($_POST, $id);
@@ -28,7 +27,7 @@
 ?>
 
 <div class="container">
-    <form role="form" action="" method="post" enctype="multipart/form-data" class="was-validated">
+    <form role="form" action="" method="post" enctype="multipart/form-data">
         <div class="my-3">
             <?php require_once($_SERVER["DOCUMENT_ROOT"]."/includes/view_messages_and_errors.php"); ?>
         </div>
@@ -121,7 +120,7 @@
                                         <?php else: ?>
                                             <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3">Buy</a>
                                         <?php endif; ?>
-                                        <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user" || $_SESSION["role"] === "admin")): ?>
+                                        <?php if(isset($_SESSION["user_id"]) && ($_SESSION["role"]) && ($_SESSION["role"] === "user")): ?>
                                             <button type="submit" id="add_to_cart_book" name="add_to_cart_book" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
                                         <?php else: ?>
                                             <a href="/login/index" class="btn master_config_button_style mx-auto d-block col-md-8 mb-3"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
@@ -210,7 +209,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <h4>
-                                                <textarea name="review_book" id="review_book" class="form-control textarea_style" placeholder="Write your experience regrarding this book" required></textarea>
+                                                <textarea name="review" id="feedback" class="form-control textarea_style" placeholder="Write your experience regrarding this book"></textarea>
+                                                <h6 id="error_message" class="text-danger"></h6>
                                             </h4>
                                         </div>
                                         <div class="modal-footer">
@@ -260,6 +260,20 @@
         </div>
     </form>
 </div>
+
+<script>
+    document.getElementById("review_submit").addEventListener("click", function(event) {
+        const reviewInput = document.getElementById("feedback");
+        const errorMessage = document.getElementById("error_message");
+
+        if (reviewInput.value.length > 0) {
+            errorMessage.textContent = ""; 
+        } else {
+            errorMessage.textContent = "Please write your review before submitting.";
+            event.preventDefault();
+        }
+    });
+</script>
 
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php");

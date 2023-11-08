@@ -2262,11 +2262,11 @@
 		global $db;
 		extract($data);
 		$user_id = $_SESSION["user_id"];
-		$sql = "INSERT INTO feedback (user_id, product_id, description) VALUES (:user_id, :product_id, :review_book)";
+		$sql = "INSERT INTO feedback (user_id, product_id, description) VALUES (:user_id, :product_id, :review)";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
 		$stmt->bindParam(":product_id", $id, PDO::PARAM_INT);
-		$stmt->bindParam(":review_book", $review_book, PDO::PARAM_STR);
+		$stmt->bindParam(":review", $review, PDO::PARAM_STR);
 
 		if ($stmt->execute())
 		{
