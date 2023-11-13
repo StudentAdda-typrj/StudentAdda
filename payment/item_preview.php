@@ -86,7 +86,6 @@
         <div class="col-lg-12">
             <div class="card mt-3 mb-3 explore_page_details_card">
                 <div class="card-body">
-                    <h3 class="bold text-danger text-end">Delivery Date : <?php echo $newDate;?></h3>
                     <div class="row">
                         <div class="col-lg-4 text-center">
                             <?php if($type==1):?>
@@ -218,6 +217,7 @@
                                     </form>
                                 </div>
                             </div>
+                            <h6 class="bold text-danger text-center">(Delivery Date : <?php echo $newDate;?>)</h6>
                         </div>
                     </div>
                 </div>
